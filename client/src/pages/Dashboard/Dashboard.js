@@ -1,6 +1,7 @@
 import React from "react";
-import { Col, Row, Container } from "../Grid";
-import DeleteBtn from "../DeleteBtn";
+import { Col, Row, Container } from "../../components/Grid";
+import DeleteBtn from "../../components/DeleteBtn";
+import DashboardCard from "../../components/DashboardCard"
 
 function Dashboard () {
 

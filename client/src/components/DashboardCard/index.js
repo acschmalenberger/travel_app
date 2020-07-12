@@ -1,1 +1,1 @@
-export * from "./UserDashboardCard";
+export { default } from "./DashboardCard";
