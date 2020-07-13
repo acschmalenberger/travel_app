@@ -5,7 +5,8 @@ import DashboardCard from "../../components/DashboardCard"
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import MainBudgetCard from "../../components/MainBudgetCard";
-import { ListItem } from "../../components/List"
+// import { ListItem } from "../../components/List";
+// import { Input, TextArea, FormBtn } from "../../components/Form";
 
 function Dashboard () {
 
@@ -88,50 +89,15 @@ return (
             <Jumbotron>
               <h1>Travel</h1>
             </Jumbotron>
-            {cards.length ? (
-              <DashboardCard>
-                {cards.map(card => {
-                  return (
-                    <ListItem key={card._id}>
-                      <a href={"/cards/" + card._id}>
-                        <strong>
-                          {card.desitination}
-                        </strong>
-                      </a>
-                      <DeleteBtn onClick={() => deleteCard(card._id)} />
-                    </ListItem>
-                  );
-                })}
-              </DashboardCard>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-                <DashboardCard />
+              <DashboardCard/>
             </Col>
-            
             <Col size="md-4">
             <Jumbotron>
               <h1>Value</h1>
             </Jumbotron>
-            {cards.length ? (
               <MainBudgetCard>
-                {cards.map(card => {
-                  return (
-                    <ListItem key={card._id}>
-                      <a href={"/cards/" + card._id}>
-                        <strong>
-                          {card.desitination}
-                        </strong>
-                      </a>
-                      <DeleteBtn onClick={() => deleteCard(card._id)} />
-                    </ListItem>
-                  );
-                })}
-              </MainBudgetCard>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-                <DashboardCard />
+                <DeleteBtn />
+              </MainBudgetCard>    
             </Col>
         </Row>
     </Container>
