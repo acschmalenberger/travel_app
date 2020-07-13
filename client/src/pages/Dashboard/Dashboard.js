@@ -82,7 +82,8 @@ return (
             </Jumbotron>
             <DashboardCard />
                 <DeleteBtn />
-            </Col> <Col size="md-4">
+            </Col> 
+            <Col size="md-4">
             <Jumbotron>
               <h1>Dining</h1>
             </Jumbotron>
@@ -91,6 +92,11 @@ return (
             </Col>
             <Col size="md-4">
             <Jumbotron>
+              <h1>Other Item</h1>
+            </Jumbotron>
+            <DashboardCard />
+                <DeleteBtn />
+            </Col>
             <Col size="md-4">
             <Jumbotron>
               <h1>Main Budget</h1>
@@ -98,11 +104,7 @@ return (
             <DashboardCard />
                 <DeleteBtn />
             </Col>
-              <h1>Other</h1>
-            </Jumbotron>
-            <DashboardCard />
-                <DeleteBtn />
-            </Col>
+            
         </Row>
     </Container>
 
