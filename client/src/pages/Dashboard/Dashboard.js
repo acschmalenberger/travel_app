@@ -20,7 +20,7 @@ function Dashboard () {
       }, [])
 
       function loadCards() {
-        API.getCards
+        API.getCards()
           .then(res => 
             setCards(res.data)
           )
