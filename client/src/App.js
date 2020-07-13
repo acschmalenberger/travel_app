@@ -1,16 +1,28 @@
-import React from "react";
-import Books from "./pages/Books";
-import Nav from "./components/Nav";
-import Login from "./pages/Loginscreen";
-
-function App() {
-  return (
-    <div>
-      <Login />
-      <Nav />
-      <Books />
-    </div>
-  );
+import React, { Component } from 'react';
+import LoginScreen from './pages/Loginscreen';
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loginPage: [],
+      uploadScreen: []
+    }
+  }
+  componentWillMount() {
+    var loginPage = [];
+    loginPage.push(<LoginScreen appContext={this} key={"login-screen"} />);
+    this.setState({
+      loginPage: loginPage
+    })
+  }
+  render() {
+    return (
+      <div className="App">
+        {this.state.loginPage}
+        {this.state.uploadScreen}
+      </div>
+    );
+  }
 }
 
 export default App;
