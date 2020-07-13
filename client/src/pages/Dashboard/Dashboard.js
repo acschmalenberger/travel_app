@@ -4,6 +4,7 @@ import DeleteBtn from "../../components/DeleteBtn";
 import DashboardCard from "../../components/DashboardCard"
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
+import MainBudgetCard from "../../components/MainBudgetCard";
 
 function Dashboard () {
 
@@ -101,7 +102,7 @@ return (
             <Jumbotron>
               <h1>Main Budget</h1>
             </Jumbotron>
-            <DashboardCard />
+            <MainBudgetCard />
                 <DeleteBtn />
             </Col>
             
