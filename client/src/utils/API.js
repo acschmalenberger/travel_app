@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
   // Gets all books
-  getBooks: function() {
+  getCardInfo: function() {
     return axios.get("/api/books");
   },
   // Gets the book with the given id
@@ -10,11 +10,11 @@ export default {
     return axios.get("/api/books/" + id);
   },
   // Deletes the book with the given id
-  deleteBook: function(id) {
+  deleteCards: function(id) {
     return axios.delete("/api/books/" + id);
   },
   // Saves a book to the database
-  saveBook: function(bookData) {
+  saveCard: function(bookData) {
     return axios.post("/api/books", bookData);
   }
 };

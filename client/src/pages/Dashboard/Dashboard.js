@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import DeleteBtn from "../../components/DeleteBtn";
 import DashboardCard from "../../components/DashboardCard"
+import Jumbotron from "../../components/Jumbotron";
+import API from "../../utils/API";
 
 function Dashboard () {
 
@@ -17,10 +19,10 @@ function Dashboard () {
         loadCards()
       }, [])
 
-      function loadBooks() {
+      function loadCards() {
         API.getCardInfo()
           .then(res => 
-            setBooks(res.data)
+            setCards(res.data)
           )
           .catch(err => console.log(err));
       };
@@ -40,18 +42,18 @@ function Dashboard () {
         event.preventDefault();
         if (cardObject.title && cardObject.otherText) {
           API.saveBook({
-            label: formObject.label,
-            otherText: formObject.otherText,
-            cost: formObject.cost,
-            notes: formObject.notes
+            label: cardObject.label,
+            otherText: cardObject.otherText,
+            cost: cardObject.cost,
+            notes: cardObject.notes
           })
-            .then(() => setFormObject({
+            .then(() => setCardObject({
               label: "",
               otherText: "",
               cost: 0,
               notes: ""
             }))
-            .then(() => loadBooks())
+            .then(() => loadCards())
             .catch(err => console.log(err));
         }
       };
@@ -60,8 +62,45 @@ return (
 
     <Container fluid>
         <Row>
-            <Col size="md-6">
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Travel</h1>
+            </Jumbotron>
                 <DashboardCard />
+                <DeleteBtn />
+            </Col>
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Lodging</h1>
+            </Jumbotron>
+            <DashboardCard />
+                <DeleteBtn />
+            </Col>
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Attractions</h1>
+            </Jumbotron>
+            <DashboardCard />
+                <DeleteBtn />
+            </Col> <Col size="md-4">
+            <Jumbotron>
+              <h1>Dining</h1>
+            </Jumbotron>
+            <DashboardCard />
+                <DeleteBtn />
+            </Col>
+            <Col size="md-4">
+            <Jumbotron>
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Main Budget</h1>
+            </Jumbotron>
+            <DashboardCard />
+                <DeleteBtn />
+            </Col>
+              <h1>Other</h1>
+            </Jumbotron>
+            <DashboardCard />
                 <DeleteBtn />
             </Col>
         </Row>
