@@ -6,11 +6,11 @@ export default {
     return axios.get("/api/books");
   },
   // Gets the book with the given id
-  getBook: function(id) {
+  getCards: function(id) {
     return axios.get("/api/books/" + id);
   },
   // Deletes the book with the given id
-  deleteCards: function(id) {
+  deleteCard: function(id) {
     return axios.delete("/api/books/" + id);
   },
   // Saves a book to the database
