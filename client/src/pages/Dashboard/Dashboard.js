@@ -5,16 +5,37 @@ import DashboardCard from "../../components/DashboardCard"
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import MainBudgetCard from "../../components/MainBudgetCard";
+import { ListItem } from "../../components/List"
 
 function Dashboard () {
 
     const [cards, setCards] = useState([])
     const [cardObject, setCardObject] = useState({
-      label: "",
-      otherText: "",
-      cost: 0,
-      notes: ""
-    })
+      overallBudget: 0,
+      spentBudget: 0,
+      desitination: "",
+      travelDates: "",
+      transportBudget: 0,
+      transportDate: "",
+      transportAddress: "",
+      transportTime: "",
+      transportNotes: "",
+      refreshBudget: 0,
+      refreshDate: "",
+      refreshAddress: "",
+      refreshTime: "",
+      refreshNotes: "",
+      activitesBudget: 0,
+      activitesDate: "",
+      activitesAddress: "",
+      activitesTime: "",
+      activitesNotes: "",
+      lodgingBudget: 0,
+      lodgingDates: "",
+      lodgingAddress: "",
+      lodgingTime: "",
+      lodgingNotes: ""
+        })
 
     useEffect(() => {
         loadCards()
@@ -67,45 +88,51 @@ return (
             <Jumbotron>
               <h1>Travel</h1>
             </Jumbotron>
+            {cards.length ? (
+              <DashboardCard>
+                {cards.map(card => {
+                  return (
+                    <ListItem key={card._id}>
+                      <a href={"/cards/" + card._id}>
+                        <strong>
+                          {card.desitination}
+                        </strong>
+                      </a>
+                      <DeleteBtn onClick={() => deleteCard(card._id)} />
+                    </ListItem>
+                  );
+                })}
+              </DashboardCard>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
                 <DashboardCard />
-                <DeleteBtn />
-            </Col>
-            <Col size="md-4">
-            <Jumbotron>
-              <h1>Lodging</h1>
-            </Jumbotron>
-            <DashboardCard />
-                <DeleteBtn />
-            </Col>
-            <Col size="md-4">
-            <Jumbotron>
-              <h1>Attractions</h1>
-            </Jumbotron>
-            <DashboardCard />
-                <DeleteBtn />
-            </Col> 
-            <Col size="md-4">
-            <Jumbotron>
-              <h1>Dining</h1>
-            </Jumbotron>
-            <DashboardCard />
-                <DeleteBtn />
-            </Col>
-            <Col size="md-4">
-            <Jumbotron>
-              <h1>Other Item</h1>
-            </Jumbotron>
-            <DashboardCard />
-                <DeleteBtn />
-            </Col>
-            <Col size="md-4">
-            <Jumbotron>
-              <h1>Main Budget</h1>
-            </Jumbotron>
-            <MainBudgetCard />
-                <DeleteBtn />
             </Col>
             
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Value</h1>
+            </Jumbotron>
+            {cards.length ? (
+              <MainBudgetCard>
+                {cards.map(card => {
+                  return (
+                    <ListItem key={card._id}>
+                      <a href={"/cards/" + card._id}>
+                        <strong>
+                          {card.desitination}
+                        </strong>
+                      </a>
+                      <DeleteBtn onClick={() => deleteCard(card._id)} />
+                    </ListItem>
+                  );
+                })}
+              </MainBudgetCard>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+                <DashboardCard />
+            </Col>
         </Row>
     </Container>
 
