@@ -2,7 +2,7 @@ import React from "react";
 import { Input, TextArea, FormBtn } from "../Form";
 import "./style.css"
 
-function MainBudgetCard () {
+function MainBudgetCard (props) {
 
 return(
     <div className="card-deck">
@@ -15,8 +15,13 @@ return(
         <div className="card-footer">
             <small className="text-muted">Card Footer/Last updated 3 mins ago</small>
         </div>
+        <Input 
+        value={props.value} 
+        info={props.info}
+        handleInputChange={props.handleInputChange}
+        name={props.name}
+        />
         <TextArea />
-        <Input />
         <FormBtn />
         </div>
     </div>

@@ -72,44 +72,44 @@ function Dashboard () {
 
       function handleBudgetChange(event) {
         const { name, value } = event.target;
-        setCardObject({...budgetObject, [name]: value})
+        setBudgetObject({...budgetObject, [name]: value})
       };
       function handleTransportChange(event) {
         const { name, value } = event.target;
-        setCardObject({...transportObject, [name]: value})
+        setTransportObject({...transportObject, [name]: value})
       };
       function handleRefreshChange(event) {
         const { name, value } = event.target;
-        setCardObject({...refreshObject, [name]: value})
+        setRefreshObject({...refreshObject, [name]: value})
       };
       function handleActivitiesChange(event) {
         const { name, value } = event.target;
-        setCardObject({...activitesObject, [name]: value})
+        setActivitiesObject({...activitesObject, [name]: value})
       };
       function handleLodgingChange(event) {
         const { name, value } = event.target;
-        setCardObject({...lodgingObject, [name]: value})
+        setLodgingObject({...lodgingObject, [name]: value})
       };
 
-      function handleFormSubmit(event) {
-        event.preventDefault();
-        if (cardObject.title && cardObject.otherText) {
-          API.saveCard({
-            label: cardObject.label,
-            otherText: cardObject.otherText,
-            cost: cardObject.cost,
-            notes: cardObject.notes
-          })
-            .then(() => setCardObject({
-              label: "",
-              otherText: "",
-              cost: 0,
-              notes: ""
-            }))
-            .then(() => loadCards())
-            .catch(err => console.log(err));
-        }
-      };
+      // function handleFormSubmit(event) {
+      //   event.preventDefault();
+      //   if (cardObject.title && cardObject.otherText) {
+      //     API.saveCard({
+      //       label: cardObject.label,
+      //       otherText: cardObject.otherText,
+      //       cost: cardObject.cost,
+      //       notes: cardObject.notes
+      //     })
+      //       .then(() => setCardObject({
+      //         label: "",
+      //         otherText: "",
+      //         cost: 0,
+      //         notes: ""
+      //       }))
+      //       .then(() => loadCards())
+      //       .catch(err => console.log(err));
+      //   }
+      // };
 
 return (
 
@@ -154,7 +154,7 @@ return (
               <h1>Activities</h1>
             </Jumbotron>
               <DashboardCard 
-              name="activitiesName"
+              name="activitesName"
               handleInputChange={handleActivitiesChange}
               value={activitesObject}
               info={setActivitiesObject} />

@@ -5,7 +5,7 @@ import CardChart from "./cardChat";
 // import DeleteBtn from "../DeleteBtn"
 
 function DashboardCard (props) {
-console.log(props)
+console.log(props.name)
 
 if(props.name) return (
     <div className="card-deck">
