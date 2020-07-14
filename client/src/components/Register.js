@@ -4,107 +4,162 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
-import Login from './Login';
+import Login from './Home';
 
 class Register extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-            first_name: '',
-            last_name: '',
-            email: '',
-            password: ''
-        }
+            name: "",
+            email: "",
+            password: "",
+            password2: "",
+            errors: {}
+        };
     }
-    componentWillReceiveProps(nextProps) {
-        console.log("nextProps", nextProps);
-    }
-    handleClick(event, role) {
-        var apiBaseUrl = "http://localhost:3001/api/";
-        // console.log("values in register handler",role);
-        var self = this;
-        //To be done:check for empty values before hitting submit
-        if (this.state.first_name.length > 0 && this.state.last_name.length > 0 && this.state.email.length > 0 && this.state.password.length > 0) {
-            var payload = {
-                "first_name": this.state.first_name,
-                "last_name": this.state.last_name,
-                "userid": this.state.email,
-                "password": this.state.password,
-                "role": role
-            }
-            axios.post(apiBaseUrl + '/user/register', payload)
-                .then(function (response) {
-                    console.log(response);
-                    if (response.data.code === 200) {
-                        //  console.log("registration successfull");
-                        var loginscreen = [];
-                        loginscreen.push(<Login parentContext={this} appContext={self.props.appContext} role={role} />);
-                        var loginmessage = "Not Registered yet.Go to registration";
-                        self.props.parentContext.setState({
-                            loginscreen: loginscreen,
-                            loginmessage: loginmessage,
-                            buttonLabel: "Register",
-                            isLogin: true
-                        });
-                    }
-                    else {
-                        console.log("some error ocurred", response.data.code);
-                    }
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        }
-        else {
-            alert("Input field value is missing");
-        }
 
+    componentDidMount() {
+        // If logged in and user navigates to Register page, should redirect them to dashboard
+        if (this.props.auth.isAuthenticated) {
+            this.props.history.push("/dashboard");
+        }
     }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+            this.setState({
+                errors: nextProps.errors
+            });
+        }
+    }
+
+    onChange = e => {
+        this.setState({ [e.target.id]: e.target.value });
+    };
+
+    onSubmit = e => {
+        e.preventDefault();
+
+        const newUser = {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password,
+            password2: this.state.password2
+        };
+
+        this.props.registerUser(newUser, this.props.history);
+    };
+
     render() {
-        // console.log("props",this.props);
+        const { errors } = this.state;
 
         return (
-            <div>
-                <MuiThemeProvider>
-                    <div>
-                        <AppBar
-                            title="Register"
-                        />
-                        <TextField
-                            hintText="Enter your First Name"
-                            floatingLabelText="First Name"
-                            onChange={(event, newValue) => this.setState({ first_name: newValue })}
-                        />
-                        <br />
-                        <TextField
-                            hintText="Enter your Last Name"
-                            floatingLabelText="Last Name"
-                            onChange={(event, newValue) => this.setState({ last_name: newValue })}
-                        />
-                        <br />
-                        <TextField
-                            hintText="Enter your Email"
-                            floatingLabelText="Email"
-                            onChange={(event, newValue) => this.setState({ email: newValue })}
-                        />
-                        <br />
-                        <TextField
-                            type="password"
-                            hintText="Enter your Password"
-                            floatingLabelText="Password"
-                            onChange={(event, newValue) => this.setState({ password: newValue })}
-                        />
-                        <br />
-                        <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event, this.props.role)} />
+            <div className="container">
+                <div className="row">
+                    <div className="col s8 offset-s2">
+                        <Link to="/" className="btn-flat waves-effect">
+                            <i className="material-icons left">keyboard_backspace</i> Back to
+                home
+              </Link>
+                        <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                            <h4>
+                                <b>Register</b> below
+                </h4>
+                            <p className="grey-text text-darken-1">
+                                Already have an account? <Link to="/login">Log in</Link>
+                            </p>
+                        </div>
+                        <form noValidate onSubmit={this.onSubmit}>
+                            <div className="input-field col s12">
+                                <input
+                                    onChange={this.onChange}
+                                    value={this.state.name}
+                                    error={errors.name}
+                                    id="name"
+                                    type="text"
+                                    className={classnames("", {
+                                        invalid: errors.name
+                                    })}
+                                />
+                                <label htmlFor="name">Name</label>
+                                <span className="red-text">{errors.name}</span>
+                            </div>
+                            <div className="input-field col s12">
+                                <input
+                                    onChange={this.onChange}
+                                    value={this.state.email}
+                                    error={errors.email}
+                                    id="email"
+                                    type="email"
+                                    className={classnames("", {
+                                        invalid: errors.email
+                                    })}
+                                />
+                                <label htmlFor="email">Email</label>
+                                <span className="red-text">{errors.email}</span>
+                            </div>
+                            <div className="input-field col s12">
+                                <input
+                                    onChange={this.onChange}
+                                    value={this.state.password}
+                                    error={errors.password}
+                                    id="password"
+                                    type="password"
+                                    className={classnames("", {
+                                        invalid: errors.password
+                                    })}
+                                />
+                                <label htmlFor="password">Password</label>
+                                <span className="red-text">{errors.password}</span>
+                            </div>
+                            <div className="input-field col s12">
+                                <input
+                                    onChange={this.onChange}
+                                    value={this.state.password2}
+                                    error={errors.password2}
+                                    id="password2"
+                                    type="password"
+                                    className={classnames("", {
+                                        invalid: errors.password2
+                                    })}
+                                />
+                                <label htmlFor="password2">Confirm Password</label>
+                                <span className="red-text">{errors.password2}</span>
+                            </div>
+                            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                                <button
+                                    style={{
+                                        width: "150px",
+                                        borderRadius: "3px",
+                                        letterSpacing: "1.5px",
+                                        marginTop: "1rem"
+                                    }}
+                                    type="submit"
+                                    className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                                >
+                                    Sign up
+                  </button>
+                            </div>
+                        </form>
                     </div>
-                </MuiThemeProvider>
+                </div>
             </div>
         );
     }
 }
 
-const style = {
-    margin: 15,
+Register.propTypes = {
+    registerUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
 };
 
-export default Register;
+const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+});
+
+export default connect(
+    mapStateToProps,
+    { registerUser }
+)(withRouter(Register));
