@@ -11,6 +11,7 @@ import auth from '../auth/auth-helper';
 import { deleteUser } from '../../utils/api-user';
 import { Redirect, Link } from 'react-router-dom';
 
+
 class DeleteUser extends Component {
     state = {
         redirect: false,

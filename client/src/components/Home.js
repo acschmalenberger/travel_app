@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import logo from '../logo.svg';
+import logo from './images/map.jpg';
 
 const styles = theme => ({
     card: {
@@ -30,7 +30,7 @@ class Home extends Component {
             <div>
                 <Card className={classes.card}>
                     <Typography type="headline" component="h2" className={classes.title}>
-                        Welcome to the MERN APP
+                        Welcome to the COVID ESCAPE
 					</Typography>
                     <CardMedia
                         className={classes.media}
