@@ -1,8 +1,9 @@
 
-import User from '../models/user';
-import errorHandler from '../helpers/dbErrorHandler';
+const User = require('../models/user');
+const errorHandler = require('../helpers/dbErrorHandler');
 
-export const registerUser = (req, res, next) => {
+const registerUser = (req, res, next) => {
+    console.log(req.body);
     const user = new User(req.body);
     user.save((err, result) => {
         if (err) {
@@ -16,7 +17,7 @@ export const registerUser = (req, res, next) => {
     });
 };
 
-export const findUserById = (req, res, next, id) => {
+const findUserById = (req, res, next, id) => {
     User.findById(id).exec((err, user) => {
         if (err || !user) {
             return res.status(400).json({
@@ -28,14 +29,14 @@ export const findUserById = (req, res, next, id) => {
     });
 };
 
-export const findUserProfile = (req, res) => {
+const findUserProfile = (req, res) => {
     // eliminate password related fields before sending the user object
     req.profile.hashedPassword = undefined;
     req.profile.salt = undefined;
     return res.json(req.profile);
 };
 
-export const deleteUser = (req, res, next) => {
+const deleteUser = (req, res, next) => {
     let user = req.profile;
     user.remove((err, deletedUser) => {
         if (err) {
@@ -48,3 +49,4 @@ export const deleteUser = (req, res, next) => {
         res.json(user);
     });
 };
+module.exports = { registerUser, findUserById, findUserProfile, deleteUser };

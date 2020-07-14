@@ -1,23 +1,25 @@
-import express from 'express';
-import {
-    registerUser,
-    findUserById,
-    findUserProfile,
-    deleteUser
-} from '../controllers/user';
+const express = require('express');
+const userController = require('../controllers/user');
+const authController = require('../controllers/auth');
+
+// import {
+//     registerUser,
+//     findUserById,
+//     findUserProfile,
+//     deleteUser
+// } from '../controllers/user';
 
 // import them to protect routes
-import { requireSignin, hasAuthorization } from '../controllers/auth';
 
 const router = express.Router();
 
-router.route('/api/users').post(registerUser);
+router.route('/api/users').post(userController.registerUser);
 
 router
     .route('/api/users/:userId')
-    .get(requireSignin, findUserProfile)
-    .delete(requireSignin, hasAuthorization, deleteUser);
+    .get(authController.requireSignin, userController.findUserProfile)
+    .delete(authController.requireSignin, authController.hasAuthorization, userController.deleteUser);
 
-router.param('userId', findUserById);
+router.param('userId', userController.findUserById);
 
-export default router;
+module.exports = router;

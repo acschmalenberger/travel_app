@@ -1,9 +1,11 @@
-import express from 'express';
-import cookieParser from 'cookie-parser';
-import config from './server/config';
+
 // ADD these
-import userRoutes from './server/routes/user';
-import authRoutes from './server/routes/auth';
+const express = require('express');
+const cors = require('cors');
+const userRoutes = require('./server/routes/users');
+const authRoutes = require('./server/routes/auth');
+const config = require('./server/config');
+
 
 // DB connection
 require('./server/config/dbConnection');
@@ -13,7 +15,7 @@ const app = express();
 // middleware functions
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
+
 
 // ADD routes
 app.use('/', userRoutes);

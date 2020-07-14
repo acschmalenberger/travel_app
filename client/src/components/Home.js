@@ -36,7 +36,7 @@ class Home extends Component {
                     <CardMedia
                         className={classes.media}
                         image={logo}
-                        title="Auth with MERN"
+                        title="The Covid Escape"
                     />
                     <CardContent>
                         <Typography type="headline" component="h2" className={classes.title} align="center">

@@ -1,5 +1,5 @@
 export const registerUser = user => {
-    return fetch('/api/users/', {
+    return fetch('http://localhost:3001/api/users/', {
         method: 'POST',
         headers: {
             Accept: 'application/json',

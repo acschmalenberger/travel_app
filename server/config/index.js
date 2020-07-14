@@ -4,4 +4,4 @@ const config = {
     mongoURI: process.env.MONGODB_URI || 'mongodb://localhost/mern-auth'
 };
 
-export default config;
+module.exports = config;

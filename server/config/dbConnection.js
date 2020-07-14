@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import config from './index';
+const mongoose = require('mongoose');
+const config = require('./index');
 
 const URI = config.mongoURI;
 mongoose.connect(URI);
@@ -13,3 +13,4 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', err => {
     console.log('Mongoose Default Connection Error : ' + err);
 });
+
