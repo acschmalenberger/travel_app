@@ -4,17 +4,18 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { typography } from '@material-ui/system';
 import logo from './images/map.jpg';
 
 const styles = theme => ({
     card: {
         maxWidth: 700,
         margin: 'auto',
-        marginTop: theme.spacing.unit * 5
+        marginTop: theme.spacing(5)
     },
     title: {
-        padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 2.5}px ${theme
-            .spacing.unit * 2}px`,
+        padding: `${theme.spacing(3)}px ${theme.spacing(2.5)}px ${theme
+            .spacing(2)}px`,
         color: theme.palette.text.secondary,
         fontSize: 24
     },
@@ -28,9 +29,9 @@ class Home extends Component {
         const { classes } = this.props;
         return (
             <div>
-                <Card className={classes.card}>
-                    <Typography type="headline" component="h2" className={classes.title}>
-                        Welcome to the COVID ESCAPE
+                <Card className={classes.card} >
+                    <Typography type="headline" component="h2" className={classes.title} align="center" >
+                        Welcome to the Covid Escape
 					</Typography>
                     <CardMedia
                         className={classes.media}
@@ -38,13 +39,12 @@ class Home extends Component {
                         title="Auth with MERN"
                     />
                     <CardContent>
-                        <Typography type="body1" component="p">
-                            This is a demo application that uses a Node + MongoDB API for user
-                            authentication. Built With React + Material UI.
+                        <Typography type="headline" component="h2" className={classes.title} align="center">
+                            "The smarter way to financially plan your travel"
 						</Typography>
                     </CardContent>
-                </Card>
-            </div>
+                </Card >
+            </div >
         );
     }
 }

@@ -20,11 +20,11 @@ const styles = theme => ({
     root: theme.mixins.gutters({
         maxWidth: 600,
         margin: 'auto',
-        padding: theme.spacing.unit * 3,
-        marginTop: theme.spacing.unit * 5
+        padding: theme.spacing(3),
+        marginTop: theme.spacing(5)
     }),
     title: {
-        margin: `${theme.spacing.unit * 3}px 0 ${theme.spacing.unit * 2}px`,
+        margin: `${theme.spacing(3)}px 0 ${theme.spacing(2)}px`,
         color: theme.palette.protectedTitle
     }
 });
@@ -81,7 +81,7 @@ class Profile extends Component {
                             primary={this.state.user.name}
                             secondary={this.state.user.email}
                         /> {auth.isAuthenticated().user &&
-                            auth.isAuthenticated().user._id == this.state.user._id && (
+                            auth.isAuthenticated().user._id === this.state.user._id && (
                                 <ListItemSecondaryAction>
                                     <DeleteUser userId={this.state.user._id} />
                                 </ListItemSecondaryAction>
