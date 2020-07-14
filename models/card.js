@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const cardSchema = new Schema({
   overallBudget: { type: Number, required: true },
   spentBudget: { type: Number, required: false },
-  desitination: { type: String, required: true },
+  destination: { type: String, required: true },
   travelDates: { type: String, required: false},
   transportBudget: { type: Number, required: false },
   transportDate: { type: Date, required: false },

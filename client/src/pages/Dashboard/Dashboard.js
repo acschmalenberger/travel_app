@@ -14,7 +14,8 @@ function Dashboard () {
     const [cardObject, setCardObject] = useState({
       overallBudget: 0,
       spentBudget: 0,
-      desitination: "",
+      destintion: "TEST",
+      transportName: "Travel",
       travelDates: "",
       transportBudget: 0,
       transportDate: "",
@@ -43,9 +44,13 @@ function Dashboard () {
       }, [])
 
       function loadCards() {
-        API.getCards()
+        API.getCardInfo()
           .then(res => 
-            setCards(res.data)
+            //setCards(res.data)
+            console.log(res.data)
+
+        
+    
           )
           .catch(err => console.log(err));
       };
@@ -85,20 +90,27 @@ return (
 
     <Container fluid>
         <Row>
-            <Col size="md-4">
-            <Jumbotron>
-              <h1>Travel</h1>
-            </Jumbotron>
-              <DashboardCard/>
-            </Col>
-            <Col size="md-4">
+        {/* <Col size="md-4">
             <Jumbotron>
               <h1>Value</h1>
             </Jumbotron>
               <MainBudgetCard>
                 <DeleteBtn />
               </MainBudgetCard>    
+            </Col> */}
+            
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Travel</h1>
+            </Jumbotron>
+              <DashboardCard 
+              name="transportName"
+              handleInputChange={handleInputChange}
+              value={cardObject}
+              info={setCardObject} />
             </Col>
+
+            
         </Row>
     </Container>
 

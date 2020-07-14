@@ -5,15 +5,15 @@ import "./style.css"
 function MainBudgetCard () {
 
 return(
-    <div class="card-deck">
-        <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is the main budget card</p>
+    <div className="card-deck">
+        <div className="card">
+            <img src="..." className="card-img-top" alt="..." />
+        <div className="card-body">
+            <h5 className="card-title">Card title</h5>
+            <p className="card-text">This is the main budget card</p>
         </div>
-        <div class="card-footer">
-            <small class="text-muted">Card Footer/Last updated 3 mins ago</small>
+        <div className="card-footer">
+            <small className="text-muted">Card Footer/Last updated 3 mins ago</small>
         </div>
         <TextArea />
         <Input />
