@@ -8,6 +8,9 @@ export function Input(props) {
       name={props.name}
       value={props.value[props.name]}
       onChange={props.handleInputChange}
+      placeholder={props.name}
+      data-objectName={props.objectName}
+
       />
     </div>
   );
