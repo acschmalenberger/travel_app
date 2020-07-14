@@ -1,14 +1,14 @@
 import React from "react";
-//import Books from "./pages/Books";
+
 import Nav from "./components/Nav";
-import Dashboard from "./pages/Dashboard"
+import CardPlanning from "./components/CardPlanning"
 
 function App() {
   return (
     <div>
       <Nav />
-      {/* <Books /> */}
-      <Dashboard />
+
+      <CardPlanning />
     </div>
   );
 }

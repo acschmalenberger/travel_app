@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import DeleteBtn from "../../components/DeleteBtn";
 import DashboardCard from "../../components/DashboardCard"
+import DashboardCardBody from "../../components/DashboardCard/DashboardCard.js"
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import MainBudgetCard from "../../components/MainBudgetCard";
@@ -67,7 +68,7 @@ return (
             <Jumbotron>
               <h1>Travel</h1>
             </Jumbotron>
-                <DashboardCard />
+                <DashboardCardBody />
                 <DeleteBtn />
             </Col>
             <Col size="md-4">
