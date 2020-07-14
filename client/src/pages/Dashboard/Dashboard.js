@@ -5,33 +5,46 @@ import DashboardCard from "../../components/DashboardCard"
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import MainBudgetCard from "../../components/MainBudgetCard";
+import { set } from "mongoose";
 // import { ListItem } from "../../components/List";
 // import { Input, TextArea, FormBtn } from "../../components/Form";
 
 function Dashboard () {
 
     const [cards, setCards] = useState([])
-    const [cardObject, setCardObject] = useState({
+    const [budgetObject, setBudgetObject] = useState({
+      budgetName: "Value",
       overallBudget: 0,
       spentBudget: 0,
-      destintion: "TEST",
-      transportName: "Travel",
+      destintion: ""
+    })
+    const [transportObject, setTransportObject] = useState({
+      transportName: "Transporation",
       travelDates: "",
       transportBudget: 0,
       transportDate: "",
       transportAddress: "",
       transportTime: "",
-      transportNotes: "",
+      transportNotes: ""
+    })
+    const [refreshObject, setRefreshObject] = useState({
+      refreshName: "Refreshment",
       refreshBudget: 0,
       refreshDate: "",
       refreshAddress: "",
       refreshTime: "",
-      refreshNotes: "",
+      refreshNotes: ""
+    })
+    const [activitesObject, setActivitiesObject] = useState({
+      activitesName: "Activites",
       activitesBudget: 0,
       activitesDate: "",
       activitesAddress: "",
       activitesTime: "",
-      activitesNotes: "",
+      activitesNotes: ""
+    })
+    const [lodgingObject, setLodgingObject] = useState({
+      lodgingName: "Lodging",
       lodgingBudget: 0,
       lodgingDates: "",
       lodgingAddress: "",
@@ -46,11 +59,7 @@ function Dashboard () {
       function loadCards() {
         API.getCardInfo()
           .then(res => 
-            //setCards(res.data)
-            console.log(res.data)
-
-        
-    
+            setCards(res.data)    
           )
           .catch(err => console.log(err));
       };
@@ -61,15 +70,31 @@ function Dashboard () {
           .catch(err => console.log(err));
       }
 
-      function handleInputChange(event) {
+      function handleBudgetChange(event) {
         const { name, value } = event.target;
-        setCardObject({...cardObject, [name]: value})
+        setCardObject({...budgetObject, [name]: value})
+      };
+      function handleTransportChange(event) {
+        const { name, value } = event.target;
+        setCardObject({...transportObject, [name]: value})
+      };
+      function handleRefreshChange(event) {
+        const { name, value } = event.target;
+        setCardObject({...refreshObject, [name]: value})
+      };
+      function handleActivitiesChange(event) {
+        const { name, value } = event.target;
+        setCardObject({...activitesObject, [name]: value})
+      };
+      function handleLodgingChange(event) {
+        const { name, value } = event.target;
+        setCardObject({...lodgingObject, [name]: value})
       };
 
       function handleFormSubmit(event) {
         event.preventDefault();
         if (cardObject.title && cardObject.otherText) {
-          API.saveBook({
+          API.saveCard({
             label: cardObject.label,
             otherText: cardObject.otherText,
             cost: cardObject.cost,
@@ -90,14 +115,17 @@ return (
 
     <Container fluid>
         <Row>
-        {/* <Col size="md-4">
+        <Col size="md-4">
             <Jumbotron>
               <h1>Value</h1>
             </Jumbotron>
-              <MainBudgetCard>
-                <DeleteBtn />
-              </MainBudgetCard>    
-            </Col> */}
+              <MainBudgetCard 
+              name="budgetName"
+              handleInputChange={handleBudgetChange}
+              value={budgetObject}
+              info={setBudgetObject}
+              />    
+            </Col>
             
             <Col size="md-4">
             <Jumbotron>
@@ -105,11 +133,43 @@ return (
             </Jumbotron>
               <DashboardCard 
               name="transportName"
-              handleInputChange={handleInputChange}
-              value={cardObject}
-              info={setCardObject} />
+              handleInputChange={handleTransportChange}
+              value={transportObject}
+              info={setTransportObject} />
             </Col>
 
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Refreshment</h1>
+            </Jumbotron>
+              <DashboardCard 
+              name="refreshName"
+              handleInputChange={handleRefreshChange}
+              value={refreshObject}
+              info={setRefreshObject} />
+            </Col>
+
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Activities</h1>
+            </Jumbotron>
+              <DashboardCard 
+              name="activitiesName"
+              handleInputChange={handleActivitiesChange}
+              value={activitesObject}
+              info={setActivitiesObject} />
+            </Col>
+
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Lodging</h1>
+            </Jumbotron>
+              <DashboardCard 
+              name="lodgingName"
+              handleInputChange={handleLodgingChange}
+              value={lodgingObject}
+              info={setLodgingObject} />
+            </Col>
             
         </Row>
     </Container>
