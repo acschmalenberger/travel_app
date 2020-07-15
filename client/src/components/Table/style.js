@@ -20,7 +20,7 @@
         color: dangerColor[0]
         },
         successTableHeader: {
-        color: successColor[0]a
+        color: successColor[0]
         },
         infoTableHeader: {
         color: infoColor[0]
