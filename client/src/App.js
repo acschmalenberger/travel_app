@@ -4,6 +4,18 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import red from '@material-ui/core/colors/red';
 import { BrowserRouter } from 'react-router-dom';
+import Nav from "./components/Nav";
+import CardPlanning from "./components/CardPlanning";
+import CardIndv from "./components/CardIndv";
+import CardBudget from "./components/CardBudget";
+import CardItinerary from "./components/CardItinerary";
+import CardSignin from "./components/CardSignIn"
+
+
+
+
+
+
 
 import Routes from './Routes';
 
@@ -27,19 +39,35 @@ const theme = createMuiTheme({
   }
 });
 
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <MuiThemeProvider theme={theme}>
-          <Routes>
-            <Nav />
-            <CardPlanning />
-          </Routes>
-        </MuiThemeProvider>
-      </BrowserRouter>
-    );
-  }
+// class App extends Component {
+//   render() {
+//     return (
+//       <BrowserRouter>
+//         <MuiThemeProvider theme={theme}>
+//           <Routes>
+//             <Nav />
+//             <CardPlanning />
+//           </Routes>
+//         </MuiThemeProvider>
+//       </BrowserRouter>
+//     );
+//   }
+
+
+
+function App() {
+  return (
+    <div>
+      <Nav />
+      <CardSignin />
+      <CardPlanning />
+      <CardBudget />
+      <CardItinerary />
+      <CardIndv />
+
+
+    </div>
+  );
 }
 
 

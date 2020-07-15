@@ -8,9 +8,8 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 
 // core components
-import styles from "../Styles/CardBodyStyle.js"
+import styles from "./CardBodyStyle.js"
 
-import { Input, TextArea, FormBtn } from "../Form";
 
 const useStyles = makeStyles(styles);
 
@@ -25,9 +24,6 @@ export default function DashboardCardBody(props) {
     });
     return (
         <div className={cardBodyClasses} {...rest}>
-            <TextArea />
-            <Input />
-            <FormBtn />
             {children}
         </div>
     );
