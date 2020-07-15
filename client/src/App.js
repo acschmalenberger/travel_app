@@ -1,8 +1,9 @@
 import React from "react";
 
 import Nav from "./components/Nav";
-import CardPlanning from "./components/CardPlanning"
-import CardIndv from "./components/CardIndv"
+import CardPlanning from "./components/CardPlanning";
+import CardIndv from "./components/CardIndv";
+import CardBudget from "./components/CardBudget"
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
 
       <CardPlanning />
       <CardIndv />
+      <CardBudget />
     </div>
   );
 }
