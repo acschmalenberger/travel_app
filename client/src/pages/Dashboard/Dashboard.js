@@ -142,7 +142,6 @@ return (
               name={transportObject}
               handleInputChange={handleChange}
               value={transportObject}
-              overallBudget={budgetObject}
               objectName={"transportObject"}
               info={setTransportObject}
               handleFormSubmit={handleFormSubmit} 
@@ -157,7 +156,6 @@ return (
               name={refreshObject}
               handleInputChange={handleChange}
               value={refreshObject}
-              overallBudget={budgetObject}
               objectName={"refreshObject"}
               info={setTransportObject}
               handleFormSubmit={handleFormSubmit} 
@@ -172,7 +170,6 @@ return (
               name={activitesObject}
               handleInputChange={handleChange}
               value={activitesObject}
-              overallBudget={budgetObject}
               objectName={"activitesObject"}
               info={setTransportObject}
               handleFormSubmit={handleFormSubmit} 
@@ -187,7 +184,6 @@ return (
               name={lodgingObject}
               handleInputChange={handleChange}
               value={lodgingObject}
-              overallBudget={budgetObject}
               objectName={"lodgingObject"}
               info={setTransportObject}
               handleFormSubmit={handleFormSubmit} 
