@@ -12,11 +12,12 @@ function App() {
   return (
     <div>
       <Nav />
+      <CardSignin />
       <CardPlanning />
-      <CardIndv />
       <CardBudget />
       <CardItinerary />
-      <CardSignin />
+      <CardIndv />
+      
 
     </div>
   );

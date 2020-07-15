@@ -3,9 +3,9 @@ import {
     whiteColor,
     grayColor,
     hexToRgb
-} from "./material-dashboard-react.js";
+} from "../Styles/material-dashboard-react.js";
 
-const CardIndvStyle = {
+const CardItineraryStyle = {
     successText: {
     color: successColor[0]
     },
@@ -79,4 +79,4 @@ const CardIndvStyle = {
     }
 };
 
-export default CardIndvStyle;
+export default CardItineraryStyle;

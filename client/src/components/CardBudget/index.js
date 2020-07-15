@@ -16,7 +16,7 @@ import CardIcon from "../Card/CardIcon.js";
 
 import CardChart from "../DashboardCard/cardChat.js";
 
-import styles from "../Styles/CardBudgetStyle.js";
+import styles from "./style.js";
 
 const useStyles = makeStyles(styles);
 

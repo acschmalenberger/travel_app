@@ -4,13 +4,13 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import GridItem from "../Grid2/GridItem.js";
 import GridContainer from "../Grid2/GridContainer.js";
-import Button from "../Button/Button.js";
+import Button from "../Button/index.js";
 import Card from "../Card/Card.js";
 import CardHeader from "../Card/CardHeader.js";
 import CardBody from "../Card/CardBody.js";
 import CardFooter from "../Card/CardFooter.js";
 import CustomInput from "../CustomInput/index.js";
-import styles from "../Styles/CardSigninStyles.js";
+import styles from "./style.js";
 
 const useStyles = makeStyles(styles);
 

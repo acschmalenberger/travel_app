@@ -8,7 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 // core components
-import styles from "../Styles/TableStyle.js";
+import styles from "./style.js";
 
 const useStyles = makeStyles(styles);
 

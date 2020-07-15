@@ -10,7 +10,7 @@ import Select from '@material-ui/core/Select';
 import GridItem from "../Grid2/GridItem.js";
 import GridContainer from "../Grid2/GridContainer.js";
 import CustomInput from "../CustomInput/index.js";
-import Button from "../Button/Button.js";
+import Button from "../Button/index.js";
 import Card from "../Card/Card.js";
 import CardHeader from "../Card/CardHeader.js";
 import CardBody from "../Card/CardBody.js";

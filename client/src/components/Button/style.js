@@ -9,7 +9,7 @@
         whiteColor,
         blackColor,
         hexToRgb
-    } from "./material-dashboard-react";
+    } from "../Styles/material-dashboard-react.js";
     
     const buttonStyle = {
         button: {

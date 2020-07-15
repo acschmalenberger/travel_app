@@ -11,10 +11,10 @@ import Card from "../Card/Card.js";
 import CardHeader from "../Card/CardHeader.js";
 import CardBody from "../Card/CardBody.js";
 import CardIcon from "../Card/CardIcon.js";
-import CustomTable from "../Table/Table.js"
+import CustomTable from "../Table/index.js"
 
 
-import styles from "../Styles/CardItineraryStyle.js";
+import styles from "./style.js";
 
 const useStyles = makeStyles(styles);
 

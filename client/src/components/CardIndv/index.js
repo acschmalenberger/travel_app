@@ -14,13 +14,13 @@ import HotelIcon from '@material-ui/icons/Hotel';
  // core components
 import GridItem from "../Grid2/GridItem.js";
 import GridContainer from "../Grid2/GridContainer.js";
-import Button from "../Button/Button.js";
+import Button from "../Button/index.js";
 import Card from "../Card/Card.js";
 import CardHeader from "../Card/CardHeader.js";
 import CardBody from "../Card/CardBody.js";
 import CardFooter from "../Card/CardFooter.js";
 import CardIcon from "../Card/CardIcon.js";
-import styles from "../Styles/CardIndvStyles"
+import styles from "./styles"
 
 const useStyles = makeStyles(styles);
 

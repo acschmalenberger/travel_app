@@ -3,7 +3,7 @@ import {
     whiteColor,
     grayColor,
     hexToRgb
-} from "./material-dashboard-react.js";
+} from "../Styles/material-dashboard-react.js";
 
 const CardItineraryStyle = {
     successText: {

@@ -6,7 +6,7 @@
         primaryCardHeader,
         roseCardHeader,
         grayColor
-    } from "./material-dashboard-react.js";
+    } from "../Styles/material-dashboard-react.js";
     
     const cardIconStyle = {
         cardIcon: {
