@@ -1,13 +1,25 @@
 import React from "react";
-//import Books from "./pages/Books";
+
 import Nav from "./components/Nav";
-import Dashboard from "./pages/Dashboard"
+import CardPlanning from "./components/CardPlanning";
+import CardIndv from "./components/CardIndv";
+import CardBudget from "./components/CardBudget";
+import CardItinerary from "./components/CardItinerary";
+import CardSignin from "./components/CardSignIn"
+
 
 function App() {
   return (
     <div>
       <Nav />
       <Dashboard />
+      {/* <CardSignin />
+      <CardPlanning />
+      <CardBudget />
+      <CardItinerary />
+      <CardIndv /> */}
+      
+
     </div>
   );
 }
