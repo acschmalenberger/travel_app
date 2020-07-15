@@ -32,7 +32,7 @@ const styles = {
             fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
             marginBottom: "3px",
             textDecoration: "none"
-        }
+        },
 };
 
 const useStyles = makeStyles(styles);
@@ -51,8 +51,8 @@ const useStyles = makeStyles(styles);
                     <CardBody>
                     <GridContainer>
                         <GridItem xs={12} sm={12} md={3}>
-                            <FormControl className={classes.formControl}>
-                                <InputLabel id="demo-simple-select-label">What would you like to Plan</InputLabel>
+                            <FormControl style = {{minWidth:150}} className={classes.formControl}>
+                                <InputLabel id="demo-simple-select-label">Plan</InputLabel>
                                 <Select
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"

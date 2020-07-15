@@ -4,7 +4,9 @@ import Nav from "./components/Nav";
 import CardPlanning from "./components/CardPlanning";
 import CardIndv from "./components/CardIndv";
 import CardBudget from "./components/CardBudget";
-import CardItinerary from "./components/CardItinerary"
+import CardItinerary from "./components/CardItinerary";
+import CardSignin from "./components/CardSignIn"
+
 
 function App() {
   return (
@@ -14,7 +16,8 @@ function App() {
       <CardIndv />
       <CardBudget />
       <CardItinerary />
-      
+      <CardSignin />
+
     </div>
   );
 }
