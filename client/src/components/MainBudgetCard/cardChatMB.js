@@ -4,19 +4,21 @@ import { Doughnut } from 'react-chartjs-2';
 function CardChartMB (props) {
 
     const [chartData, setChartData] = useState({})
-    const [data, setDataObj] = useState([0,0,0,0])
-        
+    const [data, setDataObj] = useState([0,0,0,0,0])
+        console.log(props.value.overallBudget)
     
     useEffect(()=>{
+        const oAbudget = parseInt(props.value.overallBudget);
         const tbudget = parseInt(props.valueTransporation.Budget);
         const rbudget = parseInt(props.valueRefreshment.Budget);
         const abudget = parseInt(props.valueActivities.Budget);
         const lbudget = parseInt(props.valueLodging.Budget);
         setDataObj(
-                    [tbudget, lbudget, rbudget, abudget]
+                    [oAbudget, tbudget, lbudget, rbudget, abudget]
                 )
     },
         [
+            props.value.overallBudget,
             props.valueTransporation.Budget, 
             props.valueRefreshment.Budget, 
             props.valueActivities.Budget, 
@@ -27,22 +29,25 @@ function CardChartMB (props) {
         return(
             <div className="chartMB">
                 <Doughnut
-                        data={{labels: ["Total " + props.name.Name, "Current Expense", "Remaining Budget", "Turkey"],
+                        data={{labels: ["Total Budget", "Travel", "Refreshments", "Activities", "Lodging"],
                         datasets: [{
                             label: "Budget",
                             data,
                             backgroundColor: [
-                                "rgba(255, 99, 132, 0.2)",
-                                "rgba(255, 159, 64, 0.2)",
-                                "rgba(255, 205, 86, 0.2)",
-                                "rgba(255, 99, 132, 0.2)"
+                                "rgba(231, 131, 75, 1)",
+                                "rgba(239, 174, 132, 1)",
+                                "rgba(70, 170, 146, 1)",
+                                "rgba(34, 173, 215, 1)",
+                                "rgba(17, 55, 76, 1)"
+
                 
                             ],
                             borderColor:[
-                                "rgb(255, 99, 132)",
-                                "rgb(255, 159, 64)",
-                                "rgb(255, 205, 86)",
-                                "rgb(255, 205, 86)"
+                                "rgb(231, 131, 75)",
+                                "rgb(239, 174, 132)",
+                                "rgb(70, 170, 146)",
+                                "rgb(34, 173, 215)",
+                                "rgb(17, 55, 76)"
                 
                             ],
                         }]
