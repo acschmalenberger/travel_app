@@ -9,8 +9,8 @@ import Select from '@material-ui/core/Select';
  // core components
 import GridItem from "../Grid2/GridItem.js";
 import GridContainer from "../Grid2/GridContainer.js";
-import CustomInput from "../Form2/CustomInput.js";
-import Button from "../Button/Button.js";
+import CustomInput from "../CustomInput/index.js";
+import Button from "../Button/index.js";
 import Card from "../Card/Card.js";
 import CardHeader from "../Card/CardHeader.js";
 import CardBody from "../Card/CardBody.js";
@@ -32,7 +32,7 @@ const styles = {
             fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
             marginBottom: "3px",
             textDecoration: "none"
-        }
+        },
 };
 
 const useStyles = makeStyles(styles);
@@ -51,8 +51,8 @@ const useStyles = makeStyles(styles);
                     <CardBody>
                     <GridContainer>
                         <GridItem xs={12} sm={12} md={3}>
-                            <FormControl className={classes.formControl}>
-                                <InputLabel id="demo-simple-select-label">What would you like to Plan</InputLabel>
+                            <FormControl style = {{minWidth:275}} className={classes.formControl}>
+                                <InputLabel id="demo-simple-select-label">What would you like to plan today?</InputLabel>
                                 <Select
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
