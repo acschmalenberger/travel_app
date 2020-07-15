@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Doughnut } from 'react-chartjs-2';
 
-function CardChartMB () {
-        
+function CardChartMB (props) {
+        console.log(props.valueTransporation)
     const [chartData, setChartData] = useState({})
     const [dataObj, setDataObj] = useState({
-        labels: ["Total ", "Current Expense", "Remaining Budget", "Turkey"],
+        labels: ["Total " + props.name.Name, "Current Expense", "Remaining Budget", "Turkey"],
         datasets: [{
             label: "Budget",
             data: [
-                1000,
+                props.valueTransporation.Budget,
                 500,
                 200,
                 1000
@@ -18,7 +18,7 @@ function CardChartMB () {
                 "rgba(255, 99, 132, 0.2)",
                 "rgba(255, 159, 64, 0.2)",
                 "rgba(255, 205, 86, 0.2)",
-                "rgba(255, 205, 86, 0.2)"
+                "rgba(255, 99, 132, 0.2)"
 
             ],
             borderColor:[

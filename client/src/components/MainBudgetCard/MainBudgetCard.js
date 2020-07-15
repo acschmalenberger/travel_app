@@ -9,28 +9,38 @@ function MainBudgetCard (props) {
 return(
     <div className="card-deck">
         <div className="card">
-            <CardChartMB />
+            <CardChartMB 
+            value={props.value}
+            valueTransporation={props.valueTransporation} 
+            info={props.info}
+            handleInputChange={props.handleInputChange}
+            name={props.name}
+            />
             {/* <img src="..." className="card-img-top" alt="..." /> */}
         <div className="card-body">
             <p className="card-text">This is the main budget card</p>
         </div>
         <Input 
-        value={props.value} 
+        value={props.value.overallBudget} 
         info={props.info}
         handleInputChange={props.handleInputChange}
-        name={props.name}
+        name={"overallBudget"}
+        objectName={props.objectName}
         />
         <Input 
-        value={props.value} 
+        value={props.value.spentBudget} 
         info={props.info}
         handleInputChange={props.handleInputChange}
-        name={props.name}
+        name={"spentBudget"}
+        objectName={props.objectName}
         />
         <TextArea 
-        value={props.value} 
+        value={props.value.destintion} 
         info={props.info}
         handleInputChange={props.handleInputChange}
-        name={props.name}/>
+        name={"destintion"}
+        objectName={props.objectName}
+        />
         <FormBtn type={"submit"}> 
          Submit
         </FormBtn>

@@ -6,7 +6,7 @@ export function Input(props) {
     <div className="form-group">
       <input className="form-control" 
       name={props.name}
-      value={props.value[props.name]}
+      value={props.value}
       onChange={props.handleInputChange}
       placeholder={props.name}
       data-objectname={props.objectName}

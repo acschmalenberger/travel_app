@@ -13,8 +13,6 @@ function Dashboard () {
 
     const [cards, setCards] = useState([])
 
-
-
     const [budgetObject, setBudgetObject] = useState({
       Name: "Value",
       overallBudget: 0,
@@ -23,7 +21,7 @@ function Dashboard () {
     })
     const [transportObject, setTransportObject] = useState({
       Name: "Transportation",
-      Budget: 0,
+      Budget: "",
       Date: "",
       Address: "",
       Time: "",
@@ -31,7 +29,7 @@ function Dashboard () {
     })
     const [refreshObject, setRefreshObject] = useState({
       Name: "Refreshment",
-      Budget: 0,
+      Budget: "",
       Date: "",
       Address: "",
       Time: "",
@@ -78,20 +76,12 @@ function Dashboard () {
           switch (objectName) {
             case "transportObject":
               return setTransportObject({...transportObject, [name]: value})
-          };
-          switch (objectName) {
             case "budgetObject":
               return setBudgetObject({...budgetObject, [name]: value})
-          };
-          switch (objectName) {
             case "refreshObject":
               return setRefreshObject({...refreshObject, [name]: value})
-          };
-          switch (objectName) {
             case "activitesObject":
               return setActivitiesObject({...activitesObject, [name]: value})
-          };
-          switch (objectName) {
             case "lodgingObject":
               return setLodgingObject({...lodgingObject, [name]: value})
               default: return console.log(objectName);
@@ -132,7 +122,9 @@ return (
               <MainBudgetCard 
               name={budgetObject}
               handleInputChange={handleChange}
+              objectName={"budgetObject"}
               value={budgetObject}
+              valueTransporation={transportObject}
               info={setBudgetObject}
               handleFormSubmit={handleFormSubmit} 
               />    
@@ -157,9 +149,9 @@ return (
               <h1>Refreshment</h1>
             </Jumbotron>
               <DashboardCard 
-              name={transportObject}
+              name={refreshObject}
               handleInputChange={handleChange}
-              value={transportObject}
+              value={refreshObject}
               objectName={"refreshObject"}
               info={setTransportObject}
               handleFormSubmit={handleFormSubmit} 
@@ -171,9 +163,9 @@ return (
               <h1>Activities</h1>
             </Jumbotron>
               <DashboardCard 
-              name={transportObject}
+              name={activitesObject}
               handleInputChange={handleChange}
-              value={transportObject}
+              value={activitesObject}
               objectName={"activitesObject"}
               info={setTransportObject}
               handleFormSubmit={handleFormSubmit} 
@@ -185,9 +177,9 @@ return (
               <h1>Lodging</h1>
             </Jumbotron>
               <DashboardCard 
-              name={transportObject}
+              name={lodgingObject}
               handleInputChange={handleChange}
-              value={transportObject}
+              value={lodgingObject}
               objectName={"lodgingObject"}
               info={setTransportObject}
               handleFormSubmit={handleFormSubmit} 

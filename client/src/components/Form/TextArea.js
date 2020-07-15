@@ -8,7 +8,7 @@ export function TextArea(props) {
       value={props.value}
       onChange={props.handleInputChange}
       placeholder={props.name}
-      data-objectName={props.objectName}/>
+      data-objectname={props.objectName}/>
     </div>
   );
 }

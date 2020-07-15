@@ -5,7 +5,6 @@ class CardChart extends Component {
     
     constructor (props) {
         super(props);
-        console.log(props)
         this.state = {
             chartData: {
                 labels: ["Total " + props.name, "Current Expense", "Remaining Budget", "Turkey"],
