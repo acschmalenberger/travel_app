@@ -1,7 +1,6 @@
 import React from "react";
 import { Input, TextArea, FormBtn } from "../Form";
 import CardChartMB from "./cardChatMB.js";
-import CardChart from "../DashboardCard/cardChat.js";
 import "./style.css"
 
 function MainBudgetCard (props) {

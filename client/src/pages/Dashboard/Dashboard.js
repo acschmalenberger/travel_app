@@ -15,8 +15,8 @@ function Dashboard () {
 
     const [budgetObject, setBudgetObject] = useState({
       Name: "Value",
-      overallBudget: 0,
-      spentBudget: 0,
+      overallBudget: "",
+      spentBudget: "",
       destintion: ""
     })
     const [transportObject, setTransportObject] = useState({
@@ -37,7 +37,7 @@ function Dashboard () {
     })
     const [activitesObject, setActivitiesObject] = useState({
       Name: "Activites",
-      Budget: 0,
+      Budget: "",
       Date: "",
       Address: "",
       Time: "",
@@ -45,7 +45,7 @@ function Dashboard () {
     })
     const [lodgingObject, setLodgingObject] = useState({
       Name: "Lodging",
-      Budget: 0,
+      Budget: "",
       Dates: "",
       Address: "",
       Time: "",
