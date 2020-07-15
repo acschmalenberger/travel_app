@@ -9,7 +9,7 @@ import Card from "../Card/Card.js";
 import CardHeader from "../Card/CardHeader.js";
 import CardBody from "../Card/CardBody.js";
 import CardFooter from "../Card/CardFooter.js";
-import CustomInput from "../CustonInput/index.js";
+import CustomInput from "../CustomInput/index.js";
 import styles from "../Styles/CardSigninStyles.js";
 
 const useStyles = makeStyles(styles);
@@ -22,7 +22,7 @@ export default function CardSignin() {
                 <GridItem xs={12} sm={6} md={3}>
                     <Card>
                         <CardHeader>
-                        <h2 className={classes.cardCategory}>Welcome!</h2>
+                        <h2 className={classes.cardTitle} >Welcome!</h2>
                         </CardHeader>
                         <CardBody>
                             <GridContainer>

@@ -29,10 +29,7 @@ export default function CardItinerary() {
                         <CardIcon color="warning">
                             <EventAvailableIcon />
                         </CardIcon>
-                        <h4 className={classes.cardTitleWhite}>Itinerary</h4>
-                        {/* <p className={classes.cardCategoryWhite}>
-                            New employees on 15th September, 2016
-                        </p> */}
+                        <h2 className={classes.cardTitle}>Itinerary</h2>
                         </CardHeader>
                         <CardBody>
                         <CustomTable

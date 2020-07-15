@@ -36,7 +36,7 @@ export default function CardIndv() {
                             <HotelIcon />
                             {/* //will need to render card icons accringly */}
                         </CardIcon>
-                        <h2 className={classes.cardCategory}>Lodging</h2>
+                        <h2 className={classes.cardTitle}>Lodging</h2>
                         </CardHeader>
                         <CardBody>
                             <p>Name: </p>
