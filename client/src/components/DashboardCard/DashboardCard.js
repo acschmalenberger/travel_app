@@ -59,8 +59,7 @@ if(props.name) return (
         name={"Notes"}
         objectName={props.objectName}
         />
-        <FormBtn
-        type={"submit"}> 
+        <FormBtn type={"submit"}> 
         Submit
             </FormBtn>
         </form>
