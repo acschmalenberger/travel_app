@@ -2,14 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Doughnut } from 'react-chartjs-2';
 
 function CardChartMB (props) {
-        console.log(props.valueTransporation)
+    
+    const tbudget = parseInt(props.valueTransporation.Budget);
+    // const rbudget = parseInt(props.valueRefreshment.Budget);
+    // const abudget = parseInt(props.valueActivities.Budget);
+    // const lbudget = parseInt(props.valueLodging.Budget);
+
+    //console.log(props.valueRefreshment.Budget);
+
     const [chartData, setChartData] = useState({})
     const [dataObj, setDataObj] = useState({
         labels: ["Total " + props.name.Name, "Current Expense", "Remaining Budget", "Turkey"],
         datasets: [{
             label: "Budget",
             data: [
-                props.valueTransporation.Budget,
+                {tbudget},
                 500,
                 200,
                 1000
@@ -30,16 +37,16 @@ function CardChartMB (props) {
             ],
         }]
     })
-   
-       return(
-           <div className="chartMB">
-               <Doughnut
-                    data={dataObj}
-                    options={{ maintainAspectRatio: false }}
-                    />
-           </div>
-       )
-   
+    
+        return(
+            <div className="chartMB">
+                <Doughnut
+                        data={dataObj}
+                        options={{ maintainAspectRatio: false }}
+                        />
+            </div>
+        )
+    
 
 }
 export default CardChartMB;

@@ -10,7 +10,10 @@ return(
         <div className="card">
             <CardChartMB 
             value={props.value}
-            valueTransporation={props.valueTransporation} 
+            valueTransporation={props.valueTransporation}
+            valueRefreshment={props.refreshObject}
+            valueActivities={props.activitesObject}
+            valueLodging={props.lodgingObject} 
             info={props.info}
             handleInputChange={props.handleInputChange}
             name={props.name}

@@ -125,6 +125,9 @@ return (
               objectName={"budgetObject"}
               value={budgetObject}
               valueTransporation={transportObject}
+              valueRefreshment={refreshObject}
+              valueActivities={activitesObject}
+              valueLodging={lodgingObject}
               info={setBudgetObject}
               handleFormSubmit={handleFormSubmit} 
               />    
