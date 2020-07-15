@@ -16,7 +16,7 @@ function Dashboard () {
 
 
     const [budgetObject, setBudgetObject] = useState({
-      budgetName: "Value",
+      Name: "Value",
       overallBudget: 0,
       spentBudget: 0,
       destintion: ""
@@ -78,30 +78,31 @@ function Dashboard () {
           switch (objectName) {
             case "transportObject":
               return setTransportObject({...transportObject, [name]: value})
-          }
+          };
           switch (objectName) {
             case "budgetObject":
               return setBudgetObject({...budgetObject, [name]: value})
-          }
+          };
           switch (objectName) {
             case "refreshObject":
               return setRefreshObject({...refreshObject, [name]: value})
-          }
+          };
           switch (objectName) {
             case "activitesObject":
               return setActivitiesObject({...activitesObject, [name]: value})
-          }
+          };
           switch (objectName) {
             case "lodgingObject":
               return setLodgingObject({...lodgingObject, [name]: value})
-            default: return console.log(objectName);
+              default: return console.log(objectName);
           };
+
             };
 
       function handleFormSubmit(event) {
         event.preventDefault();
         let cardObject= event.target.getAttribute("data-objectname")
-        console.log(cardObject)
+        //console.log(cardObject)
         // if (cardObject) {
         //   API.saveCard({
         //     label: cardObject.label,
@@ -124,17 +125,18 @@ return (
 
     <Container fluid>
         <Row>
-        {/* <Col size="md-4">
+        <Col size="md-4">
             <Jumbotron>
               <h1>Value</h1>
             </Jumbotron>
               <MainBudgetCard 
-              name="budgetName"
-              handleInputChange={handleBudgetChange}
+              name={budgetObject}
+              handleInputChange={handleChange}
               value={budgetObject}
               info={setBudgetObject}
+              handleFormSubmit={handleFormSubmit} 
               />    
-            </Col> */}
+            </Col>
             
             <Col size="md-4">
             <Jumbotron>

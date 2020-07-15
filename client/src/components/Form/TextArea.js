@@ -5,12 +5,10 @@ export function TextArea(props) {
     <div className="form-group">
       <textarea className="form-control" rows="20"
       name={props.name}
-      value={props.value[props.name]}
+      value={props.value}
       onChange={props.handleInputChange}
       placeholder={props.name}
-      data-objectName={props.objectName}
-      
-      />
+      data-objectName={props.objectName}/>
     </div>
   );
 }

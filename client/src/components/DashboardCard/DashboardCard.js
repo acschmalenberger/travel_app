@@ -4,12 +4,18 @@ import "./style.css";
 import CardChart from "./cardChat";
 
 function DashboardCard (props) {
-console.log(props.name.name)
+//console.log(props.name.name)
 
 if(props.name) return (
     <div className="card-deck">
         <div className="card">
-            <CardChart />
+            <CardChart 
+            value={props.value.Budget} 
+            info={props.info}
+            handleInputChange={props.handleInputChange}
+            name={"Budget"}
+            objectName={props.objectName}
+            />
             {/* <img src="..." className="card-img-top" alt="..." /> */}
         <div className="card-body">
             <h5 className="card-title">Card title</h5>
