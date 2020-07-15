@@ -32,11 +32,15 @@ class App extends Component {
     return (
       <BrowserRouter>
         <MuiThemeProvider theme={theme}>
-          <Routes />
+          <Routes>
+            <Nav />
+            <CardPlanning />
+          </Routes>
         </MuiThemeProvider>
       </BrowserRouter>
     );
   }
 }
+
 
 export default App;
