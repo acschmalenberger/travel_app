@@ -1,11 +1,10 @@
-import React, { useEffect, useState, useDebugValue } from "react";
+import React, { useEffect, useState } from "react";
 import { Doughnut } from 'react-chartjs-2';
 
 function CardChartMB (props) {
 
     const [chartData, setChartData] = useState({})
     const [data, setDataObj] = useState([0,0,0,0,0])
-        console.log(props.value.overallBudget)
     
     useEffect(()=>{
         const oAbudget = parseInt(props.value.overallBudget);
