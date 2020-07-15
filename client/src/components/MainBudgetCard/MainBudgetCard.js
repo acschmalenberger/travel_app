@@ -11,9 +11,9 @@ return(
             <CardChartMB 
             value={props.value}
             valueTransporation={props.valueTransporation}
-            valueRefreshment={props.refreshObject}
-            valueActivities={props.activitesObject}
-            valueLodging={props.lodgingObject} 
+            valueRefreshment={props.valueRefreshment}
+            valueActivities={props.valueActivities}
+            valueLodging={props.valueLodging} 
             info={props.info}
             handleInputChange={props.handleInputChange}
             name={props.name}
