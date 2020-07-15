@@ -30,7 +30,7 @@ export default function CardIndv() {
             <GridContainer>
                 <GridItem xs={12} sm={6} md={3}>
                     <Card>
-                        <CardHeader color="warning" stats icon>
+                        <CardHeader>
                         <CardIcon color="warning">
                             <HotelIcon />
                             {/* //will need to render card icons accringly */}

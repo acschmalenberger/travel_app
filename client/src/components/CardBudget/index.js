@@ -7,11 +7,11 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 import GridItem from "../Grid2/GridItem.js";
 import GridContainer from "../Grid2/GridContainer.js";
-import Button from "../Button/Button.js";
+// import Button from "../Button/Button.js";
 import Card from "../Card/Card.js";
 import CardHeader from "../Card/CardHeader.js";
 import CardBody from "../Card/CardBody.js";
-import CardFooter from "../Card/CardFooter.js";
+// import CardFooter from "../Card/CardFooter.js";
 import CardIcon from "../Card/CardIcon.js";
 
 import CardChart from "../DashboardCard/cardChat.js";
@@ -27,11 +27,11 @@ export default function CardBudget() {
             <GridContainer>
                 <GridItem xs={12} sm={6} md={3}>
                     <Card chart>
-                        <CardHeader color="warning">
+                        <CardHeader  color="warning">
                             <CardIcon color="warning">
                                 <AttachMoneyIcon />
                             </CardIcon>
-                            <h2>Budget</h2>
+                            <h2 className={classes.cardTitle} >Budget</h2>
                         </CardHeader>
                         <CardBody>
                             <CardChart />
