@@ -11,7 +11,6 @@ import GridContainer from "../../components/Grid2/GridContainer.js";
 import GridItem from "../../components/Grid2/GridItem.js";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
-// import MainBudgetCard from "../../components/MainBudgetCard";
 import { set } from "mongoose";
 // import { ListItem } from "../../components/List";
 // import { Input, TextArea, FormBtn } from "../../components/Form";
@@ -19,10 +18,11 @@ import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
 import RestaurantIcon from '@material-ui/icons/Restaurant';
 import HotelIcon from '@material-ui/icons/Hotel';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
+import MainBudgetCard from "../../components/MainBudgetCard";
 
-function Dashboard () {
+function Dashboard() {
 
-    const [cards, setCards] = useState([])
+    const [cards, setCards] = useState({})
 
     const [budgetObject, setBudgetObject] = useState({
       Name: "Value",
@@ -63,23 +63,23 @@ function Dashboard () {
       Notes: ""
         })
 
-    useEffect(() => {
-        loadCards()
-      }, [])
+  useEffect(() => {
+    loadCards()
+  }, [])
 
-      function loadCards() {
-        API.getCardInfo()
-          .then(res => 
-            setCards(res.data)    
-          )
-          .catch(err => console.log(err));
-      };
+  function loadCards() {
+    API.getCards()
+      .then(res =>
+        setCards(res.data)
+      )
+      .catch(err => console.log(err));
+  };
 
-      function deleteCard(id) {
-        API.deleteCard(id)
-          .then(res => loadCards())
-          .catch(err => console.log(err));
-      }
+  function deleteCard(id) {
+    API.deleteCard(id)
+      .then(res => loadCards())
+      .catch(err => console.log(err));
+  }
 
       function handleChange(e) {
         const { name, value } = e.target;
@@ -102,24 +102,20 @@ function Dashboard () {
 
       function handleFormSubmit(event) {
         event.preventDefault();
-        let cardObject= event.target.getAttribute("data-objectname")
-        //console.log(cardObject)
-        // if (cardObject) {
-        //   API.saveCard({
-        //     label: cardObject.label,
-        //     otherText: cardObject.otherText,
-        //     cost: cardObject.cost,
-        //     notes: cardObject.notes
-        //   })
-        //     .then(() => setCardObject({
-        //       label: "",
-        //       otherText: "",
-        //       cost: 0,
-        //       notes: ""
-        //     }))
-        //     .then(() => loadCards())
-        //     .catch(err => console.log(err));
-        // }
+        let cardSubmitObj= event.target.getAttribute("data-objectname")
+        console.log(cards, cardSubmitObj)
+        if (cardSubmitObj) {
+          API.saveCard(cards)
+            // .then(() => setCards({
+            //   Budget: "",
+            //   Date: "",
+            //   Address: "",
+            //   Time: "",
+            //   Notes: ""
+            // }))
+            // .then(() => loadCards())
+            .catch(err => console.log(err));
+        }
       };
 
   return (
@@ -141,6 +137,56 @@ function Dashboard () {
             />
         </ GridItem>      
       </GridContainer>
+
+    {/* <Container fluid>
+        <Row>
+        <Col size="md-4">
+            <Jumbotron>
+              <h1>Value</h1>
+            </Jumbotron>
+              <MainBudgetCard 
+              name={budgetObject}
+              handleInputChange={handleChange}
+              objectName={"budgetObject"}
+              value={budgetObject}
+              valueTransporation={transportObject}
+              valueRefreshment={refreshObject}
+              valueActivities={activitesObject}
+              valueLodging={lodgingObject}
+              info={setBudgetObject}
+              handleFormSubmit={handleFormSubmit} 
+              />    
+            </Col>
+            
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Travel</h1>
+            </Jumbotron>
+              <DashboardCard 
+              name={transportObject}
+              handleInputChange={handleChange}
+              value={transportObject}
+              overallBudget={budgetObject}
+              objectName={"transportObject"}
+              info={setTransportObject}
+              handleFormSubmit={handleFormSubmit} 
+              />
+            </Col>
+
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Refreshment</h1>
+            </Jumbotron>
+              <DashboardCard 
+              name={refreshObject}
+              handleInputChange={handleChange}
+              value={refreshObject}
+              overallBudget={budgetObject}
+              objectName={"refreshObject"}
+              info={setTransportObject}
+              handleFormSubmit={handleFormSubmit} 
+              />
+            </Col> */}
 
       <GridContainer>
         <GetStarted />

@@ -22,6 +22,9 @@ return(
         <div className="card-body">
             <p className="card-text">This is the main budget card</p>
         </div>
+        <form data-objectname= {props.objectName}
+        onSubmit={props.handleFormSubmit}
+        >
         <Input 
         value={props.value.overallBudget} 
         info={props.info}
@@ -44,9 +47,9 @@ return(
         objectName={props.objectName}
         />
         <FormBtn type={"submit"}> 
-         Submit
+            Submit
         </FormBtn>
-
+        </form>
         <div className="card-footer">
             <small className="text-muted">Card Footer/Last updated 3 mins ago</small>
         </div>
