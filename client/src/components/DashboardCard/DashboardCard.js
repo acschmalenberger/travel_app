@@ -15,7 +15,6 @@ if(props.name) return (
             handleInputChange={props.handleInputChange}
             name={"Budget"}
             objectName={props.objectName}
-            overallBudget={props.overallBudget}
             />
             {/* <img src="..." className="card-img-top" alt="..." /> */}
         <div className="card-body">
