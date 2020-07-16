@@ -60,6 +60,7 @@ export default function CardPlanningTabs(props) {
                     key={key}
                     label={prop.tabName}
                     {...icon}
+
                 />
                 );
             })}

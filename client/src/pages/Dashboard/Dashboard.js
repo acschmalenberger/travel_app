@@ -5,7 +5,7 @@ import DeleteBtn from "../../components/DeleteBtn";
 import DashboardCard from "../../components/DashboardCard"
 import DashboardCardBody from "../../components/DashboardCard/DashboardCard.js"
 import CardBudget from "../../components/CardBudget"
-import CardPlanningDeck from "../../components/CardPlanningDeck"
+
 import CardPlanningForm from "../../components/CardPlanningForm"
 import GridContainer from "../../components/Grid2/GridContainer.js";
 import GridItem from "../../components/Grid2/GridItem.js";
@@ -144,7 +144,6 @@ return (
     <GridContainer>
       <GridItem xs={12} sm={12} md={6}>
           <CardPlanningTabs
-            title="Plans:"
             headerColor="primary"
             tabs={[
               {
@@ -153,6 +152,13 @@ return (
                 tabContent: (
                   <CardPlanningForm
                     id = "transportation"
+                    name={transportObject}
+                    handleInputChange={handleChange}
+                    value={transportObject}
+                    overallBudget={budgetObject}
+                    objectName={"transportObject"}
+                    info={setTransportObject}
+                    handleFormSubmit={handleFormSubmit} 
                   />
                 )
               },
@@ -162,6 +168,13 @@ return (
                 tabContent: (
                   <CardPlanningForm
                     id = "lodging"
+                    name={lodgingObject}
+                    handleInputChange={handleChange}
+                    value={lodgingObject}
+                    overallBudget={budgetObject}
+                    objectName={"lodgingObject"}
+                    info={setLodgingObject}
+                    handleFormSubmit={handleFormSubmit} 
                   />
                 )
               },
@@ -170,7 +183,14 @@ return (
                 tabIcon: RestaurantIcon,
                 tabContent: (
                   <CardPlanningForm
-                    id = "refreshment"
+                    id = {"refreshment"}
+                    name={refreshObject}
+                    handleInputChange={handleChange}
+                    value={refreshObject}
+                    overallBudget={budgetObject}
+                    objectName={"refreshObject"}
+                    info={setRefreshObject}
+                    handleFormSubmit={handleFormSubmit} 
                   />
                 )
               },
@@ -180,20 +200,18 @@ return (
                 tabContent: (
                   <CardPlanningForm
                   id = "activities"
+                  name={activitesObject}
+                handleInputChange={handleChange}
+                value={activitesObject}
+                overallBudget={budgetObject}
+                objectName={"activitesObject"}
+                info={setActivitiesObject}
+                handleFormSubmit={handleFormSubmit} 
                 />
                 )
               }
             ]}
-          />
-        {/* <CardPlanningDeck
-                name={transportObject}
-                handleInputChange={handleChange}
-                value={transportObject}
-                overallBudget={budgetObject}
-                objectName={"transportObject"}
-                info={setTransportObject}
-                handleFormSubmit={handleFormSubmit} 
-        /> */}
+            />
         </GridItem>
     </GridContainer>
 

@@ -39,35 +39,18 @@ export default function CustomInput(props) {
         [classes.marginTop]: labelText === undefined
     });
     return (
-        <FormControl
-        {...formControlProps}
-        className={formControlProps.className + " " + classes.formControl}
-        >
-        {labelText !== undefined ? (
-            <InputLabel
-            className={classes.labelRoot + labelClasses}
-            htmlFor={id}
-            {...labelProps}
-            >
-            {labelText}
-            </InputLabel>
-        ) : null}
-        <Input
-            classes={{
-            root: marginTop,
-            disabled: classes.disabled,
-            underline: underlineClasses
-            }}
-            id={id}
-            {...inputProps}
-        />
-        {error ? (
-            <Clear className={classes.feedback + " " + classes.labelRootError} />
-        ) : success ? (
-            <Check className={classes.feedback + " " + classes.labelRootSuccess} />
-        ) : null}
-        </FormControl>
+        <div className="form-group">
+            <input className="form-control" 
+            name={props.name}
+            value={props.value}
+            onChange={props.handleInputChange}
+            placeholder={props.name}
+            data-objectname={props.objectName}
+    
+            />
+        </div>
     );
+
 }
 
 CustomInput.propTypes = {
