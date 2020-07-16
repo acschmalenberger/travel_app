@@ -35,14 +35,23 @@ const Menu = withRouter(({ history }) => (
             )}
             {auth.isAuthenticated() && (
                 <span>
-                    <Link to={'/user/' + auth.isAuthenticated().user._id}>
-                        <Button
+                    <Link to={'/Dashboard'}>
+                        <Button Button
                             style={isActive(
                                 history,
                                 '/user/' + auth.isAuthenticated().user._id
                             )}
                         >
-                            My Profile
+                            My Dashbaord
+						</Button>
+                    </Link>
+                    <Link to={'/UserInput'}>
+                        <Button Button
+                            style={isActive(
+                                history,
+                                '/user/' + auth.isAuthenticated().user._id
+                            )}
+                        >Plan My Trip
 						</Button>
                     </Link>
                     <Button
@@ -54,9 +63,10 @@ const Menu = withRouter(({ history }) => (
                         Sign out
 					</Button>
                 </span>
+
             )}
         </Toolbar>
-    </AppBar>
+    </AppBar >
 ));
 
 export default Menu;

@@ -39,36 +39,35 @@ const theme = createMuiTheme({
   }
 });
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <BrowserRouter>
-//         <MuiThemeProvider theme={theme}>
-//           <Routes>
-//             <Nav />
-//             <CardPlanning />
-//           </Routes>
-//         </MuiThemeProvider>
-//       </BrowserRouter>
-//     );
-//   }
-
-
-
-function App() {
-  return (
-    <div>
-      <Nav />
-      <CardSignin />
-      <CardPlanning />
-      <CardBudget />
-      <CardItinerary />
-      <CardIndv />
-
-
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <MuiThemeProvider theme={theme}>
+          <Routes />
+        </MuiThemeProvider>
+      </BrowserRouter>
+    );
+  }
 }
+
+
+
+
+//function App() {
+//   return (
+//     <div>
+//       <Nav />
+//       <CardSignin />
+//       <CardPlanning />
+//       <CardBudget />
+//       <CardItinerary />
+//       <CardIndv />
+
+
+//     </div>
+//   );
+// }
 
 
 export default App;
