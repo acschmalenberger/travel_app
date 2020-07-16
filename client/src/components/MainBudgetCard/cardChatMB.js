@@ -3,7 +3,7 @@ import { Doughnut } from 'react-chartjs-2';
 
 function CardChartMB (props) {
 
-    const [chartData, setChartData] = useState({})
+    //const [chartData, setChartData] = useState({})
     const [data, setDataObj] = useState([0,0,0,0,0])
     
     useEffect(()=>{

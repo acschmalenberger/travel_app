@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Container } from "../../components/Grid";
-import DeleteBtn from "../../components/DeleteBtn";
+//import DeleteBtn from "../../components/DeleteBtn";
 import DashboardCard from "../../components/DashboardCard"
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import MainBudgetCard from "../../components/MainBudgetCard";
-import { set } from "mongoose";
-// import { ListItem } from "../../components/List";
-// import { Input, TextArea, FormBtn } from "../../components/Form";
 
 function Dashboard () {
 
@@ -92,7 +89,7 @@ function Dashboard () {
       function handleFormSubmit(event) {
         event.preventDefault();
         let cardSubmitObj= event.target.getAttribute("data-objectname")
-        console.log(cardSubmitObj, "Click")
+        console.log(cardSubmitObj)
         if (cardSubmitObj) {
           API.saveCard({
             Budget: cardSubmitObj.Budget,
@@ -108,7 +105,7 @@ function Dashboard () {
               Time: "",
               Notes: ""
             }))
-            .then(() => loadCards())
+            //.then(() => loadCards())
             .catch(err => console.log(err));
         }
       };

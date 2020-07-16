@@ -60,8 +60,8 @@ if(props.name) return (
         objectName={props.objectName}
         />
         <FormBtn type={"submit"}> 
-        Submit
-            </FormBtn>
+            Submit
+        </FormBtn>
         </form>
         <div className="card-footer">
             <small className="text-muted">Card Footer/Last updated 3 mins ago</small>
