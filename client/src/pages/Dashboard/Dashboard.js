@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Container } from "../../components/Grid";
-import DeleteBtn from "../../components/DeleteBtn";
+//import DeleteBtn from "../../components/DeleteBtn";
 import DashboardCard from "../../components/DashboardCard"
 import DashboardCardBody from "../../components/DashboardCard/DashboardCard.js"
 import Jumbotron from "../../components/Jumbotron";
@@ -9,13 +9,46 @@ import MainBudgetCard from "../../components/MainBudgetCard";
 
 function Dashboard() {
 
-  const [cards, setCards] = useState([])
-  const [cardObject, setCardObject] = useState({
-    label: "",
-    otherText: "",
-    cost: 0,
-    notes: ""
-  })
+    const [cards, setCards] = useState({})
+
+    const [budgetObject, setBudgetObject] = useState({
+      Name: "Value",
+      overallBudget: "",
+      spentBudget: "",
+      destintion: ""
+    })
+    const [transportObject, setTransportObject] = useState({
+      Name: "Transportation",
+      Budget: "",
+      Date: "",
+      Address: "",
+      Time: "",
+      Notes: ""
+    })
+    const [refreshObject, setRefreshObject] = useState({
+      Name: "Refreshment",
+      Budget: "",
+      Date: "",
+      Address: "",
+      Time: "",
+      Notes: ""
+    })
+    const [activitesObject, setActivitiesObject] = useState({
+      Name: "Activites",
+      Budget: "",
+      Date: "",
+      Address: "",
+      Time: "",
+      Notes: ""
+    })
+    const [lodgingObject, setLodgingObject] = useState({
+      Name: "Lodging",
+      Budget: "",
+      Dates: "",
+      Address: "",
+      Time: "",
+      Notes: ""
+        })
 
   useEffect(() => {
     loadCards()
@@ -35,79 +68,126 @@ function Dashboard() {
       .catch(err => console.log(err));
   }
 
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setCardObject({ ...cardObject, [name]: value })
-  };
+      function handleChange(e) {
+        const { name, value } = e.target;
+        const objectName = e.target.getAttribute("data-objectname");
+          switch (objectName) {
+            case "transportObject":
+              return setTransportObject({...transportObject, [name]: value})
+            case "budgetObject":
+              return setBudgetObject({...budgetObject, [name]: value})
+            case "refreshObject":
+              return setRefreshObject({...refreshObject, [name]: value})
+            case "activitesObject":
+              return setActivitiesObject({...activitesObject, [name]: value})
+            case "lodgingObject":
+              return setLodgingObject({...lodgingObject, [name]: value})
+              default: return console.log(objectName);
+          };
 
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (cardObject.title && cardObject.otherText) {
-      API.saveBook({
-        label: cardObject.label,
-        otherText: cardObject.otherText,
-        cost: cardObject.cost,
-        notes: cardObject.notes
-      })
-        .then(() => setCardObject({
-          label: "",
-          otherText: "",
-          cost: 0,
-          notes: ""
-        }))
-        .then(() => loadCards())
-        .catch(err => console.log(err));
-    }
-  };
+            };
+
+      function handleFormSubmit(event) {
+        event.preventDefault();
+        let cardSubmitObj= event.target.getAttribute("data-objectname")
+        console.log(cards, cardSubmitObj)
+        if (cardSubmitObj) {
+          API.saveCard(cards)
+            // .then(() => setCards({
+            //   Budget: "",
+            //   Date: "",
+            //   Address: "",
+            //   Time: "",
+            //   Notes: ""
+            // }))
+            // .then(() => loadCards())
+            .catch(err => console.log(err));
+        }
+      };
 
   return (
 
     <Container fluid>
-      <Row>
+        <Row>
         <Col size="md-4">
-          <Jumbotron>
-            <h1>Travel</h1>
-          </Jumbotron>
-          <DashboardCardBody />
-          <DeleteBtn />
-        </Col>
-        <Col size="md-4">
-          <Jumbotron>
-            <h1>Lodging</h1>
-          </Jumbotron>
-          <DashboardCard />
-          <DeleteBtn />
-        </Col>
-        <Col size="md-4">
-          <Jumbotron>
-            <h1>Attractions</h1>
-          </Jumbotron>
-          <DashboardCard />
-          <DeleteBtn />
-        </Col>
-        <Col size="md-4">
-          <Jumbotron>
-            <h1>Dining</h1>
-          </Jumbotron>
-          <DashboardCard />
-          <DeleteBtn />
-        </Col>
-        <Col size="md-4">
-          <Jumbotron>
-            <h1>Other Item</h1>
-          </Jumbotron>
-          <DashboardCard />
-          <DeleteBtn />
-        </Col>
-        <Col size="md-4">
-          <Jumbotron>
-            <h1>Main Budget</h1>
-          </Jumbotron>
-          <MainBudgetCard />
-          <DeleteBtn />
-        </Col>
+            <Jumbotron>
+              <h1>Value</h1>
+            </Jumbotron>
+              <MainBudgetCard 
+              name={budgetObject}
+              handleInputChange={handleChange}
+              objectName={"budgetObject"}
+              value={budgetObject}
+              valueTransporation={transportObject}
+              valueRefreshment={refreshObject}
+              valueActivities={activitesObject}
+              valueLodging={lodgingObject}
+              info={setBudgetObject}
+              handleFormSubmit={handleFormSubmit} 
+              />    
+            </Col>
+            
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Travel</h1>
+            </Jumbotron>
+              <DashboardCard 
+              name={transportObject}
+              handleInputChange={handleChange}
+              value={transportObject}
+              overallBudget={budgetObject}
+              objectName={"transportObject"}
+              info={setTransportObject}
+              handleFormSubmit={handleFormSubmit} 
+              />
+            </Col>
 
-      </Row>
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Refreshment</h1>
+            </Jumbotron>
+              <DashboardCard 
+              name={refreshObject}
+              handleInputChange={handleChange}
+              value={refreshObject}
+              overallBudget={budgetObject}
+              objectName={"refreshObject"}
+              info={setTransportObject}
+              handleFormSubmit={handleFormSubmit} 
+              />
+            </Col>
+
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Activities</h1>
+            </Jumbotron>
+              <DashboardCard 
+              name={activitesObject}
+              handleInputChange={handleChange}
+              value={activitesObject}
+              overallBudget={budgetObject}
+              objectName={"activitesObject"}
+              info={setTransportObject}
+              handleFormSubmit={handleFormSubmit} 
+              />
+            </Col>
+
+            <Col size="md-4">
+            <Jumbotron>
+              <h1>Lodging</h1>
+            </Jumbotron>
+              <DashboardCard 
+              name={lodgingObject}
+              handleInputChange={handleChange}
+              value={lodgingObject}
+              overallBudget={budgetObject}
+              objectName={"lodgingObject"}
+              info={setTransportObject}
+              handleFormSubmit={handleFormSubmit} 
+              />
+            </Col>
+            
+        </Row>
     </Container>
 
   );

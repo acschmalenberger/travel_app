@@ -4,18 +4,6 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import red from '@material-ui/core/colors/red';
 import { BrowserRouter } from 'react-router-dom';
-import Nav from "./components/Nav";
-import CardPlanning from "./components/CardPlanning";
-import CardIndv from "./components/CardIndv";
-import CardBudget from "./components/CardBudget";
-import CardItinerary from "./components/CardItinerary";
-import CardSignin from "./components/CardSignIn"
-
-
-
-
-
-
 
 import Routes from './Routes';
 
