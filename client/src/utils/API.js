@@ -17,12 +17,6 @@ export default {
   // Saves a card to the database
   saveCard: function(cardData) {
     console.log(cardData)
-    return fetch("http://localhost:3001/api/cards")
-                .then(res => res.json(cardData));
-                .then(data => console.log(data));
+    return axios.post("/api/cards", cardData);
   }
 };
-
-//fetch('http://example.com/movies.json')
-// .then(response => response.json())
-// .then(data => console.log(data));
