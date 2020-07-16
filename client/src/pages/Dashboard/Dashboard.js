@@ -8,7 +8,7 @@ import MainBudgetCard from "../../components/MainBudgetCard";
 
 function Dashboard () {
 
-    const [cards, setCards] = useState([])
+    const [cards, setCards] = useState({})
 
     const [budgetObject, setBudgetObject] = useState({
       Name: "Value",
@@ -89,23 +89,17 @@ function Dashboard () {
       function handleFormSubmit(event) {
         event.preventDefault();
         let cardSubmitObj= event.target.getAttribute("data-objectname")
-        console.log(cardSubmitObj)
+        console.log(cards, cardSubmitObj)
         if (cardSubmitObj) {
-          API.saveCard({
-            Budget: cardSubmitObj.Budget,
-            Date: cardSubmitObj.Date,
-            Address: cardSubmitObj.Address,
-            Time: cardSubmitObj.Time,
-            notes: cardSubmitObj.notes
-          })
-            .then(() => handleChange({
-              Budget: "",
-              Date: "",
-              Address: "",
-              Time: "",
-              Notes: ""
-            }))
-            //.then(() => loadCards())
+          API.saveCard(cards)
+            // .then(() => setCards({
+            //   Budget: "",
+            //   Date: "",
+            //   Address: "",
+            //   Time: "",
+            //   Notes: ""
+            // }))
+            // .then(() => loadCards())
             .catch(err => console.log(err));
         }
       };
