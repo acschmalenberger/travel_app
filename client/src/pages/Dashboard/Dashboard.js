@@ -92,15 +92,15 @@ function Dashboard() {
         let cardSubmitObj= event.target.getAttribute("data-objectname")
         console.log(cards, cardSubmitObj)
         if (cardSubmitObj) {
-          API.saveCard(cards)
-            // .then(() => setCards({
-            //   Budget: "",
-            //   Date: "",
-            //   Address: "",
-            //   Time: "",
-            //   Notes: ""
-            // }))
-            // .then(() => loadCards())
+          API.saveCard(transportObject)
+            .then(() => setCards({
+              Budget: "",
+              Date: "",
+              Address: "",
+              Time: "",
+              Notes: ""
+            }))
+            .then(() => loadCards())
             .catch(err => console.log(err));
         }
       };
