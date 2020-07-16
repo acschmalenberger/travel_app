@@ -5,7 +5,7 @@ import DeleteBtn from "../../components/DeleteBtn";
 import DashboardCard from "../../components/DashboardCard"
 import DashboardCardBody from "../../components/DashboardCard/DashboardCard.js"
 import CardBudget from "../../components/CardBudget"
-
+import GetStarted from "../../components/GetStartedCard"
 import CardPlanningForm from "../../components/CardPlanningForm"
 import GridContainer from "../../components/Grid2/GridContainer.js";
 import GridItem from "../../components/Grid2/GridItem.js";
@@ -122,184 +122,106 @@ function Dashboard () {
         // }
       };
 
-return (
-  <div>
+  return (
+    <div>
 
-    <GridContainer>
-        <CardBudget
-          name={budgetObject}
-          handleInputChange={handleChange}
-          objectName={"budgetObject"}
-          value={budgetObject}
-          valueTransporation={transportObject}
-          valueRefreshment={refreshObject}
-          valueActivities={activitesObject}
-          valueLodging={lodgingObject}
-          info={setBudgetObject}
-          handleFormSubmit={handleFormSubmit} 
-          />
-      
-    </GridContainer>
-
-    <GridContainer>
-      <GridItem xs={12} sm={12} md={6}>
-          <CardPlanningTabs
-            headerColor="primary"
-            tabs={[
-              {
-                tabName: "Transportation",
-                tabIcon: AirplanemodeActiveIcon,
-                tabContent: (
-                  <CardPlanningForm
-                    id = "transportation"
-                    name={transportObject}
-                    handleInputChange={handleChange}
-                    value={transportObject}
-                    overallBudget={budgetObject}
-                    objectName={"transportObject"}
-                    info={setTransportObject}
-                    handleFormSubmit={handleFormSubmit} 
-                  />
-                )
-              },
-              {
-                tabName: "Lodging",
-                tabIcon: HotelIcon,
-                tabContent: (
-                  <CardPlanningForm
-                    id = "lodging"
-                    name={lodgingObject}
-                    handleInputChange={handleChange}
-                    value={lodgingObject}
-                    overallBudget={budgetObject}
-                    objectName={"lodgingObject"}
-                    info={setLodgingObject}
-                    handleFormSubmit={handleFormSubmit} 
-                  />
-                )
-              },
-              {
-                tabName: "Food & Drink",
-                tabIcon: RestaurantIcon,
-                tabContent: (
-                  <CardPlanningForm
-                    id = {"refreshment"}
-                    name={refreshObject}
-                    handleInputChange={handleChange}
-                    value={refreshObject}
-                    overallBudget={budgetObject}
-                    objectName={"refreshObject"}
-                    info={setRefreshObject}
-                    handleFormSubmit={handleFormSubmit} 
-                  />
-                )
-              },
-              {
-                tabName: "Activities",
-                tabIcon: PhotoCameraIcon ,
-                tabContent: (
-                  <CardPlanningForm
-                  id = "activities"
-                  name={activitesObject}
-                handleInputChange={handleChange}
-                value={activitesObject}
-                overallBudget={budgetObject}
-                objectName={"activitesObject"}
-                info={setActivitiesObject}
-                handleFormSubmit={handleFormSubmit} 
-                />
-                )
-              }
-            ]}
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={9}>
+          <CardBudget
+            name={budgetObject}
+            handleInputChange={handleChange}
+            objectName={"budgetObject"}
+            value={budgetObject}
+            valueTransporation={transportObject}
+            valueRefreshment={refreshObject}
+            valueActivities={activitesObject}
+            valueLodging={lodgingObject}
+            info={setBudgetObject}
+            handleFormSubmit={handleFormSubmit} 
             />
-        </GridItem>
-    </GridContainer>
+        </ GridItem>      
+      </GridContainer>
 
-  </div>
+      <GridContainer>
+        <GetStarted />
+      </GridContainer>
+
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={9}>
+            <CardPlanningTabs
+              headerColor="primary"
+              tabs={[
+                {
+                  tabName: "Transportation",
+                  tabIcon: AirplanemodeActiveIcon,
+                  tabContent: (
+                    <CardPlanningForm
+                      id = "transportation"
+                      name={transportObject}
+                      handleInputChange={handleChange}
+                      value={transportObject}
+                      overallBudget={budgetObject}
+                      objectName={"transportObject"}
+                      info={setTransportObject}
+                      handleFormSubmit={handleFormSubmit} 
+                    />
+                  )
+                },
+                {
+                  tabName: "Lodging",
+                  tabIcon: HotelIcon,
+                  tabContent: (
+                    <CardPlanningForm
+                      id = "lodging"
+                      name={lodgingObject}
+                      handleInputChange={handleChange}
+                      value={lodgingObject}
+                      overallBudget={budgetObject}
+                      objectName={"lodgingObject"}
+                      info={setLodgingObject}
+                      handleFormSubmit={handleFormSubmit} 
+                    />
+                  )
+                },
+                {
+                  tabName: "Food & Drink",
+                  tabIcon: RestaurantIcon,
+                  tabContent: (
+                    <CardPlanningForm
+                      id = {"refreshment"}
+                      name={refreshObject}
+                      handleInputChange={handleChange}
+                      value={refreshObject}
+                      overallBudget={budgetObject}
+                      objectName={"refreshObject"}
+                      info={setRefreshObject}
+                      handleFormSubmit={handleFormSubmit} 
+                    />
+                  )
+                },
+                {
+                  tabName: "Activities",
+                  tabIcon: PhotoCameraIcon ,
+                  tabContent: (
+                    <CardPlanningForm
+                    id = "activities"
+                    name={activitesObject}
+                  handleInputChange={handleChange}
+                  value={activitesObject}
+                  overallBudget={budgetObject}
+                  objectName={"activitesObject"}
+                  info={setActivitiesObject}
+                  handleFormSubmit={handleFormSubmit} 
+                  />
+                  )
+                }
+              ]}
+              />
+          </GridItem>
+      </GridContainer>
+
+    </div>
   
-  /* <Container fluid>
-        <Row>
-        <Col size="md-4">
-            <Jumbotron>
-              <h1>Value</h1>
-            </Jumbotron>
-              <CardBudget
-              name={budgetObject}
-              handleInputChange={handleChange}
-              objectName={"budgetObject"}
-              value={budgetObject}
-              valueTransporation={transportObject}
-              valueRefreshment={refreshObject}
-              valueActivities={activitesObject}
-              valueLodging={lodgingObject}
-              info={setBudgetObject}
-              handleFormSubmit={handleFormSubmit} 
-              />    
-            </Col>
-            
-            <Col size="md-4">
-            <Jumbotron>
-              <h1>Travel</h1>
-            </Jumbotron>
-              <DashboardCard 
-              name={transportObject}
-              handleInputChange={handleChange}
-              value={transportObject}
-              overallBudget={budgetObject}
-              objectName={"transportObject"}
-              info={setTransportObject}
-              handleFormSubmit={handleFormSubmit} 
-              />
-            </Col>
-
-            <Col size="md-4">
-            <Jumbotron>
-              <h1>Refreshment</h1>
-            </Jumbotron>
-              <DashboardCard 
-              name={refreshObject}
-              handleInputChange={handleChange}
-              value={refreshObject}
-              overallBudget={budgetObject}
-              objectName={"refreshObject"}
-              info={setTransportObject}
-              handleFormSubmit={handleFormSubmit} 
-              />
-            </Col>
-
-            <Col size="md-4">
-            <Jumbotron>
-              <h1>Activities</h1>
-            </Jumbotron>
-              <DashboardCard 
-              name={activitesObject}
-              handleInputChange={handleChange}
-              value={activitesObject}
-              overallBudget={budgetObject}
-              objectName={"activitesObject"}
-              info={setTransportObject}
-              handleFormSubmit={handleFormSubmit} 
-              />
-            </Col>
-
-            <Col size="md-4">
-            <Jumbotron>
-              <h1>Lodging</h1>
-            </Jumbotron>
-              <DashboardCard 
-              name={lodgingObject}
-              handleInputChange={handleChange}
-              value={lodgingObject}
-              overallBudget={budgetObject}
-              objectName={"lodgingObject"}
-              info={setTransportObject}
-              handleFormSubmit={handleFormSubmit} 
-              />
-            </Col>
-            
-        </Row>
-    </Container> */
-
-    );
+  );
 }
 export default Dashboard;

@@ -1,11 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
-import classnames from "classnames";
+// import PropTypes from "prop-types";
+// import classnames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import IconButton from "@material-ui/core/IconButton";
-import FormControl from "@material-ui/core/FormControl";
-import GridContainer from "../Grid2/GridContainer.js";
+// import IconButton from "@material-ui/core/IconButton";
+// import FormControl from "@material-ui/core/FormControl";
+// import GridContainer from "../Grid2/GridContainer.js";
 import GridItem from "../Grid2/GridItem.js";
 import CustomInput from "../CustomInput/index.js";
 import Tab from "@material-ui/core/Tab";
@@ -18,7 +18,7 @@ import CardPlanningFormStyles from "./style.js";
 const useStyles = makeStyles(CardPlanningFormStyles);
 
 export default function CardPlanningForm(props) {
-    const classes = useStyles();
+    // const classes = useStyles();
     // const [checked, setChecked] = React.useState([...props.checkedIndexes]);
     // const handleToggle = value => {
     //     const currentIndex = checked.indexOf(value);
@@ -100,7 +100,7 @@ export default function CardPlanningForm(props) {
                         }}
                         inputProps={{
                         multiline: true,
-                        rows: 4
+                        rows: 5
                         }}
                         />
                     </GridItem>
@@ -172,7 +172,7 @@ export default function CardPlanningForm(props) {
                         }}
                         inputProps={{
                         multiline: true,
-                        rows: 4
+                        rows: 5
                         }}
                         />
                     </GridItem>
@@ -244,7 +244,7 @@ export default function CardPlanningForm(props) {
                         }}
                         inputProps={{
                         multiline: true,
-                        rows: 4
+                        rows: 5
                         }}
                         />
                     </GridItem>
@@ -316,7 +316,7 @@ export default function CardPlanningForm(props) {
                         }}
                         inputProps={{
                         multiline: true,
-                        rows: 4
+                        rows: 5
                         }}
                         />
                     </GridItem>

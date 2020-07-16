@@ -14,7 +14,7 @@ import CardHeader from "../Card/CardHeader.js";
 import CardBody from "../Card/CardBody.js";
 import CardIcon from "../Card/CardIcon.js";
 import CardChartMB from "../MainBudgetCard/cardChatMB.js";
-import CustomInput from "../CustomInput"
+// import CustomInput from "../CustomInput"
 
 // import CardChart from "../DashboardCard/cardChat.js";
 
@@ -27,7 +27,7 @@ export default function CardBudget(props) {
     return (
         <div>
             <GridContainer>
-                <GridItem xs={12} sm={6} md={3}>
+                <GridItem>
                     <Card chart>
                         <CardHeader >
                             <CardIcon color="warning">

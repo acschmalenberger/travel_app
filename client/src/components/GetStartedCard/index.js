@@ -14,7 +14,7 @@ import styles from "./style.js";
 
 const useStyles = makeStyles(styles);
 
-export default function CardSignin() {
+export default function () {
     const classes = useStyles();
     return (
         <div>
@@ -26,7 +26,7 @@ export default function CardSignin() {
                         </CardHeader>
                         <CardBody>
                             <GridContainer>
-                            <GridItem xs={12} sm={12} md={3}>
+                            <GridItem xs={12} sm={12} md={9}>
                                 <p>What is your starting budget?</p>
                                 <CustomInput
                                     labelText="Starting Budget"
@@ -37,7 +37,7 @@ export default function CardSignin() {
                                     }}
                                 />
                             </GridItem>    
-                            <GridItem xs={12} sm={12} md={3}>
+                            <GridItem xs={12} sm={12} md={9}>
                             <p>Where would you like to go? </p>
                             <CustomInput
                                 labelText="Travel Destination"
@@ -48,8 +48,9 @@ export default function CardSignin() {
                                 }}
                             />
                             </GridItem> 
-                            <GridItem xs={12} sm={12} md={3}>
+                            <GridItem xs={12} sm={12} md={9}>
                             <p>When will you be traveling?</p>
+                            <p>From</p>
                             <CustomInput
                                 labelText="From"
                                 id="startTripDate"
@@ -57,7 +58,7 @@ export default function CardSignin() {
                                 formControlProps={{
                                 fullWidth: true
                                 }}
-                            />
+                            /><p>To</p>
                             <CustomInput
                                 labelText="To"
                                 id="endTripDate"
@@ -65,12 +66,12 @@ export default function CardSignin() {
                                 formControlProps={{
                                 fullWidth: true
                                 }}
-                            />
+                            /> 
                             </GridItem>                     
                         </GridContainer>
                         </CardBody>
                         <CardFooter stats>
-                            <Button>Sign In</Button>
+                            <Button>Start Planning!</Button>
                         </CardFooter>
                     </Card>
                 </GridItem>
