@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 //import DeleteBtn from "../../components/DeleteBtn";
 import DashboardCard from "../../components/DashboardCard"
+import DashboardCardBody from "../../components/DashboardCard/DashboardCard.js"
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import MainBudgetCard from "../../components/MainBudgetCard";
 
-function Dashboard () {
+function Dashboard() {
 
     const [cards, setCards] = useState({})
 
@@ -49,23 +50,23 @@ function Dashboard () {
       Notes: ""
         })
 
-    useEffect(() => {
-        loadCards()
-      }, [])
+  useEffect(() => {
+    loadCards()
+  }, [])
 
-      function loadCards() {
-        API.getCardInfo()
-          .then(res => 
-            setCards(res.data)    
-          )
-          .catch(err => console.log(err));
-      };
+  function loadCards() {
+    API.getCards()
+      .then(res =>
+        setCards(res.data)
+      )
+      .catch(err => console.log(err));
+  };
 
-      function deleteCard(id) {
-        API.deleteCard(id)
-          .then(res => loadCards())
-          .catch(err => console.log(err));
-      }
+  function deleteCard(id) {
+    API.deleteCard(id)
+      .then(res => loadCards())
+      .catch(err => console.log(err));
+  }
 
       function handleChange(e) {
         const { name, value } = e.target;
@@ -104,7 +105,7 @@ function Dashboard () {
         }
       };
 
-return (
+  return (
 
     <Container fluid>
         <Row>
@@ -189,6 +190,6 @@ return (
         </Row>
     </Container>
 
-    );
+  );
 }
 export default Dashboard;
