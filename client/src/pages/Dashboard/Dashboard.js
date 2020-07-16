@@ -91,24 +91,26 @@ function Dashboard () {
 
       function handleFormSubmit(event) {
         event.preventDefault();
-        let cardObject= event.target.getAttribute("data-objectname")
-        //console.log(cardObject)
-        // if (cardObject) {
-        //   API.saveCard({
-        //     label: cardObject.label,
-        //     otherText: cardObject.otherText,
-        //     cost: cardObject.cost,
-        //     notes: cardObject.notes
-        //   })
-        //     .then(() => setCardObject({
-        //       label: "",
-        //       otherText: "",
-        //       cost: 0,
-        //       notes: ""
-        //     }))
-        //     .then(() => loadCards())
-        //     .catch(err => console.log(err));
-        // }
+        let cardSubmitObj= event.target.getAttribute("data-objectname")
+        console.log(cardSubmitObj, "Click")
+        if (cardSubmitObj) {
+          API.saveCard({
+            Budget: cardSubmitObj.Budget,
+            Date: cardSubmitObj.Date,
+            Address: cardSubmitObj.Address,
+            Time: cardSubmitObj.Time,
+            notes: cardSubmitObj.notes
+          })
+            .then(() => handleChange({
+              Budget: "",
+              Date: "",
+              Address: "",
+              Time: "",
+              Notes: ""
+            }))
+            .then(() => loadCards())
+            .catch(err => console.log(err));
+        }
       };
 
 return (
