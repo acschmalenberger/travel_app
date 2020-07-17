@@ -10,7 +10,6 @@ function CardChart (props) {
             const oAbudget = parseInt(props.overallBudget.overallBudget);
             const expenses = parseInt(props.value);
             const diff = (oAbudget - expenses)
-            console.log(diff);
             setDataObj(
                         [oAbudget, expenses, diff]
                     )
@@ -18,7 +17,7 @@ function CardChart (props) {
             [
                 props.overallBudget.overallBudget,
                 props.value,
-                ((props.overallBudget.overallBudget - props.value))
+                //((props.overallBudget.overallBudget - props.value))
             ]
         )
 

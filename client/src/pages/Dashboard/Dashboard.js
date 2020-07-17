@@ -97,21 +97,25 @@ function Dashboard() {
             case "transportObject":
               return API.saveCard(transportObject)
               .then(() => setTransportObject({}))
+              .catch(err => console.log(err));
             case "budgetObject":
               return API.saveCard(budgetObject)
               .then(() => setBudgetObject({}))
+              .catch(err => console.log(err));
             case "refreshObject":
               return API.saveCard(refreshObject)
               .then(() => setRefreshObject({}))
+              .catch(err => console.log(err));
             case "activitesObject":
               return API.saveCard(activitesObject)
               .then(() => setActivitiesObject({}))
+              .catch(err => console.log(err));
             case "lodgingObject":
               return API.saveCard(lodgingObject)
               .then(() => setLodgingObject({}))
+              .catch(err => console.log(err));
               default: return console.log("Error");
           //   .then(() => loadCards())
-          //   .catch(err => console.log(err));
           }
         }
       };
