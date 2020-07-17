@@ -5,6 +5,7 @@ import GetStarted from "../components/GetStartedCard"
 import GridContainer from "../components/Grid2/GridContainer.js";
 import API from "../utils/API";
 import { set } from "mongoose";
+import { tripDetails, createTrip } from "../utils/controller/cardsController";
 // import { ListItem } from "../../components/List";
 // import { Input, TextArea, FormBtn } from "../../components/Form";
 
@@ -27,17 +28,17 @@ function StartPage() {
     }, [])
 
     function loadCards() {
-        API.getCards()
-        .then(res =>
-            setCards(res.data)
-        )
-        .catch(err => console.log(err));
+        // API.getCards()
+        // .then(res =>
+        //     setCards(res.data)
+        // )
+        // .catch(err => console.log(err));
     };
 
     function deleteCard(id) {
-        API.deleteCard(id)
-        .then(res => loadCards())
-        .catch(err => console.log(err));
+        // API.deleteCard(id)
+        // .then(res => loadCards())
+        // .catch(err => console.log(err));
     }
 
         function handleChange(e) {
@@ -49,6 +50,16 @@ function StartPage() {
                 };
 
                 };
+
+        function handleTrip(event) {
+            event.preventDefault();
+            let tripSubmitObj= event.target.getElementById("createTrip");
+            if(tripSubmitObj) {
+                API.createTrip(budgetObject, "budgetObject")
+                    .then(() => setBudgetObject({}))
+                    .catch(err => console.log(err));
+            }
+            }
 
         function handleFormSubmit(event) {
             event.preventDefault();
@@ -78,7 +89,8 @@ function StartPage() {
             objectName={"budgetObject"}
             value={budgetObject} 
             info={setBudgetObject}
-            handleFormSubmit={handleFormSubmit} 
+            handleFormSubmit={handleFormSubmit}
+            handleTrip={handleTrip}  
             />
         </GridContainer>
 

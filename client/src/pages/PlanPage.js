@@ -64,17 +64,17 @@ function Dashboard() {
     }, [])
 
     function loadCards() {
-        API.getCards()
-        .then(res =>
-            setCards(res.data)
-        )
-        .catch(err => console.log(err));
+        // API.getCards()
+        // .then(res =>
+        //     setCards(res.data)
+        // )
+        // .catch(err => console.log(err));
     };
 
     function deleteCard(id) {
-        API.deleteCard(id)
-        .then(res => loadCards())
-        .catch(err => console.log(err));
+        // API.deleteCard(id)
+        // .then(res => loadCards())
+        // .catch(err => console.log(err));
     }
 
     function handleChange(e) {
