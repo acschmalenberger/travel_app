@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 
 // core components
-import styles from "./style.js";
+import styles from "./CustomInputStyle.js";
 
 const useStyles = makeStyles(styles);
 

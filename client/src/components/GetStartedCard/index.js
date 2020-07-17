@@ -9,17 +9,17 @@ import Card from "../Card/Card.js";
 import CardHeader from "../Card/CardHeader.js";
 import CardBody from "../Card/CardBody.js";
 import CardFooter from "../Card/CardFooter.js";
-import CustomInput from "../CustomInput/index.js";
-import styles from "./style.js";
+import StartInput from "./StartInput.js";
+import GetStartedStyle from "./style.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles(GetStartedStyle);
 
-export default function () {
+export default function GetStarted (props) {
     const classes = useStyles();
     return (
         <div>
             <GridContainer>
-                <GridItem xs={12} sm={6} md={3}>
+                <GridItem xs={12} sm={12} md={12}>
                     <Card>
                         <CardHeader>
                         <h2 className={classes.cardTitle} >Welcome!</h2>
@@ -28,44 +28,34 @@ export default function () {
                             <GridContainer>
                             <GridItem xs={12} sm={12} md={9}>
                                 <p>What is your starting budget?</p>
-                                <CustomInput
-                                    labelText="Starting Budget"
-                                    id="startingbudget"
-                                    // need to hand props to id
-                                    formControlProps={{
-                                    fullWidth: true
-                                    }}
+                                <StartInput
+                                    labelText="Budget"
+                                    value={props.value.overallBudget} 
+                                    info={props.info}
+                                    handleInputChange={props.handleInputChange}
+                                    name={"overallBudget"}
+                                    objectName={props.objectName}
                                 />
                             </GridItem>    
-                            <GridItem xs={12} sm={12} md={9}>
+                            <GridItem xs={12} sm={12} md={12}>
                             <p>Where would you like to go? </p>
-                            <CustomInput
-                                labelText="Travel Destination"
-                                id="travelDestination"
-                                // need to hand props to id
-                                formControlProps={{
-                                fullWidth: true
-                                }}
+                            <StartInput
+                                labelText="destination"
+                                name={"Destination"}
                             />
                             </GridItem> 
-                            <GridItem xs={12} sm={12} md={9}>
+                            <GridItem xs={12} sm={12} md={12}>
                             <p>When will you be traveling?</p>
                             <p>From</p>
-                            <CustomInput
+                            <StartInput
                                 labelText="From"
                                 id="startTripDate"
-                                // need to hand props to id
-                                formControlProps={{
-                                fullWidth: true
-                                }}
+
                             /><p>To</p>
-                            <CustomInput
+                            <StartInput
                                 labelText="To"
                                 id="endTripDate"
-                                // need to hand props to id
-                                formControlProps={{
-                                fullWidth: true
-                                }}
+
                             /> 
                             </GridItem>                     
                         </GridContainer>

@@ -4,7 +4,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import Input from '@material-ui/core/Input'
+import BudgetInput from "./BudgetInput.js"
 
 import GridItem from "../Grid2/GridItem.js";
 import GridContainer from "../Grid2/GridContainer.js";
@@ -50,21 +50,21 @@ export default function CardBudget(props) {
                         <div >
                             <p>This is the main budget card</p>
                         </div>
-                        <Input 
+                        {/* <BudgetInput 
                         value={props.value.overallBudget} 
                         info={props.info}
                         handleInputChange={props.handleInputChange}
                         name={"overallBudget"}
                         objectName={props.objectName}
                         />
-                        <Input 
+                        <BudgetInput 
                         value={props.value.spentBudget} 
                         info={props.info}
                         handleInputChange={props.handleInputChange}
                         name={"spentBudget"}
                         objectName={props.objectName}
                         />
-                        < Input
+                        <BudgetInput
                             labelText=""
                             id="notes"
                             //need to hand props to id
@@ -83,7 +83,7 @@ export default function CardBudget(props) {
                         />
                         <Button type={"submit"}> 
                             Submit
-                        </Button>
+                        </Button> */}
         
 
                         </CardBody>

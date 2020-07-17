@@ -7,13 +7,16 @@ import { makeStyles } from "@material-ui/core/styles";
 // import FormControl from "@material-ui/core/FormControl";
 // import GridContainer from "../Grid2/GridContainer.js";
 import GridItem from "../Grid2/GridItem.js";
-import CustomInput from "../CustomInput/index.js";
+import CustomInput from "./CustomInput.js";
 import Tab from "@material-ui/core/Tab";
 import CardBody from "../Card/CardBody.js"
+import Button from "../Button/index.js"
+import CardChart from "../DashboardCard/cardChat.js"
 
 
 // core components
 import CardPlanningFormStyles from "./style.js";
+
 
 const useStyles = makeStyles(CardPlanningFormStyles);
 
@@ -36,6 +39,16 @@ export default function CardPlanningForm(props) {
         <CardBody>
             {/* <Tab> */}
                 <form id ="transportation">
+                    <GridItem xs={12} sm={12} md={3}>
+                        <CardChart
+                        value={props.value.Budget} 
+                        info={props.info}
+                        handleInputChange={props.handleInputChange}
+                        name={"Budget"}
+                        objectName={props.objectName}
+                        overallBudget={props.overallBudget}
+                        />
+                    </GridItem>
                     <GridItem xs={12} sm={12} md={3}>
                         <CustomInput
                         labelText="Dates"
@@ -75,7 +88,7 @@ export default function CardPlanningForm(props) {
                         }}
                         />
                     </GridItem>
-                    <GridItem xs={12} sm={12} md={6}>
+                    <GridItem xs={12} sm={12} md={12}>
                         <CustomInput
                         labelText="Time"
                         info={props.info}
@@ -103,6 +116,14 @@ export default function CardPlanningForm(props) {
                         rows: 5
                         }}
                         />
+                    </GridItem>
+                    <GridItem>
+                        <Button
+                            type= {"submit"}
+                            handleFormSubmit={props.handleFormSubmit}
+                        >
+                            Submit
+                        </Button>
                     </GridItem>
                 </form>
             {/* </Tab> */}
@@ -176,6 +197,14 @@ export default function CardPlanningForm(props) {
                         }}
                         />
                     </GridItem>
+                    <GridItem>
+                        <Button
+                            type= {"submit"}
+                            handleFormSubmit={props.handleFormSubmit}
+                        >
+                            Submit
+                        </Button>
+                    </GridItem>
                 </form>
             </Tab>
             <Tab>
@@ -248,6 +277,14 @@ export default function CardPlanningForm(props) {
                         }}
                         />
                     </GridItem>
+                    <GridItem>
+                        <Button
+                            type= {"submit"}
+                            handleFormSubmit={props.handleFormSubmit}
+                        >
+                            Submit
+                        </Button>
+                    </GridItem>
                 </form>
             </Tab>
             <Tab>
@@ -319,6 +356,14 @@ export default function CardPlanningForm(props) {
                         rows: 5
                         }}
                         />
+                    </GridItem>
+                    <GridItem>
+                        <Button
+                            type= {"submit"}
+                            handleFormSubmit={props.handleFormSubmit}
+                        >
+                            Submit
+                        </Button>
                     </GridItem>
                 </form>
             </Tab>

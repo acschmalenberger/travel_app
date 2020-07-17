@@ -122,7 +122,7 @@ function Dashboard() {
     <div>
 
       <GridContainer>
-        <GridItem xs={12} sm={12} md={9}>
+        <GridItem xs={12} sm={12} md={12}>
           <CardBudget
             name={budgetObject}
             handleInputChange={handleChange}
@@ -189,7 +189,14 @@ function Dashboard() {
             </Col> */}
 
       <GridContainer>
-        <GetStarted />
+        <GetStarted            
+          name={budgetObject}
+          handleInputChange={handleChange}
+          objectName={"budgetObject"}
+          value={budgetObject} 
+          info={setBudgetObject}
+          handleFormSubmit={handleFormSubmit} 
+        />
       </GridContainer>
 
       <GridContainer>
