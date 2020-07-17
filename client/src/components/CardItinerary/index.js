@@ -1,6 +1,6 @@
 import React from "react";
 // import ChartistGraph from "react-chartist";
- // @material-ui/core components
+// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
@@ -24,26 +24,26 @@ export default function CardItinerary() {
         <div>
             <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
-                <Card>
-                    <CardHeader>
-                        <CardIcon color="warning">
-                            <EventAvailableIcon />
-                        </CardIcon>
-                        <h2 className={classes.cardTitle}>Itinerary</h2>
+                    <Card>
+                        <CardHeader>
+                            <CardIcon color="warning">
+                                <EventAvailableIcon />
+                            </CardIcon>
+                            <h2 className={classes.cardTitle}>Itinerary</h2>
                         </CardHeader>
                         <CardBody>
-                        <CustomTable
-                            tableHeaderColor="warning"
-                            tableHead={["Date", "Time", "Category", "Name", "Price"]}
-                            tableData={[
-                            ["12/1", "10:00 am", "Transportation", "Delta Flight", "$400"],
-                            ["12/1", "3:00 pm", "Lodging", "Marriott Downtown","$350"],
-                            ["12/2", "10:00 am", "Activities", "Spa Appointment", "$150"],
-                            ["12/3", "7:30 pm", "Food and Beverage", "Steakhouse", "$125"]
-                            ]}
-                    />
-                    </CardBody>
-                </Card>
+                            <CustomTable
+                                tableHeaderColor="warning"
+                                tableHead={["Date", "Time", "Category", "Name", "Price"]}
+                                tableData={[
+                                    ["12/1", "10:00 am", "Transportation", "Delta Flight", "$400"],
+                                    ["12/1", "3:00 pm", "Lodging", "Marriott Downtown", "$350"],
+                                    ["12/2", "10:00 am", "Activities", "Spa Appointment", "$150"],
+                                    ["12/3", "7:30 pm", "Food and Beverage", "Steakhouse", "$125"]
+                                ]}
+                            />
+                        </CardBody>
+                    </Card>
                 </GridItem>
             </GridContainer>
         </div>

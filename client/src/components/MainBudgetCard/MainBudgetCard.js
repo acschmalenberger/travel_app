@@ -46,7 +46,9 @@ return(
         name={"destintion"}
         objectName={props.objectName}
         />
-        <FormBtn type={"submit"}> 
+        <FormBtn 
+        type={"submit"}
+        handleFormSubmit={props.handleFormSubmit} > 
             Submit
         </FormBtn>
         </form>

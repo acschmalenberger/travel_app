@@ -5,7 +5,7 @@ const cardsController = require("../../controllers/cardsController");
 router.route("/")
   .get(cardsController.findAll)
   .post(cardsController.create);
-
+  
 // Matches with "/api/books/:id"
 router
   .route("/:id")

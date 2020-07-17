@@ -1,6 +1,7 @@
 const express = require('express');
 const userController = require('../controllers/user');
 const authController = require('../controllers/auth');
+const cardController = require('../../client/src/utils/controller/cardsController')
 
 // import {
 //     registerUser,
@@ -21,5 +22,11 @@ router
     .delete(authController.requireSignin, authController.hasAuthorization, userController.deleteUser);
 
 router.param('userId', userController.findUserById);
+
+router.route("/submit/:card")
+    .post(cardController.tripDetails)
+
+router.route("/submit")
+    .post(cardController.createTrip)
 
 module.exports = router;

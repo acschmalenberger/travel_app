@@ -7,7 +7,6 @@ const authRoutes = require('./server/routes/auth');
 const config = require('./server/config');
 const cardRoutes = require('./routes/api/cards');
 
-
 // DB connection
 require('./server/config/dbConnection');
 
@@ -29,6 +28,6 @@ app.use((err, req, res, next) => {
   }
 });
 
-app.listen(config.port, () => {
-  console.log(`Listening at port ${config.port}`);
+app.listen(config.port, function() {
+  console.log(`🌎  ==> API Server now listening on PORT ${config.port}!`);
 });
