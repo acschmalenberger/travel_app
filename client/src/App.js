@@ -4,6 +4,8 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import red from '@material-ui/core/colors/red';
 import { BrowserRouter } from 'react-router-dom';
+import Background from './components/images/map.jpg';
+
 
 import Routes from './Routes';
 
@@ -14,6 +16,7 @@ const theme = createMuiTheme({
       main: '#3f50b5',
       dark: '#002884',
       contrastText: '#fff',
+      backgroundImage: "url(" + { Background } + ")",
     },
     secondary: {
       light: '#ff7961',

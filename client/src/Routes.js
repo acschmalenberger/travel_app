@@ -15,13 +15,11 @@ class Routes extends Component {
             <div>
                 <Navbar />
                 <Switch>
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/" component={Signin} />
                     <PrivateRoutes path="/user/edit/:userId" />
-                    <PrivateRoutes path="/UserInput" component={UserInput} />
                     <PrivateRoutes path="/Dashboard" component={Dashboard} />
                     <Route path="/user/:userId" component={Profile} />
                     <Route path="/signup" component={Signup} />
-                    <Route path="/signin" component={Signin} />
                 </Switch>
             </div>
         );

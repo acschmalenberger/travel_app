@@ -1,10 +1,10 @@
 import React from "react";
 // import ChartistGraph from "react-chartist";
- // @material-ui/core components
+// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import Input from '@material-ui/core/Input'
+import BudgetInput from "./BudgetInput.js"
 
 import GridItem from "../Grid2/GridItem.js";
 import GridContainer from "../Grid2/GridContainer.js";
@@ -36,35 +36,35 @@ export default function CardBudget(props) {
                             <h2 className={classes.cardTitle} >Budget</h2>
                         </CardHeader>
                         <CardBody>
-                            <CardChartMB 
-                            value={props.value}
-                            valueTransporation={props.valueTransporation}
-                            valueRefreshment={props.valueRefreshment}
-                            valueActivities={props.valueActivities}
-                            valueLodging={props.valueLodging} 
-                            info={props.info}
-                            handleInputChange={props.handleInputChange}
-                            name={props.name}
+                            <CardChartMB
+                                value={props.value}
+                                valueTransporation={props.valueTransporation}
+                                valueRefreshment={props.valueRefreshment}
+                                valueActivities={props.valueActivities}
+                                valueLodging={props.valueLodging}
+                                info={props.info}
+                                handleInputChange={props.handleInputChange}
+                                name={props.name}
                             />
                             {/* <img src="..." className="card-img-top" alt="..." /> */}
-                        <div >
-                            <p>This is the main budget card</p>
-                        </div>
-                        <Input 
+                            <div >
+                                <p>This is the main budget card</p>
+                            </div>
+                            {/* <BudgetInput 
                         value={props.value.overallBudget} 
                         info={props.info}
                         handleInputChange={props.handleInputChange}
                         name={"overallBudget"}
                         objectName={props.objectName}
                         />
-                        <Input 
+                        <BudgetInput 
                         value={props.value.spentBudget} 
                         info={props.info}
                         handleInputChange={props.handleInputChange}
                         name={"spentBudget"}
                         objectName={props.objectName}
                         />
-                        < Input
+                        <BudgetInput
                             labelText=""
                             id="notes"
                             //need to hand props to id
@@ -83,8 +83,8 @@ export default function CardBudget(props) {
                         />
                         <Button type={"submit"}> 
                             Submit
-                        </Button>
-        
+                        </Button> */}
+
 
                         </CardBody>
 
@@ -94,4 +94,3 @@ export default function CardBudget(props) {
         </div>
     );
 }
-

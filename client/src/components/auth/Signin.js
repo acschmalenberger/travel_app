@@ -11,6 +11,7 @@ import { withStyles } from '@material-ui/core/styles';
 import auth from './auth-helper';
 import { Redirect } from 'react-router-dom';
 import { signin } from '../../utils/api-auth.js';
+import logo from '../images/map.jpg';
 
 
 const styles = theme => ({
@@ -82,6 +83,11 @@ class Signin extends Component {
 
         return (
             <Card className={classes.card}>
+                <CardMedia
+                    className={classes.media}
+                    image={logo}
+                    title="The Covid Escape"
+                />
                 <CardContent>
                     <Typography type="headline" component="h2" className={classes.title}>
                         Sign In
