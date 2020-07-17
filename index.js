@@ -6,7 +6,6 @@ const userRoutes = require('./server/routes/users');
 const authRoutes = require('./server/routes/auth');
 const config = require('./server/config');
 
-
 // DB connection
 require('./server/config/dbConnection');
 

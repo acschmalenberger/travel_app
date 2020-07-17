@@ -6,6 +6,7 @@ import DashboardCardBody from "../../components/DashboardCard/DashboardCard.js"
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import MainBudgetCard from "../../components/MainBudgetCard";
+import { tripDetails, createTrip } from "../../utils/controller/cardsController";
 
 function Dashboard() {
 
@@ -90,6 +91,16 @@ function Dashboard() {
 
             };
 
+function handleTrip(event) {
+  event.preventDefault();
+  let tripSubmitObj= event.target.getElementById("createTrip");
+  if(tripSubmitObj) {
+    API.createTrip(budgetObject, "budgetObject")
+        .then(() => setBudgetObject({}))
+        .catch(err => console.log(err));
+  }
+}
+
       function handleFormSubmit(event) {
         event.preventDefault();
         let cardSubmitObj= event.target.getAttribute("data-objectname")
@@ -97,23 +108,23 @@ function Dashboard() {
         if (cardSubmitObj) {
           switch (cardSubmitObj) {
             case "transportObject":
-              return API.saveCard(transportObject)
+              return API.saveCard(transportObject, "TransCard")
               .then(() => setTransportObject({}))
               .catch(err => console.log(err));
             case "budgetObject":
-              return API.saveCard(budgetObject)
+              return API.saveCard(budgetObject, "budgetObject")
               .then(() => setBudgetObject({}))
               .catch(err => console.log(err));
             case "refreshObject":
-              return API.saveCard(refreshObject)
+              return API.saveCard(refreshObject, "refreshObject")
               .then(() => setRefreshObject({}))
               .catch(err => console.log(err));
             case "activitesObject":
-              return API.saveCard(activitesObject)
+              return API.saveCard(activitesObject, "activitesObject")
               .then(() => setActivitiesObject({}))
               .catch(err => console.log(err));
             case "lodgingObject":
-              return API.saveCard(lodgingObject)
+              return API.saveCard(lodgingObject, "lodgingObject")
               .then(() => setLodgingObject({}))
               .catch(err => console.log(err));
               default: return console.log("Error");
@@ -140,7 +151,8 @@ function Dashboard() {
               valueActivities={activitesObject}
               valueLodging={lodgingObject}
               info={setBudgetObject}
-              handleFormSubmit={handleFormSubmit} 
+              handleFormSubmit={handleFormSubmit}
+              handleTrip={handleTrip}
               />    
             </Col>
             
