@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
-
 import GetStarted from "../components/GetStartedCard"
-
 import GridContainer from "../components/Grid2/GridContainer.js";
 import API from "../utils/API";
-import { set } from "mongoose";
-import { tripDetails, createTrip } from "../utils/controller/cardsController";
 // import { ListItem } from "../../components/List";
 // import { Input, TextArea, FormBtn } from "../../components/Form";
 
@@ -53,12 +49,9 @@ function StartPage() {
 
         function handleTrip(event) {
             event.preventDefault();
-            let tripSubmitObj= event.target.getElementById("createTrip");
-            if(tripSubmitObj) {
-                API.createTrip(budgetObject, "budgetObject")
+                API.createTrip(budgetObject)
                     .then(() => setBudgetObject({}))
                     .catch(err => console.log(err));
-            }
             }
 
         function handleFormSubmit(event) {

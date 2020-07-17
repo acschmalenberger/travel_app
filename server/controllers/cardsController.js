@@ -1,4 +1,4 @@
-const db = require("../../models");
+const db = require("../models");
 //const app = require("express");
 
 const controller = {
@@ -15,12 +15,14 @@ const controller = {
   },
 
 createTrip: function ({ body }, res) {
+  console.log(body);
   db.Trip.create(body)
   .then(dbTrip => {
-    console.log(dbTrip);
+    res.json(dbTrip);
   })
   .catch(({ message }) => {
     console.log(message);
+    res.json(message)
   });
 }
 
