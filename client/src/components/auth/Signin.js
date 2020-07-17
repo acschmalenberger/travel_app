@@ -71,7 +71,7 @@ class Signin extends Component {
         const { classes } = this.props;
         const { from } = this.props.location.state || {
             from: {
-                pathname: '/Dashboard'
+                pathname: '/Start'
             }
         };
         const { redirectToReferrer } = this.state;
