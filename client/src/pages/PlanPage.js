@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
-// import { Col, Row, Container } from "../../components/Grid";
 import CardPlanningTabs from "../components/CardPlanningTabs"
 import CardBudget from "../components/CardBudget"
 import CardPlanningForm from "../components/CardPlanningForm"
 import GridContainer from "../components/Grid2/GridContainer.js";
 import GridItem from "../components/Grid2/GridItem.js";
 import API from "../utils/API";
-import { set } from "mongoose";
-// import { ListItem } from "../../components/List";
-// import { Input, TextArea, FormBtn } from "../../components/Form";
 import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
 import RestaurantIcon from '@material-ui/icons/Restaurant';
 import HotelIcon from '@material-ui/icons/Hotel';

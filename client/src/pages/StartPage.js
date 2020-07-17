@@ -8,8 +8,6 @@ import API from "../utils/API";
 
 function StartPage() {
 
-        const [cards, setCards] = useState({})
-
         const [budgetObject, setBudgetObject] = useState({
         Name: "Value",
         overallBudget: "",
@@ -18,24 +16,6 @@ function StartPage() {
         startDate: "",
         endDate:""
         })
-
-    useEffect(() => {
-        loadCards()
-    }, [])
-
-    function loadCards() {
-        // API.getCards()
-        // .then(res =>
-        //     setCards(res.data)
-        // )
-        // .catch(err => console.log(err));
-    };
-
-    function deleteCard(id) {
-        // API.deleteCard(id)
-        // .then(res => loadCards())
-        // .catch(err => console.log(err));
-    }
 
         function handleChange(e) {
             const { name, value } = e.target;
@@ -51,28 +31,11 @@ function StartPage() {
             event.preventDefault();
                 API.createTrip(budgetObject)
                     .then(() => setBudgetObject({}))
+                    .then(document.location.href = '/Plan')
                     .catch(err => console.log(err));
             }
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            let cardSubmitObj= event.target.getAttribute("data-objectname")
-            console.log(cards, cardSubmitObj)
-            if (cardSubmitObj) {
-            API.saveCard(cards)
-                // .then(() => setCards({
-                //   Budget: "",
-                //   Date: "",
-                //   Address: "",
-                //   Time: "",
-                //   Notes: ""
-                // }))
-                // .then(() => loadCards())
-                .catch(err => console.log(err));
-            }
-        };
-
-    return (
+ 
+    return ( 
         <div>
 
         <GridContainer>
@@ -82,8 +45,7 @@ function StartPage() {
             objectName={"budgetObject"}
             value={budgetObject} 
             info={setBudgetObject}
-            handleFormSubmit={handleFormSubmit}
-            handleTrip={handleTrip}  
+            handleTrip={handleTrip}
             />
         </GridContainer>
 
