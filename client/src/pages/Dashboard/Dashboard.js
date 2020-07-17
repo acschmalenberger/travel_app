@@ -15,7 +15,9 @@ function Dashboard() {
       Name: "Value",
       overallBudget: "",
       spentBudget: "",
-      destintion: ""
+      destintion: "",
+      startDate: "",
+      endDate: ""
     })
     const [transportObject, setTransportObject] = useState({
       Name: "Transportation",

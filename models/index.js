@@ -1,3 +1,9 @@
 module.exports = {
-  Card: require("./card")
+  TransCard: require("./transcard"),
+  RefreshCard: require("./refreshcard"),
+  ActiveCard: require("./activecard"),
+  LodgingCard: require("./lodgingcard"),
+  ValueCard: require("./budgetcard"),
+  Trip: require("./trip")
+
 };
