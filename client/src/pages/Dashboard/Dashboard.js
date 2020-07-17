@@ -55,6 +55,7 @@ function Dashboard() {
   }, [])
 
   function loadCards() {
+    console.log("This is the load card Fx")
     API.getCards()
       .then(res =>
         setCards(res.data)
@@ -90,18 +91,28 @@ function Dashboard() {
       function handleFormSubmit(event) {
         event.preventDefault();
         let cardSubmitObj= event.target.getAttribute("data-objectname")
-        console.log(cards, cardSubmitObj)
+        //console.log(cards, cardSubmitObj)
         if (cardSubmitObj) {
-          API.saveCard(transportObject)
-            .then(() => setCards({
-              Budget: "",
-              Date: "",
-              Address: "",
-              Time: "",
-              Notes: ""
-            }))
-            .then(() => loadCards())
-            .catch(err => console.log(err));
+          switch (cardSubmitObj) {
+            case "transportObject":
+              return API.saveCard(transportObject)
+              .then(() => setTransportObject({}))
+            case "budgetObject":
+              return API.saveCard(budgetObject)
+              .then(() => setBudgetObject({}))
+            case "refreshObject":
+              return API.saveCard(refreshObject)
+              .then(() => setRefreshObject({}))
+            case "activitesObject":
+              return API.saveCard(activitesObject)
+              .then(() => setActivitiesObject({}))
+            case "lodgingObject":
+              return API.saveCard(lodgingObject)
+              .then(() => setLodgingObject({}))
+              default: return console.log("Error");
+          //   .then(() => loadCards())
+          //   .catch(err => console.log(err));
+          }
         }
       };
 
