@@ -71,7 +71,7 @@ export default function GetStarted (props) {
                         </GridContainer>
                         </CardBody>
                         <CardFooter stats>
-                            <Button>Start Planning!</Button>
+                            <Button id="createTrip">Start Planning!</Button>
                         </CardFooter>
                     </Card>
                 </GridItem>

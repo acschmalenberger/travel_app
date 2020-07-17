@@ -123,6 +123,17 @@ function Dashboard() {
   return (
     <div>
 
+      {/* <GridContainer>
+        <GetStarted            
+          name={budgetObject}
+          handleInputChange={handleChange}
+          objectName={"budgetObject"}
+          value={budgetObject} 
+          info={setBudgetObject}
+          handleFormSubmit={handleFormSubmit} 
+        />
+      </GridContainer> */}
+
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
           <CardBudget
@@ -140,16 +151,7 @@ function Dashboard() {
         </ GridItem>      
       </GridContainer>
 
-      <GridContainer>
-        <GetStarted            
-          name={budgetObject}
-          handleInputChange={handleChange}
-          objectName={"budgetObject"}
-          value={budgetObject} 
-          info={setBudgetObject}
-          handleFormSubmit={handleFormSubmit} 
-        />
-      </GridContainer>
+
 
       <GridContainer>
         <GridItem xs={12} sm={12} md={9}>

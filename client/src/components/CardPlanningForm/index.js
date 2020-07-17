@@ -39,7 +39,7 @@ export default function CardPlanningForm(props) {
         <CardBody>
             {/* <Tab> */}
                 <form id ="transportation">
-                    <GridItem xs={12} sm={12} md={3}>
+                    <GridItem xs={12} sm={12} md={12}>
                         <CardChart
                         value={props.value.Budget} 
                         info={props.info}

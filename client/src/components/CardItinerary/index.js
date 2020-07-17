@@ -23,7 +23,7 @@ export default function CardItinerary() {
     return (
         <div>
             <GridContainer>
-                <GridItem xs={12} sm={6} md={3}>
+                <GridItem xs={12} sm={12} md={12}>
                 <Card>
                     <CardHeader>
                         <CardIcon color="warning">
