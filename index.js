@@ -5,6 +5,7 @@ const cors = require('cors');
 const userRoutes = require('./server/routes/users');
 const authRoutes = require('./server/routes/auth');
 const config = require('./server/config');
+const cardRoutes = require('./routes/api/cards');
 
 
 // DB connection
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 // ADD routes
 app.use('/', userRoutes);
 app.use('/', authRoutes);
+app.use('/', cardRoutes);
 
 app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {
