@@ -28,7 +28,9 @@ function Dashboard() {
       Name: "Value",
       overallBudget: "",
       spentBudget: "",
-      destintion: ""
+      destination: "",
+      startDate: "",
+      endDate:""
     })
     const [transportObject, setTransportObject] = useState({
       Name: "Transportation",
@@ -137,56 +139,6 @@ function Dashboard() {
             />
         </ GridItem>      
       </GridContainer>
-
-    {/* <Container fluid>
-        <Row>
-        <Col size="md-4">
-            <Jumbotron>
-              <h1>Value</h1>
-            </Jumbotron>
-              <MainBudgetCard 
-              name={budgetObject}
-              handleInputChange={handleChange}
-              objectName={"budgetObject"}
-              value={budgetObject}
-              valueTransporation={transportObject}
-              valueRefreshment={refreshObject}
-              valueActivities={activitesObject}
-              valueLodging={lodgingObject}
-              info={setBudgetObject}
-              handleFormSubmit={handleFormSubmit} 
-              />    
-            </Col>
-            
-            <Col size="md-4">
-            <Jumbotron>
-              <h1>Travel</h1>
-            </Jumbotron>
-              <DashboardCard 
-              name={transportObject}
-              handleInputChange={handleChange}
-              value={transportObject}
-              overallBudget={budgetObject}
-              objectName={"transportObject"}
-              info={setTransportObject}
-              handleFormSubmit={handleFormSubmit} 
-              />
-            </Col>
-
-            <Col size="md-4">
-            <Jumbotron>
-              <h1>Refreshment</h1>
-            </Jumbotron>
-              <DashboardCard 
-              name={refreshObject}
-              handleInputChange={handleChange}
-              value={refreshObject}
-              overallBudget={budgetObject}
-              objectName={"refreshObject"}
-              info={setTransportObject}
-              handleFormSubmit={handleFormSubmit} 
-              />
-            </Col> */}
 
       <GridContainer>
         <GetStarted            

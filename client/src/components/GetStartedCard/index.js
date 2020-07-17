@@ -40,21 +40,31 @@ export default function GetStarted (props) {
                             <GridItem xs={12} sm={12} md={12}>
                             <p>Where would you like to go? </p>
                             <StartInput
-                                labelText="destination"
-                                name={"Destination"}
+                                labelText="Destination"
+                                value={props.value.destination} 
+                                info={props.info}
+                                handleInputChange={props.handleInputChange}
+                                name={"destination"}
+                                objectName={props.objectName}
                             />
                             </GridItem> 
                             <GridItem xs={12} sm={12} md={12}>
                             <p>When will you be traveling?</p>
-                            <p>From</p>
                             <StartInput
                                 labelText="From"
-                                id="startTripDate"
-
-                            /><p>To</p>
+                                value={props.value.startDate} 
+                                info={props.info}
+                                handleInputChange={props.handleInputChange}
+                                name={"startDate"}
+                                objectName={props.objectName}
+                                />
                             <StartInput
                                 labelText="To"
-                                id="endTripDate"
+                                value={props.value.endDate} 
+                                info={props.info}
+                                handleInputChange={props.handleInputChange}
+                                name={"endDate"}
+                                objectName={props.objectName}
 
                             /> 
                             </GridItem>                     

@@ -17,7 +17,6 @@ export default function StartInput(props) {
             onChange={props.handleInputChange}
             placeholder={props.labelText}
             data-objectname={props.objectName}
-
         />
         </div>
     );

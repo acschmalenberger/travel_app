@@ -9,7 +9,7 @@ const styles = {
     grid: {
         margin: "0 -15px !important",
         width: "unset",
-        padding: "30px"
+        padding: "15px"
     }
 };
 
