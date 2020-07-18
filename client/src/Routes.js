@@ -6,7 +6,6 @@ import PrivateRoutes from './components/auth/PrivateRoute';
 import Signin from './components/auth/Signin';
 import Profile from './components/user/Profile';
 import Signup from './components/user/Signup';
-import Dashboard from './pages/Dashboard';
 import UserInput from './components/UserInput/UserInput';
 import StartPage from "./pages/StartPage";
 import PlanPage from "./pages/PlanPage";
@@ -21,7 +20,6 @@ class Routes extends Component {
                     {/* <Route exact path="/" component={Home} /> */}
                     <PrivateRoutes path="/user/edit/:userId" />
                     <PrivateRoutes path="/UserInput" component={UserInput} />
-                    <PrivateRoutes path="/Dashboard" component={Dashboard} />
                     <PrivateRoutes path= "/Plan" component ={PlanPage} />
                     <PrivateRoutes path= "/Start" component ={StartPage} />
                     <PrivateRoutes path= "/Itinerary" component ={ItineraryPage} />
