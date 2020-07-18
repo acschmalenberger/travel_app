@@ -6,7 +6,7 @@ import {
     defaultFont
 } from "../Styles/material-dashboard-react.js";
 
-    const customInputStyle = {
+    const SignupInputStyle = {
         disabled: {
         "&:before": {
             backgroundColor: "transparent !important"
@@ -67,4 +67,4 @@ import {
         }
     };
     
-    export default customInputStyle;
+    export default SignupInputStyle;

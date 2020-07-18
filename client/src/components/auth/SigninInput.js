@@ -2,11 +2,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // core components
-import styles from "./BudgetInputStyle.js";
+import styles from "./SigninInputStyle.js";
 
 const useStyles = makeStyles(styles);
 
-export default function BudgetInput(props) {
+export default function SigninInput(props) {
 
   //console.log(props)
     return (
