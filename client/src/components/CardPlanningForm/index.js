@@ -20,7 +20,7 @@ import CardPlanningFormStyles from "./style.js";
 
 const useStyles = makeStyles(CardPlanningFormStyles);
 
-export default function CardPlanningForm(props) {
+function CardPlanningForm(props) {
     // const classes = useStyles();
     // const [checked, setChecked] = React.useState([...props.checkedIndexes]);
     // const handleToggle = value => {
@@ -120,8 +120,8 @@ export default function CardPlanningForm(props) {
                     <GridItem>
                         <Button
                             type= {"submit"}
-                            handleFormSubmit={props.handleFormSubmit}
-                        >
+                            onClick={props.onClick}
+                            >
                             Submit
                         </Button>
                     </GridItem>
@@ -360,7 +360,7 @@ export default function CardPlanningForm(props) {
                     <GridItem>
                         <Button
                             type= {"submit"}
-                            handleFormSubmit={props.handleFormSubmit}
+                            onClick={props.handleFormSubmit}
                         >
                             Submit
                         </Button>
@@ -371,3 +371,4 @@ export default function CardPlanningForm(props) {
         
     );
 }
+export default CardPlanningForm;

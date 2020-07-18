@@ -56,8 +56,16 @@ function Dashboard() {
             })
 
     useEffect(() => {
-        loadCards()
-    }, [])
+        componentDidMount()
+    }, []);
+
+    function componentDidMount() {
+        API.findOne()
+        //console.log(res.data)
+          .then(res => this.setState({ setBudgetObject: res.data.message }))
+          .catch(err => console.log(err));
+      };
+    
 
     function loadBudgetData(id){
         console.log(id, "PlanPage")
@@ -65,9 +73,9 @@ function Dashboard() {
         .then(res =>
             setCards(res.data)
         )
-    }
+    };
 
-    function loadCards() {
+    function componentWillMount() {
         // API.getCards()
         // .then(res =>
         //     setCards(res.data)
@@ -79,7 +87,7 @@ function Dashboard() {
         // API.deleteCard(id)
         // .then(res => loadCards())
         // .catch(err => console.log(err));
-    }
+    };
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -134,7 +142,7 @@ function Dashboard() {
                     valueActivities={activitesObject}
                     valueLodging={lodgingObject}
                     info={setBudgetObject}
-                    handleFormSubmit={handleFormSubmit} 
+                    // handleFormSubmit={handleFormSubmit} 
                     />
                 </ GridItem>      
             </GridContainer>

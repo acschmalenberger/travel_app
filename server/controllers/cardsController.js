@@ -17,6 +17,7 @@ const controller = {
 createTrip: function ({ body }, res) {
   console.log(body);
   db.Trip.create(body)
+  .then(db.ValueCard.create(body))
   .then(dbTrip => {
     res.json(dbTrip);
   })
@@ -24,6 +25,7 @@ createTrip: function ({ body }, res) {
     res.json(message)
   });
 },
+
 
 findOne: function ({ body, params }, res) {
   console.log(body, params);
