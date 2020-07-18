@@ -144,7 +144,7 @@ function Dashboard() {
                     valueActivities={activitesObject}
                     valueLodging={lodgingObject}
                     info={setBudgetObject}
-                    // handleFormSubmit={handleFormSubmit} 
+                    //onClick={handleFormSubmit} 
                     />
                 </ GridItem>      
             </GridContainer>
@@ -169,14 +169,8 @@ function Dashboard() {
                                     overallBudget={budgetObject}
                                     objectName={"transportObject"}
                                     info={setTransportObject}
-                                //handleFormSubmit={handleFormSubmit} 
+                                    onClick={handleFormSubmit} 
                                 />
-                                <Button 
-                                    type= {"submit"}
-                                    onClick={handleFormSubmit}
-                                    > 
-                                        Submit
-                                </Button> 
                             </div>
                         )
                         },
@@ -195,12 +189,6 @@ function Dashboard() {
                                     info={setLodgingObject}
                                     handleFormSubmit={handleFormSubmit} 
                                 />
-                                <Button
-                                type= {"submit"}
-                                onClick={handleFormSubmit}
-                                > 
-                                    Submit
-                                </Button>
                             </div>
                         )
                         },
@@ -219,12 +207,6 @@ function Dashboard() {
                                     info={setRefreshObject}
                                     handleFormSubmit={handleFormSubmit} 
                                 />
-                                <Button
-                                    type= {"submit"}
-                                    onClick={handleFormSubmit}
-                                    > 
-                                        Submit
-                                </Button>
                             </div>
                         )
                         },
@@ -243,12 +225,6 @@ function Dashboard() {
                                     info={setActivitiesObject}
                                     handleFormSubmit={handleFormSubmit} 
                                 />
-                                <Button
-                                    type= {"submit"}
-                                    onClick={handleFormSubmit}
-                                    > 
-                                        Submit
-                                </Button>
                             </div>
                         )
                         }

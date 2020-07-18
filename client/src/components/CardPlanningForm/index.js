@@ -9,9 +9,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridItem from "../Grid2/GridItem.js";
 import CustomInput from "./CustomInput.js";
 import Tab from "@material-ui/core/Tab";
-import CardBody from "../Card/CardBody.js"
-import CardChart from "../DashboardCard/cardChat.js"
-
+import CardBody from "../Card/CardBody.js";
+import CardChart from "../DashboardCard/cardChat.js";
+import Button from "../Button";
 
 // core components
 //import CardPlanningFormStyles from "./style.js";
@@ -36,6 +36,7 @@ function CardPlanningForm(props) {
 
     return (
         <CardBody>
+             
                 <form 
                     objectName={props.objectName}
                 >
@@ -44,7 +45,7 @@ function CardPlanningForm(props) {
                         value={props.value.Budget} 
                         info={props.info}
                         handleInputChange={props.handleInputChange}
-                        //name={"Budget"}
+                        name={"Budget"}
                         objectName={props.objectName}
                         overallBudget={props.overallBudget}
                     />
@@ -117,7 +118,14 @@ function CardPlanningForm(props) {
                             }}
                         />
                     </GridItem>
+                    <Button 
+                        type= {"submit"}
+                        onClick={props.handleFormSubmit}
+                        > 
+                            Submit
+                    </Button>  
                 </form>
+            
             <Tab>
                 <form
                     objectName={props.objectName}
@@ -190,6 +198,12 @@ function CardPlanningForm(props) {
                             }}
                         />
                     </GridItem>
+                    <Button 
+                        type= {"submit"}
+                        onClick={props.handleFormSubmit}
+                        > 
+                            Submit
+                    </Button> 
                 </form>
             </Tab>
             <Tab>
@@ -264,6 +278,12 @@ function CardPlanningForm(props) {
                             }}
                         />
                     </GridItem>
+                    <Button 
+                        type= {"submit"}
+                        onClick={props.handleFormSubmit}
+                        > 
+                            Submit
+                    </Button> 
                 </form>
             </Tab>
             <Tab>
@@ -338,6 +358,12 @@ function CardPlanningForm(props) {
                             }}
                         />
                     </GridItem>
+                    <Button 
+                        type= {"submit"}
+                        onClick={props.handleFormSubmit}
+                        > 
+                            Submit
+                    </Button> 
                 </form>
             </Tab>
         </CardBody>
