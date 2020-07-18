@@ -1,7 +1,7 @@
 const express = require('express');
 const userController = require('../controllers/user');
 const authController = require('../controllers/auth');
-const cardController = require('../../client/src/utils/controller/cardsController')
+const cardController = require('../controllers/cardsController')
 
 // import {
 //     registerUser,
@@ -28,5 +28,8 @@ router.route("/submit/:card")
 
 router.route("/submit")
     .post(cardController.createTrip)
+
+router.route("/submit/:id")
+    .get(cardController.findOne)
 
 module.exports = router;

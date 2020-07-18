@@ -18,9 +18,9 @@ import CardChart from "../DashboardCard/cardChat.js"
 import CardPlanningFormStyles from "./style.js";
 
 
-const useStyles = makeStyles(CardPlanningFormStyles);
+//const useStyles = makeStyles(CardPlanningFormStyles);
 
-export default function CardPlanningForm(props) {
+function CardPlanningForm(props) {
     // const classes = useStyles();
     // const [checked, setChecked] = React.useState([...props.checkedIndexes]);
     // const handleToggle = value => {
@@ -37,7 +37,6 @@ export default function CardPlanningForm(props) {
 
     return (
         <CardBody>
-            {/* <Tab> */}
                 <form id ="transportation">
                     <GridItem xs={12} sm={12} md={12}>
                         <CardChart
@@ -117,16 +116,7 @@ export default function CardPlanningForm(props) {
                         }}
                         />
                     </GridItem>
-                    <GridItem>
-                        <Button
-                            type= {"submit"}
-                            handleFormSubmit={props.handleFormSubmit}
-                        >
-                            Submit
-                        </Button>
-                    </GridItem>
                 </form>
-            {/* </Tab> */}
             <Tab>
                 <form id ="lodging">
                     <GridItem xs={12} sm={12} md={3}>
@@ -196,14 +186,6 @@ export default function CardPlanningForm(props) {
                         rows: 5
                         }}
                         />
-                    </GridItem>
-                    <GridItem>
-                        <Button
-                            type= {"submit"}
-                            handleFormSubmit={props.handleFormSubmit}
-                        >
-                            Submit
-                        </Button>
                     </GridItem>
                 </form>
             </Tab>
@@ -277,14 +259,6 @@ export default function CardPlanningForm(props) {
                         }}
                         />
                     </GridItem>
-                    <GridItem>
-                        <Button
-                            type= {"submit"}
-                            handleFormSubmit={props.handleFormSubmit}
-                        >
-                            Submit
-                        </Button>
-                    </GridItem>
                 </form>
             </Tab>
             <Tab>
@@ -357,17 +331,10 @@ export default function CardPlanningForm(props) {
                         }}
                         />
                     </GridItem>
-                    <GridItem>
-                        <Button
-                            type= {"submit"}
-                            handleFormSubmit={props.handleFormSubmit}
-                        >
-                            Submit
-                        </Button>
-                    </GridItem>
                 </form>
             </Tab>
         </CardBody>
         
     );
 }
+export default CardPlanningForm;

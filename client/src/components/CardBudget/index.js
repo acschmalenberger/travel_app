@@ -40,9 +40,11 @@ export default function CardBudget(props) {
                             valueTransporation={props.valueTransporation}
                             valueRefreshment={props.valueRefreshment}
                             valueActivities={props.valueActivities}
-                            valueLodging={props.valueLodging} 
+                            valueLodging={props.valueLodging}
                             info={props.info}
+                            loadBudgetData={props.loadBudgetData}
                             handleInputChange={props.handleInputChange}
+                            handleFormSubmit={props.handleFormSubmit} 
                             name={props.name}
                             />
                         </CardBody>

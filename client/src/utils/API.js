@@ -6,12 +6,17 @@ export default {
  
   // Saves a card to the database
   saveCard: function(cardData, model) {
-    console.log(cardData)
+    console.log(cardData, "saveTrip")
     return axios.post("/submit/" + model, cardData);
   },
 
-  createTrip: function(cardData, model) {
-    console.log(cardData + "createTrip")
+  createTrip: function(cardData) {
+    console.log(cardData, "createTrip")
     return axios.post("/submit/", cardData);
+  },
+
+  findOne: function(cardData) {
+    console.log("Loading the Budget Data", cardData)
+    return axios.get("/submit/:id", cardData);
   }
 };
