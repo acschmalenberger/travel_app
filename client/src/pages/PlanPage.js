@@ -62,7 +62,7 @@ function Dashboard() {
     function componentDidMount() {
         API.findOne()
         //console.log(res.data)
-          .then(res => this.setState({ setBudgetObject: res.data.message }))
+          .then(res => this.setState({ setBudgetObject: res.data }))
           .catch(err => console.log(err));
       };
     
@@ -111,6 +111,7 @@ function Dashboard() {
         function handleFormSubmit(event) {
             event.preventDefault();
             let cardSubmitObj= event.target.getAttribute("data-objectname")
+            console.log("clicked")
             console.log(cards, cardSubmitObj)
             if (cardSubmitObj) {
                 API.saveCard(cards)

@@ -118,7 +118,7 @@ function CardPlanningForm(props) {
                         />
                     </GridItem>
                     <GridItem>
-                        <Button
+                    <Button
                             type= {"submit"}
                             onClick={props.onClick}
                             >

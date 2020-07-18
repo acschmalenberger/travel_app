@@ -16,7 +16,7 @@ export default {
   },
 
   findOne: function(cardData) {
-    console.log("Loading the Budget Data")
+    console.log("Loading the Budget Data", cardData)
     return axios.get("/submit/:id", cardData);
   }
 };
