@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import CardPlanningTabs from "../components/CardPlanningTabs"
-import CardBudget from "../components/CardBudget"
-import CardPlanningForm from "../components/CardPlanningForm"
+import CardPlanningTabs from "../components/CardPlanningTabs";
+import CardBudget from "../components/CardBudget";
+import Button from "../components/Button";
+import CardPlanningForm from "../components/CardPlanningForm";
 import GridContainer from "../components/Grid2/GridContainer.js";
 import GridItem from "../components/Grid2/GridItem.js";
 import API from "../utils/API";
@@ -62,9 +63,9 @@ function Dashboard() {
     function componentDidMount() {
         API.findOne()
         //console.log(res.data)
-          .then(res => this.setState({ setBudgetObject: res.data }))
-          .catch(err => console.log(err));
-      };
+        .then(res => this.setState({ setBudgetObject: res.data.message }))
+        .catch(err => console.log(err));
+    };
     
 
     function loadBudgetData(id){
@@ -111,8 +112,8 @@ function Dashboard() {
         function handleFormSubmit(event) {
             event.preventDefault();
             let cardSubmitObj= event.target.getAttribute("data-objectname")
-            console.log("clicked")
-            console.log(cards, cardSubmitObj)
+            console.log("Click")
+            console.log(cardSubmitObj)
             if (cardSubmitObj) {
                 API.saveCard(cards)
                 // .then(() => setCards({
@@ -159,64 +160,96 @@ function Dashboard() {
                         tabName: "Transportation",
                         tabIcon: AirplanemodeActiveIcon,
                         tabContent: (
-                            <CardPlanningForm
-                            id = "transportation"
-                            name={transportObject}
-                            handleInputChange={handleChange}
-                            value={transportObject}
-                            overallBudget={budgetObject}
-                            objectName={"transportObject"}
-                            info={setTransportObject}
-                            handleFormSubmit={handleFormSubmit} 
-                            />
+                            <div>
+                                <CardPlanningForm
+                                    id = "transportation"
+                                    name={transportObject}
+                                    handleInputChange={handleChange}
+                                    value={transportObject}
+                                    overallBudget={budgetObject}
+                                    objectName={"transportObject"}
+                                    info={setTransportObject}
+                                //handleFormSubmit={handleFormSubmit} 
+                                />
+                                <Button 
+                                    type= {"submit"}
+                                    onClick={handleFormSubmit}
+                                    > 
+                                        Submit
+                                </Button> 
+                            </div>
                         )
                         },
                         {
                         tabName: "Lodging",
                         tabIcon: HotelIcon,
                         tabContent: (
-                            <CardPlanningForm
-                            id = "lodging"
-                            name={lodgingObject}
-                            handleInputChange={handleChange}
-                            value={lodgingObject}
-                            overallBudget={budgetObject}
-                            objectName={"lodgingObject"}
-                            info={setLodgingObject}
-                            handleFormSubmit={handleFormSubmit} 
-                            />
+                            <div>
+                                <CardPlanningForm
+                                    id = "lodging"
+                                    name={lodgingObject}
+                                    handleInputChange={handleChange}
+                                    value={lodgingObject}
+                                    overallBudget={budgetObject}
+                                    objectName={"lodgingObject"}
+                                    info={setLodgingObject}
+                                    handleFormSubmit={handleFormSubmit} 
+                                />
+                                <Button
+                                type= {"submit"}
+                                onClick={handleFormSubmit}
+                                > 
+                                    Submit
+                                </Button>
+                            </div>
                         )
                         },
                         {
                         tabName: "Food & Drink",
                         tabIcon: RestaurantIcon,
                         tabContent: (
-                            <CardPlanningForm
-                            id = {"refreshment"}
-                            name={refreshObject}
-                            handleInputChange={handleChange}
-                            value={refreshObject}
-                            overallBudget={budgetObject}
-                            objectName={"refreshObject"}
-                            info={setRefreshObject}
-                            handleFormSubmit={handleFormSubmit} 
-                            />
+                            <div> 
+                                <CardPlanningForm
+                                    id = {"refreshment"}
+                                    name={refreshObject}
+                                    handleInputChange={handleChange}
+                                    value={refreshObject}
+                                    overallBudget={budgetObject}
+                                    objectName={"refreshObject"}
+                                    info={setRefreshObject}
+                                    handleFormSubmit={handleFormSubmit} 
+                                />
+                                <Button
+                                    type= {"submit"}
+                                    onClick={handleFormSubmit}
+                                    > 
+                                        Submit
+                                </Button>
+                            </div>
                         )
                         },
                         {
                         tabName: "Activities",
                         tabIcon: PhotoCameraIcon ,
                         tabContent: (
-                            <CardPlanningForm
-                            id = "activities"
-                            name={activitesObject}
-                        handleInputChange={handleChange}
-                        value={activitesObject}
-                        overallBudget={budgetObject}
-                        objectName={"activitesObject"}
-                        info={setActivitiesObject}
-                        handleFormSubmit={handleFormSubmit} 
-                        />
+                            <div> 
+                                <CardPlanningForm
+                                    id = "activities"
+                                    name={activitesObject}
+                                    handleInputChange={handleChange}
+                                    value={activitesObject}
+                                    overallBudget={budgetObject}
+                                    objectName={"activitesObject"}
+                                    info={setActivitiesObject}
+                                    handleFormSubmit={handleFormSubmit} 
+                                />
+                                <Button
+                                    type= {"submit"}
+                                    onClick={handleFormSubmit}
+                                    > 
+                                        Submit
+                                </Button>
+                            </div>
                         )
                         }
                     ]}
