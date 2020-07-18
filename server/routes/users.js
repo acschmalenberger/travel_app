@@ -29,4 +29,7 @@ router.route("/submit/:card")
 router.route("/submit")
     .post(cardController.createTrip)
 
+router.route("/submit/:id")
+    .get(cardController.findOne)
+
 module.exports = router;

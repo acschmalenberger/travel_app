@@ -59,6 +59,14 @@ function Dashboard() {
         loadCards()
     }, [])
 
+    function loadBudgetData(id){
+        console.log(id, "PlanPage")
+        API.findOne(id)
+        .then(res =>
+            setCards(res.data)
+        )
+    }
+
     function loadCards() {
         // API.getCards()
         // .then(res =>
@@ -118,6 +126,7 @@ function Dashboard() {
                 <CardBudget
                     name={budgetObject}
                     handleInputChange={handleChange}
+                    loadBudgetData={loadBudgetData}
                     objectName={"budgetObject"}
                     value={budgetObject}
                     valueTransporation={transportObject}

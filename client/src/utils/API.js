@@ -13,5 +13,10 @@ export default {
   createTrip: function(cardData) {
     console.log(cardData, "createTrip")
     return axios.post("/submit/", cardData);
+  },
+
+  findOne: function(cardData) {
+    console.log("Loading the Budget Data")
+    return axios.get("/submit/:id", cardData);
   }
 };

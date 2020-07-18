@@ -21,8 +21,19 @@ createTrip: function ({ body }, res) {
     res.json(dbTrip);
   })
   .catch(({ message }) => {
-    console.log(message);
     res.json(message)
+  });
+},
+
+findOne: function ({ body, params }, res) {
+  console.log(body, params);
+  db.Trip.find({})
+  .sort({ _id })
+  .then(dbTrip => {
+    res.json(dbTrip);
+  })
+  .catch(err => {
+    res.status(400).json(err);
   });
 }
 
