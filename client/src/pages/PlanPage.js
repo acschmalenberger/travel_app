@@ -111,6 +111,7 @@ function Dashboard() {
 
         function handleFormSubmit(event) {
             event.preventDefault();
+            console.log(event.target.getAttribute(".lodging"), "Identifier")
             let cardSubmitObj= event.target.getAttribute("data-objectname")
             console.log("Click")
             console.log(cardSubmitObj)
