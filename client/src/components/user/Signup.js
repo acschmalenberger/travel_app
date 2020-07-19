@@ -90,7 +90,7 @@ class Signup extends Component {
                 <GridItem xs={12} sm={9} md={6}>
                     <Card>
                         <CardHeader>
-                            <h2 >Sign Up</h2>
+                            <h2>Sign Up</h2>
                         </CardHeader>
                         <CardBody>
                         <GridContainer>

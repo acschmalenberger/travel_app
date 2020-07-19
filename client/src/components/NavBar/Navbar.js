@@ -7,11 +7,9 @@ import Home from '@material-ui/icons/Home';
 import Button from '@material-ui/core/Button';
 import auth from '../auth/auth-helper';
 import { Link, withRouter } from 'react-router-dom';
-import NavStyle from "./style.js";
 import { makeStyles } from "@material-ui/core/styles";
 import Travl from "../images/TRAVL.png";
 
-const useStyles = makeStyles(NavStyle)
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) return { color: '#F44336' };

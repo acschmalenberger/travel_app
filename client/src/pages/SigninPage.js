@@ -13,22 +13,26 @@ function SigninPage() {
     const [isSignup, setIsSignup]= useState(false)
 
     return (
-        <div className="container">
-            {isSignup ? 
+        <div className="signinContainer">
             <div>
-                <Signup /> 
-                <Button
-                    onClick= {()=>setIsSignup(false)}
-                >Sign in</Button>
-            </div>:
-            
-            <div>
-                <Signin />
-                <Button
-                    onClick= {()=>setIsSignup(true)}
-                >Sign up</Button>
+                {isSignup ? 
+                <div>
+                    <Signup /> 
+                    <Button
+                        style={{ justify: "center" }}
+                        onClick= {()=>setIsSignup(false)}
+                    >Sign in</Button>
+                </div>:
+                
+                <div>
+                    <Signin />
+                    <Button
+                        style={{ justify: "center" }}
+                        onClick= {()=>setIsSignup(true)}
+                    >Sign up</Button>
+                </div>    
+                }
             </div>
-            }
         </div>
     )
 }

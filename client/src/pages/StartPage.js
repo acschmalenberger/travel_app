@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import GetStarted from "../components/GetStartedCard"
 import GridContainer from "../components/Grid2/GridContainer.js";
 import API from "../utils/API";
+import "./StartPageStyle.css"
 // import { ListItem } from "../../components/List";
 // import { Input, TextArea, FormBtn } from "../../components/Form";
 
@@ -36,19 +37,21 @@ function StartPage() {
             }
  
     return ( 
-        <div>
+        <div className="startContainer">
+            <div>
 
-        <GridContainer>
-            <GetStarted            
-            name={budgetObject}
-            handleInputChange={handleChange}
-            objectName={"budgetObject"}
-            value={budgetObject} 
-            info={setBudgetObject}
-            handleTrip={handleTrip}
-            />
-        </GridContainer>
+            <GridContainer>
+                <GetStarted            
+                name={budgetObject}
+                handleInputChange={handleChange}
+                objectName={"budgetObject"}
+                value={budgetObject} 
+                info={setBudgetObject}
+                handleTrip={handleTrip}
+                />
+            </GridContainer>
 
+            </div>
         </div>
     
     );
