@@ -18,7 +18,7 @@ class Routes extends Component {
                 <Switch>
                     {/* <Route exact path="/" component={Home} /> */}
                     <PrivateRoutes path="/user/edit/:userId" />
-                    <PrivateRoutes path="/Plan" component={PlanPage} />
+                    <PrivateRoutes exact path="/Plan" component={PlanPage} />
                     <PrivateRoutes path="/Start" component={StartPage} />
                     <PrivateRoutes path="/Itinerary" component={ItineraryPage} />
                     <Route path="/user/:userId" component={Profile} />

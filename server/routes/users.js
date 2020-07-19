@@ -1,7 +1,8 @@
+console.log(__dirname);
 const express = require('express');
 const userController = require('../controllers/user');
 const authController = require('../controllers/auth');
-const cardController = require('../../client/src/utils/controller/cardsController')
+const cardController = require('../controllers/cardsController')
 
 // import {
 //     registerUser,

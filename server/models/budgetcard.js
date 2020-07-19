@@ -7,7 +7,8 @@ const valueSchema = new Schema({
   spentBudget: { type: String, required: false },
   destintion: { type: String, required: false },
   startDate: { type: String, required: false },
-  endDate: { type: String, required: false }
+  endDate: { type: String, required: false },
+  userEmail: { type: String, required: true }
 });
 
 const ValueCard = mongoose.model("ValueCard", valueSchema);

@@ -11,16 +11,16 @@ import { set } from "mongoose";
 
 function StartPage() {
 
-        const [cards, setCards] = useState({})
+    const [cards, setCards] = useState({})
 
-        const [budgetObject, setBudgetObject] = useState({
+    const [budgetObject, setBudgetObject] = useState({
         Name: "Value",
         overallBudget: "",
         spentBudget: "",
         destination: "",
         startDate: "",
-        endDate:""
-        })
+        endDate: ""
+    })
 
     useEffect(() => {
         loadCards()
@@ -28,62 +28,57 @@ function StartPage() {
 
     function loadCards() {
         API.getCards()
-        .then(res =>
-            setCards(res.data)
-        )
-        .catch(err => console.log(err));
+            .then(res =>
+                setCards(res.data)
+            )
+            .catch(err => console.log(err));
     };
 
     function deleteCard(id) {
         API.deleteCard(id)
-        .then(res => loadCards())
-        .catch(err => console.log(err));
+            .then(res => loadCards())
+            .catch(err => console.log(err));
     }
 
-        function handleChange(e) {
-            const { name, value } = e.target;
-            const objectName = e.target.getAttribute("data-objectname");
-                switch (objectName) {
-                    case "budgetObject":
-                    return setBudgetObject({...budgetObject, [name]: value})
-                };
-
-                };
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            let cardSubmitObj= event.target.getAttribute("data-objectname")
-            console.log(cards, cardSubmitObj)
-            if (cardSubmitObj) {
-            API.saveCard(cards)
-                // .then(() => setCards({
-                //   Budget: "",
-                //   Date: "",
-                //   Address: "",
-                //   Time: "",
-                //   Notes: ""
-                // }))
-                // .then(() => loadCards())
-                .catch(err => console.log(err));
-            }
+    function handleChange(e) {
+        const { name, value } = e.target;
+        const objectName = e.target.getAttribute("data-objectname");
+        switch (objectName) {
+            case "budgetObject":
+                return setBudgetObject({ ...budgetObject, [name]: value })
         };
+
+    };
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        let cardSubmitObj = event.target.getAttribute("data-objectname")
+        console.log(cards, cardSubmitObj)
+
+    };
+
+    function createCard() {
+        console.log(budgetObject);
+        API.saveCard(budgetObject);
+    }
 
     return (
         <div>
 
-        <GridContainer>
-            <GetStarted            
-            name={budgetObject}
-            handleInputChange={handleChange}
-            objectName={"budgetObject"}
-            value={budgetObject} 
-            info={setBudgetObject}
-            handleFormSubmit={handleFormSubmit} 
-            />
-        </GridContainer>
+            <GridContainer>
+                <GetStarted
+                    name={budgetObject}
+                    handleInputChange={handleChange}
+                    objectName={"budgetObject"}
+                    value={budgetObject}
+                    info={setBudgetObject}
+                    execute={createCard}
+                    handleFormSubmit={handleFormSubmit}
+                />
+            </GridContainer>
 
         </div>
-    
+
     );
 }
 export default StartPage;

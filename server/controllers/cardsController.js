@@ -1,4 +1,4 @@
-const db = require("../../../../server/models/models");
+const db = require("../models");
 //const app = require("express");
 
 const controller = {
@@ -22,9 +22,31 @@ const controller = {
       .catch(({ message }) => {
         console.log(message);
       });
+  },
+
+  findAll: function ({ user }, res) {
+    // db.budgetCard.where()
+    return res.json([]);
+  },
+
+  create: function ({ user, body }, res) {
+    db.budgetCard.create({
+      overallBudget: body.overallBudget,
+      destination: body.destination,
+      starteDate: body.starteDate,
+      endDate: body.endDate,
+      email: user.email
+
+
+    }, function (err, card) {
+
+      return res.json(card);
+    })
+
   }
+
 
 }
 
 
-module.exports = controller;
+module.exports = controller; 
