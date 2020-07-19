@@ -4,7 +4,7 @@ import React from 'react';
 // import { createMuiTheme } from '@material-ui/core/styles';
 // import green from '@material-ui/core/colors/green';
 // import red from '@material-ui/core/colors/red';
-import CardPlanning from "../CardPlanning";
+// import CardPlanning from "../CardPlanning";
 import CardIndv from "../CardIndv";
 import CardBudget from "../CardBudget";
 import CardItinerary from "../CardItinerary";

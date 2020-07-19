@@ -6,6 +6,7 @@ import {
   
     const cardStyle = {
         card: {
+        opacity: "85%",
         border: "0",
         marginBottom: "30px",
         marginTop: "30px",

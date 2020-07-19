@@ -5,7 +5,8 @@ import {
     hexToRgb
 } from "../Styles/material-dashboard-react.js";
 
-const CardItineraryStyle = {
+const SigninStyle = {
+    textAlign: "center",
     successText: {
     color: successColor[0]
     },
@@ -51,6 +52,7 @@ const CardItineraryStyle = {
     },
     cardTitle: {
     color: grayColor[2],
+    textAlign: "center",
     marginTop: "0px",
     minHeight: "auto",
     fontWeight: "300",
@@ -76,7 +78,30 @@ const CardItineraryStyle = {
         fontWeight: "400",
         lineHeight: "1"
     }
-    }
-};
+    },
+    // card: {
+    //     maxWidth: 600,
+    //     margin: 'auto',
+    //     textAlign: 'center',
+    //     marginTop: theme.spacing.unit * 5,
+    //     paddingBottom: theme.spacing.unit * 2
+    // },
+    // error: {
+    //     verticalAlign: 'middle'
+    // },
+    // title: {
+    //     marginTop: theme.spacing.unit * 2,
+    //     color: theme.palette.openTitle
+    // },
+    // textField: {
+    //     marginLeft: theme.spacing.unit,
+    //     marginRight: theme.spacing.unit,
+    //     width: 300
+    // },
+    // submit: {
+    //     margin: 'auto',
+    //     marginBottom: theme.spacing.unit * 2
+    // }
+}
 
-export default CardItineraryStyle;
+export default SigninStyle;

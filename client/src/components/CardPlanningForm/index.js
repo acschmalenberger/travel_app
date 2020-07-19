@@ -9,48 +9,38 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridItem from "../Grid2/GridItem.js";
 import CustomInput from "./CustomInput.js";
 import Tab from "@material-ui/core/Tab";
-import CardBody from "../Card/CardBody.js"
-import Button from "../Button/index.js"
-import CardChart from "../DashboardCard/cardChat.js"
-
+import CardBody from "../Card/CardBody.js";
+import CardChart from "../DashboardCard/cardChat.js";
+import Button from "../Button";
 
 // core components
-import CardPlanningFormStyles from "./style.js";
+//import CardPlanningFormStyles from "./style.js";
 
 
-const useStyles = makeStyles(CardPlanningFormStyles);
+//const useStyles = makeStyles(CardPlanningFormStyles);
 
-export default function CardPlanningForm(props) {
+function CardPlanningForm(props) {
     // const classes = useStyles();
-    // const [checked, setChecked] = React.useState([...props.checkedIndexes]);
-    // const handleToggle = value => {
-    //     const currentIndex = checked.indexOf(value);
-    //     const newChecked = [...checked];
-    //     if (currentIndex === -1) {
-    //         newChecked.push(value);
-    //     } else 
-    //         newChecked.splice(currentIndex, 1);
-    //     }
-    //     setChecked(newChecked);
 
-    // const { tasksIndexes, tasks, rtlActive } = props;
 
     return (
         <CardBody>
-            {/* <Tab> */}
-                <form id ="transportation">
-                    <GridItem xs={12} sm={12} md={12}>
-                        <CardChart
+                <form 
+                    objectName={props.objectName}
+                    onSubmit={props.onSubmit}
+                    >
+                <GridItem xs={12} sm={12} md={12}>
+                    <CardChart
                         value={props.value.Budget} 
                         info={props.info}
                         handleInputChange={props.handleInputChange}
                         name={"Budget"}
                         objectName={props.objectName}
                         overallBudget={props.overallBudget}
-                        />
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={3}>
-                        <CustomInput
+                    />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={3}>
+                    <CustomInput
                         labelText="Dates"
                         value={props.value.Date} 
                         info={props.info}
@@ -60,314 +50,317 @@ export default function CardPlanningForm(props) {
                         formControlProps={{
                         fullWidth: true
                         }}
-                        />
-                    </GridItem>
+                    />
+                </GridItem>
                     <GridItem xs={12} sm={12} md={4}>
                         <CustomInput
-                        labelText="Budget"
-                        value={props.value.Budget} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Budget"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
+                            labelText="Budget"
+                            value={props.value.Budget} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Budget"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
                         />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={6}>
                         <CustomInput
-                        labelText="Address"
-                        value={props.value.Address} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Address"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
+                            labelText="Address"
+                            value={props.value.Address} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Address"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
                         />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={12}>
                         <CustomInput
-                        labelText="Time"
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Time"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
+                            labelText="Time"
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Time"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
                         />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={12}>
                         <CustomInput
-                        labelText="Notes"
-                        value={props.value.Notes} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Notes"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
-                        inputProps={{
-                        multiline: true,
-                        rows: 5
-                        }}
+                            labelText="Notes"
+                            value={props.value.Notes} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Notes"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
+                            inputProps={{
+                            multiline: true,
+                            rows: 5
+                            }}
                         />
                     </GridItem>
-                    <GridItem>
-                        <Button
-                            type= {"submit"}
-                            handleFormSubmit={props.handleFormSubmit}
-                        >
-                            Submit
-                        </Button>
-                    </GridItem>
+                    <Button 
+                        type= {"submit"}
+                        onSubmit={props.onSubmit}
+                        > 
+                            Submit Trans
+                    </Button>  
                 </form>
-            {/* </Tab> */}
+
             <Tab>
-                <form id ="lodging">
+                <form
+                    objectName={props.objectName}
+                    onSubmit={props.onSubmit}
+                    >
                     <GridItem xs={12} sm={12} md={3}>
                         <CustomInput
-                        labelText="Dates"
-                        value={props.value.Date} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Date"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
+                            labelText="Dates"
+                            value={props.value.Date} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Date"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
                         />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={4}>
                         <CustomInput
-                        labelText="Budget"
-                        value={props.value.Budget} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Budget"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
+                            labelText="Budget"
+                            value={props.value.Budget} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Budget"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
                         />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={6}>
                         <CustomInput
-                        labelText="Address"
-                        value={props.value.Address} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Address"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
+                            labelText="Address"
+                            value={props.value.Address} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Address"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
                         />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={6}>
                         <CustomInput
-                        labelText="Time"
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Time"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
+                            labelText="Time"
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Time"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
                         />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={12}>
                         <CustomInput
-                        labelText="Notes"
-                        value={props.value.Notes} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Notes"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
-                        inputProps={{
-                        multiline: true,
-                        rows: 5
-                        }}
+                            labelText="Notes"
+                            value={props.value.Notes} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Notes"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
+                            inputProps={{
+                            multiline: true,
+                            rows: 5
+                            }}
                         />
                     </GridItem>
-                    <GridItem>
-                        <Button
-                            type= {"submit"}
-                            handleFormSubmit={props.handleFormSubmit}
-                        >
+                    <Button 
+                        type= {"submit"}
+                        // onSubmit={props.onSubmit}
+                        > 
                             Submit
-                        </Button>
-                    </GridItem>
-                </form>
-            </Tab>
-            <Tab>
-                <form id ="refreshment">
-                    <GridItem xs={12} sm={12} md={3}>
-                        <CustomInput
-                        labelText="Dates"
-                        value={props.value.Date} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Date"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
-                        />
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={4}>
-                        <CustomInput
-                        labelText="Budget"
-                        value={props.value.Budget} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Budget"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
-                        />
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={6}>
-                        <CustomInput
-                        labelText="Address"
-                        value={props.value.Address} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Address"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
-                        />
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={6}>
-                        <CustomInput
-                        labelText="Time"
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Time"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
-                        />
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={12}>
-                        <CustomInput
-                        labelText="Notes"
-                        value={props.value.Notes} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Notes"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
-                        inputProps={{
-                        multiline: true,
-                        rows: 5
-                        }}
-                        />
-                    </GridItem>
-                    <GridItem>
-                        <Button
-                            type= {"submit"}
-                            handleFormSubmit={props.handleFormSubmit}
-                        >
-                            Submit
-                        </Button>
-                    </GridItem>
+                    </Button> 
                 </form>
             </Tab>
             <Tab>
-                <form id ="activities">
+                <form 
+                    objectName={props.objectName}
+                    onSubmit={props.onSubmit}
+                    >
                     <GridItem xs={12} sm={12} md={3}>
                         <CustomInput
-                        labelText="Dates"
-                        value={props.value.Date} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Date"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
+                            labelText="Dates"
+                            value={props.value.Date} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Date"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
                         />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={4}>
                         <CustomInput
-                        labelText="Budget"
-                        value={props.value.Budget} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Budget"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
+                            labelText="Budget"
+                            value={props.value.Budget} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Budget"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
                         />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={6}>
                         <CustomInput
-                        labelText="Address"
-                        value={props.value.Address} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Address"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
+                            labelText="Address"
+                            value={props.value.Address} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Address"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
                         />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={6}>
                         <CustomInput
-                        labelText="Time"
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Time"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
+                            labelText="Time"
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Time"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
                         />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={12}>
                         <CustomInput
-                        labelText="Notes"
-                        value={props.value.Notes} 
-                        info={props.info}
-                        handleInputChange={props.handleInputChange}
-                        name={"Notes"}
-                        objectName={props.objectName}
-                        formControlProps={{
-                        fullWidth: true
-                        }}
-                        inputProps={{
-                        multiline: true,
-                        rows: 5
-                        }}
+                            labelText="Notes"
+                            value={props.value.Notes} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Notes"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
+                            inputProps={{
+                            multiline: true,
+                            rows: 5
+                            }}
                         />
                     </GridItem>
-                    <GridItem>
-                        <Button
-                            type= {"submit"}
-                            handleFormSubmit={props.handleFormSubmit}
-                        >
+                    <Button 
+                        type= {"submit"}
+                        // onSubmit={props.onSubmit}
+                        > 
                             Submit
-                        </Button>
+                    </Button> 
+                </form>
+            </Tab>
+            <Tab>
+                <form
+                objectName={props.objectName}
+                onSubmit={props.onSubmit}
+
+                >
+                    <GridItem xs={12} sm={12} md={3}>
+                        <CustomInput
+                            labelText="Dates"
+                            value={props.value.Date} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Date"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
+                        />
                     </GridItem>
+                    <GridItem xs={12} sm={12} md={4}>
+                        <CustomInput
+                            labelText="Budget"
+                            value={props.value.Budget} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Budget"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
+                        />
+                    </GridItem>
+                    <GridItem xs={12} sm={12} md={6}>
+                        <CustomInput
+                            labelText="Address"
+                            value={props.value.Address} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Address"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
+                        />
+                    </GridItem>
+                    <GridItem xs={12} sm={12} md={6}>
+                        <CustomInput
+                            labelText="Time"
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Time"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
+                        />
+                    </GridItem>
+                    <GridItem xs={12} sm={12} md={12}>
+                        <CustomInput
+                            labelText="Notes"
+                            value={props.value.Notes} 
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Notes"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
+                            inputProps={{
+                            multiline: true,
+                            rows: 5
+                            }}
+                        />
+                    </GridItem>
+                    <Button 
+                        type= {"submit"}
+                        // onSubmit={props.onSubmit}
+                        > 
+                            Submit Active
+                    </Button> 
                 </form>
             </Tab>
         </CardBody>
         
     );
 }
+export default CardPlanningForm;
