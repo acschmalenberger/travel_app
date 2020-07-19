@@ -27,8 +27,8 @@ function CardPlanningForm(props) {
         <CardBody>
                 <form 
                     objectName={props.objectName}
-                    onSubmit={props.handleFormSubmit}
-                >
+                    onSubmit={props.onSubmit}
+                    >
                 <GridItem xs={12} sm={12} md={12}>
                     <CardChart
                         value={props.value.Budget} 
@@ -109,17 +109,17 @@ function CardPlanningForm(props) {
                     </GridItem>
                     <Button 
                         type= {"submit"}
-                        //onClick={props.handleFormSubmit}
+                        onSubmit={props.onSubmit}
                         > 
                             Submit Trans
                     </Button>  
                 </form>
-            
+
             <Tab>
                 <form
                     objectName={props.objectName}
-                    onSubmit={props.handleFormSubmit}
-                >
+                    onSubmit={props.onSubmit}
+                    >
                     <GridItem xs={12} sm={12} md={3}>
                         <CustomInput
                             labelText="Dates"
@@ -190,7 +190,7 @@ function CardPlanningForm(props) {
                     </GridItem>
                     <Button 
                         type= {"submit"}
-                        //onClick={props.handleFormSubmit}
+                        // onSubmit={props.onSubmit}
                         > 
                             Submit
                     </Button> 
@@ -199,8 +199,8 @@ function CardPlanningForm(props) {
             <Tab>
                 <form 
                     objectName={props.objectName}
-                    onSubmit={props.handleFormSubmit}
-                >
+                    onSubmit={props.onSubmit}
+                    >
                     <GridItem xs={12} sm={12} md={3}>
                         <CustomInput
                             labelText="Dates"
@@ -271,7 +271,7 @@ function CardPlanningForm(props) {
                     </GridItem>
                     <Button 
                         type= {"submit"}
-                        //onClick={props.handleFormSubmit}
+                        // onSubmit={props.onSubmit}
                         > 
                             Submit
                     </Button> 
@@ -280,7 +280,7 @@ function CardPlanningForm(props) {
             <Tab>
                 <form
                 objectName={props.objectName}
-                onSubmit={props.handleFormSubmit}
+                onSubmit={props.onSubmit}
 
                 >
                     <GridItem xs={12} sm={12} md={3}>
@@ -353,9 +353,9 @@ function CardPlanningForm(props) {
                     </GridItem>
                     <Button 
                         type= {"submit"}
-                        //onClick={props.handleFormSubmit}
+                        // onSubmit={props.onSubmit}
                         > 
-                            Submit
+                            Submit Active
                     </Button> 
                 </form>
             </Tab>

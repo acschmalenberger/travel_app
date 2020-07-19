@@ -111,7 +111,7 @@ function Dashboard() {
 
         function handleFormSubmit(event) {
             event.preventDefault();
-            console.log(event.target.getAttribute(".lodging"), "Identifier")
+            console.log(event.target, "Identifier")
             let cardSubmitObj= event.target.getAttribute("data-objectname")
             console.log("Click")
             console.log(cardSubmitObj)
@@ -145,7 +145,6 @@ function Dashboard() {
                     valueActivities={activitesObject}
                     valueLodging={lodgingObject}
                     info={setBudgetObject}
-                    //onClick={handleFormSubmit} 
                     />
                 </ GridItem>      
             </GridContainer>
@@ -170,7 +169,7 @@ function Dashboard() {
                                     overallBudget={budgetObject}
                                     objectName={"transportObject"}
                                     info={setTransportObject}
-                                    onClick={handleFormSubmit} 
+                                    onSubmit={handleFormSubmit} 
                                 />
                             </div>
                         )
@@ -188,8 +187,14 @@ function Dashboard() {
                                     overallBudget={budgetObject}
                                     objectName={"lodgingObject"}
                                     info={setLodgingObject}
-                                    handleFormSubmit={handleFormSubmit} 
+                                   onSubmit={handleFormSubmit} 
                                 />
+                                 {/* <Button 
+                                 onSubmit={handleFormSubmit}
+                                 type= {"submit"}
+                                 >
+                                    Submit
+                                </Button> */}
                             </div>
                         )
                         },
@@ -206,8 +211,14 @@ function Dashboard() {
                                     overallBudget={budgetObject}
                                     objectName={"refreshObject"}
                                     info={setRefreshObject}
-                                    handleFormSubmit={handleFormSubmit} 
+                                    onSubmit={handleFormSubmit} 
                                 />
+                                 {/* <Button 
+                                 onSubmit={handleFormSubmit}
+                                 type= {"submit"}
+                                 >
+                                    Submit
+                                </Button> */}
                             </div>
                         )
                         },
@@ -224,8 +235,14 @@ function Dashboard() {
                                     overallBudget={budgetObject}
                                     objectName={"activitesObject"}
                                     info={setActivitiesObject}
-                                    handleFormSubmit={handleFormSubmit} 
+                                    onSubmit={handleFormSubmit} 
                                 />
+                                 {/* <Button 
+                                 onSubmit={handleFormSubmit}
+                                 type= {"submit"}
+                                 >
+                                    Submit
+                                </Button> */}
                             </div>
                         )
                         }
