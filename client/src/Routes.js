@@ -9,7 +9,8 @@ import Signup from './components/user/Signup';
 import UserInput from './components/UserInput/UserInput';
 import StartPage from "./pages/StartPage";
 import PlanPage from "./pages/PlanPage";
-import ItineraryPage from "./pages/ItineraryPage"
+import ItineraryPage from "./pages/ItineraryPage";
+import SigninPage from "./pages/SigninPage";
 
 class Routes extends Component {
     render() {
@@ -20,12 +21,12 @@ class Routes extends Component {
                     {/* <Route exact path="/" component={Home} /> */}
                     <PrivateRoutes path="/user/edit/:userId" />
                     <PrivateRoutes path="/UserInput" component={UserInput} />
-                    <PrivateRoutes path= "/Plan" component ={PlanPage} />
+                    <Route path= "/Plan" component ={PlanPage} />
                     <PrivateRoutes path= "/Start" component ={StartPage} />
-                    <PrivateRoutes path= "/Itinerary" component ={ItineraryPage} />
-                    <Route path="/user/:userId" component={Profile} />
+                    <Route path= "/Itinerary" component ={ItineraryPage} />
+                    <Route path="/user/:userId" component ={Profile} />
                     <Route path="/signup" component={Signup} />
-                    <Route path="/" component={Signin} />
+                    <Route path="/" component={SigninPage} />
                 </Switch>
             </div>
         );

@@ -18,22 +18,11 @@ import CardChart from "../DashboardCard/cardChat.js"
 import CardPlanningFormStyles from "./style.js";
 
 
-//const useStyles = makeStyles(CardPlanningFormStyles);
+const useStyles = makeStyles(CardPlanningFormStyles);
 
 function CardPlanningForm(props) {
     // const classes = useStyles();
-    // const [checked, setChecked] = React.useState([...props.checkedIndexes]);
-    // const handleToggle = value => {
-    //     const currentIndex = checked.indexOf(value);
-    //     const newChecked = [...checked];
-    //     if (currentIndex === -1) {
-    //         newChecked.push(value);
-    //     } else 
-    //         newChecked.splice(currentIndex, 1);
-    //     }
-    //     setChecked(newChecked);
 
-    // const { tasksIndexes, tasks, rtlActive } = props;
 
     return (
         <CardBody>

@@ -14,7 +14,7 @@ export default function SignupInput(props) {
         <input className="form-control" 
             name={props.name}
             value={props.value}
-            onChange={props.handleInputChange}
+            onChange={(event)=>props.handleInputChange(props.name, event.target.value)}
             placeholder={props.name}
             data-objectname={props.objectName}
 

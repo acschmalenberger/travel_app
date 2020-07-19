@@ -50,13 +50,14 @@ class Signin extends Component {
         });
     };
 
-    handleChange = name => event => {
-        this.setState({ [name]: event.target.value });
+    handleChange = (name, value) => {
+        this.setState({ [name]: value });
     };
 
     render() {
         const { classes } = this.props;
-        const { from } = this.props.location.state || {
+
+        const { from } = this.props.location && this.props.location.state || {
             from: {
                 pathname: '/Start'
             }
@@ -79,22 +80,24 @@ class Signin extends Component {
                                 <GridItem xs={12} sm={12} md={12}>
                                     <p>Email</p>
                                     <SigninInput
+                                        name="email"
                                         id="email"
                                         type="email"
                                         label="Email"
                                         value={this.state.email}
-                                        onChange={this.handleChange('email')}
+                                        handleInputChange={this.handleChange}
                                         margin="normal"
                                     />
                                 </GridItem>    
                                 <GridItem xs={12} sm={12} md={12}>
                                     <p>Password</p>
                                     <SigninInput
+                                        name="password"
                                         id="password"
                                         type="password"
                                         label="Password"
                                         value={this.state.password}
-                                        onChange={this.handleChange('password')}
+                                        handleInputChange={this.handleChange}
                                         margin="normal"
                                     />
                                 </GridItem>
@@ -110,10 +113,10 @@ class Signin extends Component {
                                 </GridItem>            
                             </GridContainer>
                             </CardBody>
-                            <CardFooter stats>
+                            <CardFooter >
                                 <Button
-                                // onClick={this.clickSubmit}
-                                // className={classes.submit}
+                                onClick={this.clickSubmit}
+                                className= "submit"
                                 >Sign In</Button>
                             </CardFooter>
                         </Card>

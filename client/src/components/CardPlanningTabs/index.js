@@ -12,10 +12,11 @@ import Tab from "@material-ui/core/Tab";
 import Card from "../Card/Card.js";
 import CardBody from "../Card/CardBody.js";
 import CardHeader from "../Card/CardHeader.js";
-
+import "./styles.css"
 import styles from "./style.js";
 
 const useStyles = makeStyles(styles);
+
 
 export default function CardPlanningTabs(props) {
     const [value, setValue] = React.useState(0);
@@ -30,7 +31,7 @@ export default function CardPlanningTabs(props) {
     });
     return (
         <Card plain={plainTabs}>
-        <CardHeader color={headerColor} plain={plainTabs}>
+        <CardHeader classes={{root: "header" }} color={headerColor} plain={plainTabs}>
             {title !== undefined ? <div className={cardTitle}>{title}</div> : null}
             <Tabs
             value={value}

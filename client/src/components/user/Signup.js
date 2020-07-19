@@ -63,8 +63,8 @@ class Signup extends Component {
         error: ''
     };
 
-    handleChange = name => event => {
-        this.setState({ [name]: event.target.value });
+    handleChange = (name, value) => {
+        this.setState({ [name]: value });
     };
 
     clickSubmit = () => {
@@ -97,32 +97,35 @@ class Signup extends Component {
                             <GridItem xs={12} sm={12} md={12}>
                                 <p>Name</p>
                                 <SignupInput
+                                    name="name"
                                     id="name"
                                     label="Name"
                                     value={this.state.name}
-                                    onChange={this.handleChange('name')}
+                                    handleInputChange={this.handleChange}
                                     margin="normal"
                                 />
                             </GridItem>
                             <GridItem xs={12} sm={12} md={12}>
                                 <p>Email</p>
                                 <SignupInput
+                                    name="email"
                                     id="email"
                                     type="email"
                                     label="Email"
                                     value={this.state.email}
-                                    onChange={this.handleChange('email')}
+                                    handleInputChange={this.handleChange}
                                     margin="normal"
                                 />
                             </GridItem>    
                             <GridItem xs={12} sm={12} md={12}>
                                 <p>Password</p>
                                 <SignupInput
+                                    name="password"
                                     id="password"
                                     type="password"
                                     label="Password"
                                     value={this.state.password}
-                                    onChange={this.handleChange('password')}
+                                    handleInputChange={this.handleChange}
                                     margin="normal"
                                 />
                             </GridItem>
@@ -138,11 +141,11 @@ class Signup extends Component {
                             </GridItem>            
                         </GridContainer>
                         </CardBody>
-                        <CardFooter stats>
+                        <CardFooter>
                             <Button
-                            // onClick={this.clickSubmit}
-                            // className={classes.submit}
-                            >Sign In</Button>
+                            onClick={this.clickSubmit}
+                            type={"submit"}
+                            >Sign Up</Button>
                         </CardFooter>
                     </Card>
                 </GridItem>
