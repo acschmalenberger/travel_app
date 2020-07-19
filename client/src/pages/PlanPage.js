@@ -10,6 +10,7 @@ import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
 import RestaurantIcon from '@material-ui/icons/Restaurant';
 import HotelIcon from '@material-ui/icons/Hotel';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
+import axios from "axios";
 
 function Dashboard() {
 
@@ -39,7 +40,7 @@ function Dashboard() {
         Time: "",
         Notes: ""
         })
-        const [activitesObject, setActivitiesObject] = useState({
+        const [activitesObject, setActivitesObject] = useState({
         Name: "Activites",
         Budget: "",
         Date: "",
@@ -61,20 +62,38 @@ function Dashboard() {
     }, []);
 
     function componentDidMount() {
-        API.findOne()
-        //console.log(res.data)
-        .then(res => this.setState({ setBudgetObject: res.data.message }))
-        .catch(err => console.log(err));
+        // console.log("findOne", "Test data");
+        // axios.get("/submit/111").then((data) => {
+        //     console.log("findOne", data);
+        // }).catch((err) => {
+        //     console.log("findOne", err);
+        // })
+
+        // Tis should come from the props in the Trips Page.
+        const id = "5f145b2a970b66142c8b0400";
+        API.findOne(id)
+            .then(res => {
+                console.log("findOne", res.data);
+                // this.setState({ setBudgetObject: res.data[0] })
+                setBudgetObject(res.data);
+                setTransportObject(res.data.transporation);
+                setLodgingObject(res.data.lodging);
+                setActivitesObject(res.data.activities);
+                setRefreshObject(res.data.refreshment);
+            })
+        .catch(err => {
+            console.log("findOne", err)
+        });
     };
     
 
-    function loadBudgetData(id){
-        console.log(id, "PlanPage")
-        API.findOne(id)
-        .then(res =>
-            setCards(res.data)
-        )
-    };
+    // function loadBudgetData(id){
+    //     console.log(id, "PlanPage")
+    //     API.findOne(id)
+    //     .then(res =>
+    //         setCards(res.data)
+    //     )
+    // };
 
     function componentWillMount() {
         // API.getCards()
@@ -93,6 +112,8 @@ function Dashboard() {
     function handleChange(e) {
         const { name, value } = e.target;
         const objectName = e.target.getAttribute("data-objectname");
+        const id = "5f145b2a970b66142c8b0400";
+        setCards({ ...cards, [name]: value, type: objectName, tripId: id });
             switch (objectName) {
                 case "transportObject":
                     return setTransportObject({...transportObject, [name]: value})
@@ -101,21 +122,22 @@ function Dashboard() {
                 case "refreshObject":
                     return setRefreshObject({...refreshObject, [name]: value})
                 case "activitesObject":
-                    return setActivitiesObject({...activitesObject, [name]: value})
+                    return setActivitesObject({...activitesObject, [name]: value})
                 case "lodgingObject":
                     return setLodgingObject({...lodgingObject, [name]: value})
                     default: return console.log(objectName);
             };
-
-            };
+    
+        };
 
         function handleFormSubmit(event) {
             event.preventDefault();
-            console.log(event.target, "Identifier")
-            let cardSubmitObj= event.target.getAttribute("data-objectname")
-            console.log("Click")
-            console.log(cardSubmitObj)
+            let cardSubmitObj= event.target.getAttribute("objectname");       
+
+            console.log("CARD: ", cards);
+
             if (cardSubmitObj) {
+
                 API.saveCard(cards)
                 // .then(() => setCards({
                 //   Budget: "",
@@ -137,7 +159,7 @@ function Dashboard() {
                 <CardBudget
                     name={budgetObject}
                     handleInputChange={handleChange}
-                    loadBudgetData={loadBudgetData}
+                    // loadBudgetData={loadBudgetData}
                     objectName={"budgetObject"}
                     value={budgetObject}
                     valueTransporation={transportObject}
@@ -234,7 +256,7 @@ function Dashboard() {
                                     value={activitesObject}
                                     overallBudget={budgetObject}
                                     objectName={"activitesObject"}
-                                    info={setActivitiesObject}
+                                    info={setActivitesObject}
                                     onSubmit={handleFormSubmit} 
                                 />
                                  {/* <Button 

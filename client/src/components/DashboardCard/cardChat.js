@@ -21,6 +21,8 @@ function CardChart (props) {
             ]
         )
 
+        console.log("VALUE", props.value);
+
         return(
             <div className="chart">
                 <Bar

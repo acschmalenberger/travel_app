@@ -5,8 +5,28 @@ import axios from "axios";
 export default {
  
   // Saves a card to the database
-  saveCard: function(cardData, model) {
-    console.log(cardData, "saveTrip")
+  saveCard: function(cardData) {
+    console.log(cardData, "saveTrip");
+    const { type } = cardData;
+    let model = "";
+
+    switch(type) {
+      case "transportObject":
+        model = "TransCard";
+        break;
+      case "budgetObject":
+        model = "ValueCard";
+        break; 
+      case "refreshObject":
+        model = "RefreshCard";
+        break; 
+      case "activitesObject":
+        model = "ActiveCard";
+        break; 
+      case "lodgingObject":
+        model = "LodgingCard";
+        break;             
+    }
     return axios.post("/submit/" + model, cardData);
   },
 
@@ -15,8 +35,8 @@ export default {
     return axios.post("/submit/", cardData);
   },
 
-  findOne: function(cardData) {
-    console.log("Loading the Budget Data", cardData)
-    return axios.get("/submit/:id", cardData);
+  findOne: function(tripId) {
+    console.log("Loading the Budget Data")
+    return axios.get(`/submit/${tripId}`);
   }
 };
