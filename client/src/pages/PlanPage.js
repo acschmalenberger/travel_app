@@ -111,6 +111,7 @@ function Dashboard() {
 
         function handleFormSubmit(event) {
             event.preventDefault();
+            console.log(event.target, "Identifier")
             let cardSubmitObj= event.target.getAttribute("data-objectname")
             console.log("Click")
             console.log(cardSubmitObj)
@@ -144,7 +145,6 @@ function Dashboard() {
                     valueActivities={activitesObject}
                     valueLodging={lodgingObject}
                     info={setBudgetObject}
-                    // handleFormSubmit={handleFormSubmit} 
                     />
                 </ GridItem>      
             </GridContainer>
@@ -169,14 +169,8 @@ function Dashboard() {
                                     overallBudget={budgetObject}
                                     objectName={"transportObject"}
                                     info={setTransportObject}
-                                //handleFormSubmit={handleFormSubmit} 
+                                    onSubmit={handleFormSubmit} 
                                 />
-                                <Button 
-                                    type= {"submit"}
-                                    onClick={handleFormSubmit}
-                                    > 
-                                        Submit
-                                </Button> 
                             </div>
                         )
                         },
@@ -193,14 +187,14 @@ function Dashboard() {
                                     overallBudget={budgetObject}
                                     objectName={"lodgingObject"}
                                     info={setLodgingObject}
-                                    handleFormSubmit={handleFormSubmit} 
+                                   onSubmit={handleFormSubmit} 
                                 />
-                                <Button
-                                type= {"submit"}
-                                onClick={handleFormSubmit}
-                                > 
+                                 {/* <Button 
+                                 onSubmit={handleFormSubmit}
+                                 type= {"submit"}
+                                 >
                                     Submit
-                                </Button>
+                                </Button> */}
                             </div>
                         )
                         },
@@ -217,14 +211,14 @@ function Dashboard() {
                                     overallBudget={budgetObject}
                                     objectName={"refreshObject"}
                                     info={setRefreshObject}
-                                    handleFormSubmit={handleFormSubmit} 
+                                    onSubmit={handleFormSubmit} 
                                 />
-                                <Button
-                                    type= {"submit"}
-                                    onClick={handleFormSubmit}
-                                    > 
-                                        Submit
-                                </Button>
+                                 {/* <Button 
+                                 onSubmit={handleFormSubmit}
+                                 type= {"submit"}
+                                 >
+                                    Submit
+                                </Button> */}
                             </div>
                         )
                         },
@@ -241,14 +235,14 @@ function Dashboard() {
                                     overallBudget={budgetObject}
                                     objectName={"activitesObject"}
                                     info={setActivitiesObject}
-                                    handleFormSubmit={handleFormSubmit} 
+                                    onSubmit={handleFormSubmit} 
                                 />
-                                <Button
-                                    type= {"submit"}
-                                    onClick={handleFormSubmit}
-                                    > 
-                                        Submit
-                                </Button>
+                                 {/* <Button 
+                                 onSubmit={handleFormSubmit}
+                                 type= {"submit"}
+                                 >
+                                    Submit
+                                </Button> */}
                             </div>
                         )
                         }
