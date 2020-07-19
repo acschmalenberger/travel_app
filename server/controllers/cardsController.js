@@ -39,8 +39,28 @@ const controller = {
       });
   },
 
-  create: function ({ body, params }, res) {
-    return res.status(200);
+  create: function ({ body, user }, res) {
+
+    // body.userEmail = user.email
+    console.log(body);
+    db.BudgetCard.create(body)
+      .then(newCard => {
+        return res.status(200).json(newCard);
+      }).catch(err => {
+
+        return res.status(500).json(err);
+      })
+
+
+  },
+
+  findAll: function (req, res) {
+    db.BudgetCard.where({
+      userEmail: req.query.userEmail
+    }).then(cards => {
+      return res.status(200).json(cards);
+    })
+
 
   }
 

@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const cardsController = require("../controllers/cardsController");
+const authController = require('../controllers/auth');
+
 
 // Matches with "/api/books"
 router.route("/")

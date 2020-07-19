@@ -61,9 +61,11 @@ function Dashboard() {
     }, []);
 
     function componentDidMount() {
-        API.findOne()
+        API.findOne({
+            userEmail: JSON.parse(sessionStorage.getItem("jwt")).user.email
+        })
             //console.log(res.data)
-            .then(res => this.setState({ setBudgetObject: res.data.message }))
+            .then(res => setBudgetObject(res.data[0]))
             .catch(err => console.log(err));
     };
 

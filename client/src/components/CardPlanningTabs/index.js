@@ -31,36 +31,11 @@ export default function CardPlanningTabs(props) {
     });
     return (
         <Card plain={plainTabs}>
-<<<<<<< HEAD
-            <CardHeader color={headerColor} plain={plainTabs}>
+            <CardHeader classes={{ root: "header" }} color={headerColor} plain={plainTabs}>
                 {title !== undefined ? <div className={cardTitle}>{title}</div> : null}
                 <Tabs
                     value={value}
                     onChange={handleChange}
-=======
-        <CardHeader classes={{root: "header" }} color={headerColor} plain={plainTabs}>
-            {title !== undefined ? <div className={cardTitle}>{title}</div> : null}
-            <Tabs
-            value={value}
-            onChange={handleChange}
-            classes={{
-                root: classes.tabsRoot,
-                indicator: classes.displayNone,
-                scrollButtons: classes.displayNone
-            }}
-            variant="scrollable"
-            scrollButtons="auto"
-            >
-            {tabs.map((prop, key) => {
-                var icon = {};
-                if (prop.tabIcon) {
-                icon = {
-                    icon: <prop.tabIcon />
-                };
-                }
-                return (
-                <Tab
->>>>>>> a2ec97164456089652ba6dbba52209e808289028
                     classes={{
                         root: classes.tabsRoot,
                         indicator: classes.displayNone,

@@ -3,7 +3,7 @@ module.exports = {
   RefreshCard: require("./refreshcard"),
   ActiveCard: require("./activecard"),
   LodgingCard: require("./lodgingcard"),
-  ValueCard: require("./budgetcard"),
+  BudgetCard: require("./budgetcard"),
   Trip: require("./trip")
 
 };
