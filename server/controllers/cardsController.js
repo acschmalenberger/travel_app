@@ -3,43 +3,51 @@ const db = require("../models");
 
 const controller = {
 
-  tripDetails: function ({body, params} , res) {
+  tripDetails: function ({ body, params }, res) {
     db[params.card].create(body)
-    .then(({ _id }) => db.Trip.findOneAndUpdate({}, { $push: { [params.card]: _id } }, { new: true }))
+      .then(({ _id }) => db.Trip.findOneAndUpdate({}, { $push: { [params.card]: _id } }, { new: true }))
       .then(dbTrip => {
-      res.json(dbTrip);
-    })
-    .catch(err => {
-      res.json(err);
-    });
+        res.json(dbTrip);
+      })
+      .catch(err => {
+        res.json(err);
+      });
   },
 
-createTrip: function ({ body }, res) {
-  console.log(body);
-  db.Trip.create(body)
-  .then(db.ValueCard.create(body))
-  .then(dbTrip => {
-    res.json(dbTrip);
-  })
-  .catch(({ message }) => {
-    res.json(message)
-  });
-},
+  createTrip: function ({ body }, res) {
+    console.log(body);
+    db.Trip.create(body)
+      .then(db.ValueCard.create(body))
+      .then(dbTrip => {
+        res.json(dbTrip);
+      })
+      .catch(({ message }) => {
+        res.json(message)
+      });
+  },
 
 
-findOne: function ({ body, params }, res) {
-  console.log(body, params);
-  db.Trip.find({})
-  .sort({ _id })
-  .then(dbTrip => {
-    res.json(dbTrip);
-  })
-  .catch(err => {
-    res.status(400).json(err);
-  });
+  findOne: function ({ body, params }, res) {
+    console.log(body, params);
+    db.Trip.find({})
+      .sort({ _id })
+      .then(dbTrip => {
+        res.json(dbTrip);
+      })
+      .catch(err => {
+        res.status(400).json(err);
+      });
+  },
+
+  create: function ({ body, params }, res) {
+    return res.status(200);
+
+  }
+
+
+
+
 }
 
-}
-  
 
 module.exports = controller;
