@@ -1,6 +1,6 @@
 import React from "react";
 // import ChartistGraph from "react-chartist";
- // @material-ui/core components
+// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
@@ -35,17 +35,17 @@ export default function CardBudget(props) {
                             <h2 className={classes.cardTitle} >Budget</h2>
                         </CardHeader>
                         <CardBody>
-                            <CardChartMB 
-                            value={props.value}
-                            valueTransporation={props.valueTransporation}
-                            valueRefreshment={props.valueRefreshment}
-                            valueActivities={props.valueActivities}
-                            valueLodging={props.valueLodging}
-                            info={props.info}
-                            loadBudgetData={props.loadBudgetData}
-                            handleInputChange={props.handleInputChange}
-                            handleFormSubmit={props.handleFormSubmit} 
-                            name={props.name}
+                            <CardChartMB
+                                value={props.value}
+                                valueTransporation={props.valueTransporation}
+                                valueRefreshment={props.valueRefreshment}
+                                valueActivities={props.valueActivities}
+                                valueLodging={props.valueLodging}
+                                info={props.info}
+                                loadBudgetData={props.loadBudgetData}
+                                handleInputChange={props.handleInputChange}
+                                handleFormSubmit={props.handleFormSubmit}
+                                name={props.name}
                             />
                         </CardBody>
 
@@ -55,4 +55,3 @@ export default function CardBudget(props) {
         </div>
     );
 }
-

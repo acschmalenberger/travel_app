@@ -35,11 +35,11 @@ const controller = {
     db[params.card].create(transObject)
     .then(({ _id }) => db.Trip.findOneAndUpdate({_id: tripId}, { $push: { [modelType]: _id } }, { new: true }))
       .then(dbTrip => {
-      res.json(dbTrip);
-    })
-    .catch(err => {
-      res.json(err);
-    });
+        res.json(dbTrip);
+      })
+      .catch(err => {
+        res.json(err);
+      });
   },
 
 createTrip: function ({ body }, res) {
@@ -65,19 +65,38 @@ findOne: async function ({ body, params }, res) {
   } catch(err) {
     console.log("trips", err);
     res.status(400).json(err);
+  } 
+},
+
+  create: function ({ body, user }, res) {
+
+    // body.userEmail = user.email
+    console.log(body);
+    db.BudgetCard.create(body)
+      .then(newCard => {
+        return res.status(200).json(newCard);
+      }).catch(err => {
+
+        return res.status(500).json(err);
+      })
+
+
+  },
+
+  findAll: function (req, res) {
+    db.BudgetCard.where({
+      userEmail: req.query.userEmail
+    }).then(cards => {
+      return res.status(200).json(cards);
+    })
+
+
   }
-  // db.Trip.find({})
-  // .sort({ _id })
-  //   .then(dbTrip => {
-  //     console.log(dbTrip);
-  //   res.json(dbTrip);
-  // })
-  // .catch(err => {
-  //   res.status(400).json(err);
-  // });
-}
+
+
+
 
 }
-  
+
 
 module.exports = controller;

@@ -6,13 +6,13 @@ import {
     defaultFont
 } from "../Styles/material-dashboard-react.js";
 
-    const customInputStyle = {
-        disabled: {
+const customInputStyle = {
+    disabled: {
         "&:before": {
             backgroundColor: "transparent !important"
         }
-        },
-        underline: {
+    },
+    underline: {
         "&:hover:not($disabled):before,&:before": {
             borderColor: grayColor[4] + " !important",
             borderWidth: "1px !important"
@@ -20,32 +20,32 @@ import {
         "&:after": {
             borderColor: primaryColor[0]
         }
-        },
-        underlineError: {
+    },
+    underlineError: {
         "&:after": {
             borderColor: dangerColor[0]
         }
-        },
-        underlineSuccess: {
+    },
+    underlineSuccess: {
         "&:after": {
             borderColor: successColor[0]
         }
-        },
-        labelRoot: {
+    },
+    labelRoot: {
         ...defaultFont,
         color: grayColor[3] + " !important",
         fontWeight: "400",
         fontSize: "14px",
         lineHeight: "1.42857",
         letterSpacing: "unset"
-        },
-        labelRootError: {
+    },
+    labelRootError: {
         color: dangerColor[0]
-        },
-        labelRootSuccess: {
+    },
+    labelRootSuccess: {
         color: successColor[0]
-        },
-        feedback: {
+    },
+    feedback: {
         position: "absolute",
         top: "18px",
         right: "0",
@@ -55,16 +55,16 @@ import {
         height: "24px",
         textAlign: "center",
         pointerEvents: "none"
-        },
-        marginTop: {
+    },
+    marginTop: {
         marginTop: "16px"
-        },
-        formControl: {
+    },
+    formControl: {
         paddingBottom: "10px",
         margin: "27px 0 0 0",
         position: "relative",
         verticalAlign: "unset"
-        }
-    };
-    
-    export default customInputStyle;
+    }
+};
+
+export default customInputStyle;

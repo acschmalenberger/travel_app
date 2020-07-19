@@ -6,7 +6,7 @@ const tripSchema = new Schema({
     type: String,
     unique: true
   },
-  Name:{type: String, required: false},
+  Name: { type: String, required: false },
   overallBudget: { type: String, required: false },
   spentBudget: { type: String, required: false },
   destintion: { type: String, required: false },
@@ -33,7 +33,7 @@ const tripSchema = new Schema({
   budget: [
     {
       type: Schema.Types.ObjectId,
-      ref: "ValueCard"
+      ref: "BudgetCard"
     }
   ],
   lodging: [

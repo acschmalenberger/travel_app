@@ -31,50 +31,50 @@ export default function CardPlanningTabs(props) {
     });
     return (
         <Card plain={plainTabs}>
-        <CardHeader classes={{root: "header" }} color={headerColor} plain={plainTabs}>
-            {title !== undefined ? <div className={cardTitle}>{title}</div> : null}
-            <Tabs
-            value={value}
-            onChange={handleChange}
-            classes={{
-                root: classes.tabsRoot,
-                indicator: classes.displayNone,
-                scrollButtons: classes.displayNone
-            }}
-            variant="scrollable"
-            scrollButtons="auto"
-            >
-            {tabs.map((prop, key) => {
-                var icon = {};
-                if (prop.tabIcon) {
-                icon = {
-                    icon: <prop.tabIcon />
-                };
-                }
-                return (
-                <Tab
+            <CardHeader classes={{ root: "header" }} color={headerColor} plain={plainTabs}>
+                {title !== undefined ? <div className={cardTitle}>{title}</div> : null}
+                <Tabs
+                    value={value}
+                    onChange={handleChange}
                     classes={{
-                    root: classes.tabRootButton,
-                    selected: classes.tabSelected,
-                    wrapper: classes.tabWrapper
+                        root: classes.tabsRoot,
+                        indicator: classes.displayNone,
+                        scrollButtons: classes.displayNone
                     }}
-                    key={key}
-                    label={prop.tabName}
-                    {...icon}
+                    variant="scrollable"
+                    scrollButtons="auto"
+                >
+                    {tabs.map((prop, key) => {
+                        var icon = {};
+                        if (prop.tabIcon) {
+                            icon = {
+                                icon: <prop.tabIcon />
+                            };
+                        }
+                        return (
+                            <Tab
+                                classes={{
+                                    root: classes.tabRootButton,
+                                    selected: classes.tabSelected,
+                                    wrapper: classes.tabWrapper
+                                }}
+                                key={key}
+                                label={prop.tabName}
+                                {...icon}
 
-                />
-                );
-            })}
-            </Tabs>
-        </CardHeader>
-        <CardBody>
-            {tabs.map((prop, key) => {
-            if (key === value) {
-                return <div key={key}>{prop.tabContent}</div>;
-            }
-            return null;
-            })}
-        </CardBody>
+                            />
+                        );
+                    })}
+                </Tabs>
+            </CardHeader>
+            <CardBody>
+                {tabs.map((prop, key) => {
+                    if (key === value) {
+                        return <div key={key}>{prop.tabContent}</div>;
+                    }
+                    return null;
+                })}
+            </CardBody>
         </Card>
     );
 }
@@ -91,9 +91,9 @@ CardPlanningTabs.propTypes = {
     title: PropTypes.string,
     tabs: PropTypes.arrayOf(
         PropTypes.shape({
-        tabName: PropTypes.string.isRequired,
-        tabIcon: PropTypes.object,
-        tabContent: PropTypes.node.isRequired
+            tabName: PropTypes.string.isRequired,
+            tabIcon: PropTypes.object,
+            tabContent: PropTypes.node.isRequired
         })
     ),
     rtlActive: PropTypes.bool,

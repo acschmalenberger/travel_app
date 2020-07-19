@@ -3,7 +3,7 @@ import axios from "axios";
 //axios.defaults.baseURL="http://localhost:3001"
 
 export default {
- 
+
   // Saves a card to the database
   saveCard: function(cardData) {
     console.log(cardData, "saveTrip");
@@ -30,9 +30,9 @@ export default {
     return axios.post("/submit/" + model, cardData);
   },
 
-  createTrip: function(cardData) {
+  createTrip: function (cardData) {
     console.log(cardData, "createTrip")
-    return axios.post("/submit/", cardData);
+    return axios.post("/cards", cardData);
   },
 
   findOne: function(tripId) {

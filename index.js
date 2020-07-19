@@ -5,6 +5,8 @@ const cors = require('cors');
 const userRoutes = require('./server/routes/users');
 const authRoutes = require('./server/routes/auth');
 const config = require('./server/config');
+const cardRoutes = require('./server/routes/cards');
+
 
 // DB connection
 require('./server/config/dbConnection');
@@ -19,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 // ADD routes
 app.use('/', userRoutes);
 app.use('/', authRoutes);
+app.use('/cards', cardRoutes);
 
 app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {
@@ -26,6 +29,6 @@ app.use((err, req, res, next) => {
   }
 });
 
-app.listen(config.port, function() {
+app.listen(config.port, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${config.port}!`);
 });

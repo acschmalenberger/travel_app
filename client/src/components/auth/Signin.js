@@ -23,7 +23,7 @@ import { signin } from '../../utils/api-auth.js';
 import SigninStyle from "./SigninStyle.js";
 
 const useStyles = makeStyles(SigninStyle)
-    
+
 
 class Signin extends Component {
     state = {
@@ -76,100 +76,100 @@ class Signin extends Component {
                                 <h2 >Sign In</h2>
                             </CardHeader>
                             <CardBody>
-                            <GridContainer>
-                                <GridItem xs={12} sm={12} md={12}>
-                                    <p>Email</p>
-                                    <SigninInput
-                                        name="email"
-                                        id="email"
-                                        type="email"
-                                        label="Email"
-                                        value={this.state.email}
-                                        handleInputChange={this.handleChange}
-                                        margin="normal"
-                                    />
-                                </GridItem>    
-                                <GridItem xs={12} sm={12} md={12}>
-                                    <p>Password</p>
-                                    <SigninInput
-                                        name="password"
-                                        id="password"
-                                        type="password"
-                                        label="Password"
-                                        value={this.state.password}
-                                        handleInputChange={this.handleChange}
-                                        margin="normal"
-                                    />
-                                </GridItem>
-                                <GridItem xs={12} sm={12} md={3}>
-                                    {this.state.error && (
-                                    <Typography component="p" color="error">
-                                        <Icon color="error" className={classes.error}>
-                                            error
+                                <GridContainer>
+                                    <GridItem xs={12} sm={12} md={12}>
+                                        <p>Email</p>
+                                        <SigninInput
+                                            name="email"
+                                            id="email"
+                                            type="email"
+                                            label="Email"
+                                            value={this.state.email}
+                                            handleInputChange={this.handleChange}
+                                            margin="normal"
+                                        />
+                                    </GridItem>
+                                    <GridItem xs={12} sm={12} md={12}>
+                                        <p>Password</p>
+                                        <SigninInput
+                                            name="password"
+                                            id="password"
+                                            type="password"
+                                            label="Password"
+                                            value={this.state.password}
+                                            handleInputChange={this.handleChange}
+                                            margin="normal"
+                                        />
+                                    </GridItem>
+                                    <GridItem xs={12} sm={12} md={3}>
+                                        {this.state.error && (
+                                            <Typography component="p" color="error">
+                                                <Icon color="error" className={classes.error}>
+                                                    error
                                         </Icon>
-                                        {this.state.error}
-                                    </Typography>
-                                    )} 
-                                </GridItem>            
-                            </GridContainer>
+                                                {this.state.error}
+                                            </Typography>
+                                        )}
+                                    </GridItem>
+                                </GridContainer>
                             </CardBody>
                             <CardFooter >
                                 <Button
-                                onClick={this.clickSubmit}
-                                className= "submit"
+                                    onClick={this.clickSubmit}
+                                    className="submit"
                                 >Sign In</Button>
                             </CardFooter>
                         </Card>
                     </GridItem>
                 </GridContainer>
             </div>
-           
-           
-        //    <Card className={classes.card}>
-        //         <CardContent>
-        //             <Typography type="headline" component="h2" className={classes.title}>
-        //                 Sign In
-		// 			</Typography>
-        //             <TextField
-        //                 id="email"
-        //                 type="email"
-        //                 label="Email"
-        //                 className={classes.textField}
-        //                 value={this.state.email}
-        //                 onChange={this.handleChange('email')}
-        //                 margin="normal"
-        //             />
-        //             <br />
-        //             <TextField
-        //                 id="password"
-        //                 type="password"
-        //                 label="Password"
-        //                 className={classes.textField}
-        //                 value={this.state.password}
-        //                 onChange={this.handleChange('password')}
-        //                 margin="normal"
-        //             />
-        //             <br />{' '}
-        //             {this.state.error && (
-        //                 <Typography component="p" color="error">
-        //                     <Icon color="error" className={classes.error}>
-        //                         error
-		// 					</Icon>
-        //                     {this.state.error}
-        //                 </Typography>
-        //             )}
-        //         </CardContent>
-        //         <CardActions>
-        //             <Button
-        //                 color="primary"
-        //                 variant="raised"
-        //                 onClick={this.clickSubmit}
-        //                 className={classes.submit}
-        //             >
-        //                 Submit
-		// 			</Button>
-        //         </CardActions>
-        //     </Card >
+
+
+            //    <Card className={classes.card}>
+            //         <CardContent>
+            //             <Typography type="headline" component="h2" className={classes.title}>
+            //                 Sign In
+            // 			</Typography>
+            //             <TextField
+            //                 id="email"
+            //                 type="email"
+            //                 label="Email"
+            //                 className={classes.textField}
+            //                 value={this.state.email}
+            //                 onChange={this.handleChange('email')}
+            //                 margin="normal"
+            //             />
+            //             <br />
+            //             <TextField
+            //                 id="password"
+            //                 type="password"
+            //                 label="Password"
+            //                 className={classes.textField}
+            //                 value={this.state.password}
+            //                 onChange={this.handleChange('password')}
+            //                 margin="normal"
+            //             />
+            //             <br />{' '}
+            //             {this.state.error && (
+            //                 <Typography component="p" color="error">
+            //                     <Icon color="error" className={classes.error}>
+            //                         error
+            // 					</Icon>
+            //                     {this.state.error}
+            //                 </Typography>
+            //             )}
+            //         </CardContent>
+            //         <CardActions>
+            //             <Button
+            //                 color="primary"
+            //                 variant="raised"
+            //                 onClick={this.clickSubmit}
+            //                 className={classes.submit}
+            //             >
+            //                 Submit
+            // 			</Button>
+            //         </CardActions>
+            //     </Card >
         );
     }
 }

@@ -1,3 +1,4 @@
+console.log(__dirname);
 const express = require('express');
 const userController = require('../controllers/user');
 const authController = require('../controllers/auth');

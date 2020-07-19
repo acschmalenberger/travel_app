@@ -9,9 +9,10 @@ import logo from './images/map.jpg';
 
 const styles = theme => ({
     card: {
-        maxWidth: 700,
+        maxWidth: 800,
         margin: 'auto',
         marginTop: theme.spacing(5)
+
     },
     title: {
         padding: `${theme.spacing(3)}px ${theme.spacing(2.5)}px ${theme
@@ -20,7 +21,7 @@ const styles = theme => ({
         fontSize: 24
     },
     media: {
-        minHeight: 450
+        minHeight: 600
     }
 });
 

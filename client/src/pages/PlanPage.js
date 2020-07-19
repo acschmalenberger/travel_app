@@ -14,25 +14,25 @@ import axios from "axios";
 
 function Dashboard() {
 
-        const [cards, setCards] = useState({})
+    const [cards, setCards] = useState({})
 
-        const [budgetObject, setBudgetObject] = useState({
+    const [budgetObject, setBudgetObject] = useState({
         Name: "Value",
         overallBudget: "",
         spentBudget: "",
         destination: "",
         startDate: "",
-        endDate:""
-        })
-        const [transportObject, setTransportObject] = useState({
+        endDate: ""
+    })
+    const [transportObject, setTransportObject] = useState({
         Name: "Transportation",
         Budget: "",
         Date: "",
         Address: "",
         Time: "",
         Notes: ""
-        })
-        const [refreshObject, setRefreshObject] = useState({
+    })
+    const [refreshObject, setRefreshObject] = useState({
         Name: "Refreshment",
         Budget: "",
         Date: "",
@@ -47,15 +47,15 @@ function Dashboard() {
         Address: "",
         Time: "",
         Notes: ""
-        })
-        const [lodgingObject, setLodgingObject] = useState({
+    })
+    const [lodgingObject, setLodgingObject] = useState({
         Name: "Lodging",
         Budget: "",
         Dates: "",
         Address: "",
         Time: "",
         Notes: ""
-            })
+    })
 
     useEffect(() => {
         componentDidMount()
@@ -148,27 +148,27 @@ function Dashboard() {
                 // }))
                 // .then(() => loadCards())
                 .catch(err => console.log(err));
-            }
-        };
+        }
+    };
 
     return (
         <div>
 
             <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
-                <CardBudget
-                    name={budgetObject}
-                    handleInputChange={handleChange}
-                    // loadBudgetData={loadBudgetData}
-                    objectName={"budgetObject"}
-                    value={budgetObject}
-                    valueTransporation={transportObject}
-                    valueRefreshment={refreshObject}
-                    valueActivities={activitesObject}
-                    valueLodging={lodgingObject}
-                    info={setBudgetObject}
+                    <CardBudget
+                        name={budgetObject}
+                        handleInputChange={handleChange}
+                        loadBudgetData={loadBudgetData}
+                        objectName={"budgetObject"}
+                        value={budgetObject}
+                        valueTransporation={transportObject}
+                        valueRefreshment={refreshObject}
+                        valueActivities={activitesObject}
+                        valueLodging={lodgingObject}
+                        info={setBudgetObject}
                     />
-                </ GridItem>      
+                </ GridItem>
             </GridContainer>
 
 
@@ -176,66 +176,66 @@ function Dashboard() {
             <GridContainer>
                 <GridItem xs={12} sm={12} md={9}>
                     <CardPlanningTabs
-                    headerColor="primary"
-                    tabs={[
-                        {
-                        tabName: "Transportation",
-                        tabIcon: AirplanemodeActiveIcon,
-                        tabContent: (
-                            <div>
-                                <CardPlanningForm
-                                    id = "transportation"
-                                    name={transportObject}
-                                    handleInputChange={handleChange}
-                                    value={transportObject}
-                                    overallBudget={budgetObject}
-                                    objectName={"transportObject"}
-                                    info={setTransportObject}
-                                    onSubmit={handleFormSubmit} 
-                                />
-                            </div>
-                        )
-                        },
-                        {
-                        tabName: "Lodging",
-                        tabIcon: HotelIcon,
-                        tabContent: (
-                            <div>
-                                <CardPlanningForm
-                                    id = "lodging"
-                                    name={lodgingObject}
-                                    handleInputChange={handleChange}
-                                    value={lodgingObject}
-                                    overallBudget={budgetObject}
-                                    objectName={"lodgingObject"}
-                                    info={setLodgingObject}
-                                   onSubmit={handleFormSubmit} 
-                                />
-                                 {/* <Button 
+                        headerColor="primary"
+                        tabs={[
+                            {
+                                tabName: "Transportation",
+                                tabIcon: AirplanemodeActiveIcon,
+                                tabContent: (
+                                    <div>
+                                        <CardPlanningForm
+                                            id="transportation"
+                                            name={transportObject}
+                                            handleInputChange={handleChange}
+                                            value={transportObject}
+                                            overallBudget={budgetObject}
+                                            objectName={"transportObject"}
+                                            info={setTransportObject}
+                                            onSubmit={handleFormSubmit}
+                                        />
+                                    </div>
+                                )
+                            },
+                            {
+                                tabName: "Lodging",
+                                tabIcon: HotelIcon,
+                                tabContent: (
+                                    <div>
+                                        <CardPlanningForm
+                                            id="lodging"
+                                            name={lodgingObject}
+                                            handleInputChange={handleChange}
+                                            value={lodgingObject}
+                                            overallBudget={budgetObject}
+                                            objectName={"lodgingObject"}
+                                            info={setLodgingObject}
+                                            onSubmit={handleFormSubmit}
+                                        />
+                                        {/* <Button 
                                  onSubmit={handleFormSubmit}
                                  type= {"submit"}
                                  >
                                     Submit
                                 </Button> */}
-                            </div>
-                        )
-                        },
-                        {
-                        tabName: "Food & Drink",
-                        tabIcon: RestaurantIcon,
-                        tabContent: (
-                            <div> 
-                                <CardPlanningForm
-                                    id = {"refreshment"}
-                                    name={refreshObject}
-                                    handleInputChange={handleChange}
-                                    value={refreshObject}
-                                    overallBudget={budgetObject}
-                                    objectName={"refreshObject"}
-                                    info={setRefreshObject}
-                                    onSubmit={handleFormSubmit} 
-                                />
-                                 {/* <Button 
+                                    </div>
+                                )
+                            },
+                            {
+                                tabName: "Food & Drink",
+                                tabIcon: RestaurantIcon,
+                                tabContent: (
+                                    <div>
+                                        <CardPlanningForm
+                                            id={"refreshment"}
+                                            name={refreshObject}
+                                            handleInputChange={handleChange}
+                                            value={refreshObject}
+                                            overallBudget={budgetObject}
+                                            objectName={"refreshObject"}
+                                            info={setRefreshObject}
+                                            onSubmit={handleFormSubmit}
+                                        />
+                                        {/* <Button 
                                  onSubmit={handleFormSubmit}
                                  type= {"submit"}
                                  >
@@ -265,16 +265,16 @@ function Dashboard() {
                                  >
                                     Submit
                                 </Button> */}
-                            </div>
-                        )
-                        }
-                    ]}
+                                    </div>
+                                )
+                            }
+                        ]}
                     />
                 </GridItem>
             </GridContainer>
 
         </div>
-    
+
     );
 }
 export default Dashboard;

@@ -8,16 +8,17 @@ const useStyles = makeStyles(styles);
 
 export default function StartInput(props) {
 
-  //console.log(props)
+    //console.log(props)
     return (
         <div className="form-group">
-        <input className="form-control" 
-            name={props.name}
-            value={props.value}
-            onChange={props.handleInputChange}
-            placeholder={props.labelText}
-            data-objectname={props.objectName}
-        />
+            <input className="form-control"
+                name={props.name}
+                type={props.type || "text"}
+                value={props.value}
+                onChange={props.handleInputChange}
+                placeholder={props.labelText}
+                data-objectname={props.objectName}
+            />
         </div>
     );
 }
