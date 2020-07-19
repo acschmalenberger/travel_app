@@ -87,14 +87,14 @@ class Signup extends Component {
         return (
             <div>
             <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
+                <GridItem xs={12} sm={9} md={6}>
                     <Card>
                         <CardHeader>
                             <h2 >Sign Up</h2>
                         </CardHeader>
                         <CardBody>
                         <GridContainer>
-                            <GridItem xs={12} sm={12} md={12}>
+                            <GridItem xs={9} sm={9} md={9}>
                                 <p>Name</p>
                                 <SignupInput
                                     name="name"
@@ -105,7 +105,7 @@ class Signup extends Component {
                                     margin="normal"
                                 />
                             </GridItem>
-                            <GridItem xs={12} sm={12} md={12}>
+                            <GridItem xs={8} sm={8} md={8}>
                                 <p>Email</p>
                                 <SignupInput
                                     name="email"
@@ -117,7 +117,7 @@ class Signup extends Component {
                                     margin="normal"
                                 />
                             </GridItem>    
-                            <GridItem xs={12} sm={12} md={12}>
+                            <GridItem xs={9} sm={9} md={9}>
                                 <p>Password</p>
                                 <SignupInput
                                     name="password"
@@ -129,7 +129,7 @@ class Signup extends Component {
                                     margin="normal"
                                 />
                             </GridItem>
-                            <GridItem xs={12} sm={12} md={3}>
+                            <GridItem xs={9} sm={9} md={9}>
                                 {this.state.error && (
                                 <Typography component="p" color="error">
                                     <Icon color="error" className={classes.error}>

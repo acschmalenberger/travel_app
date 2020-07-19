@@ -5,17 +5,24 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Home from '@material-ui/icons/Home';
 import Button from '@material-ui/core/Button';
-import auth from './auth/auth-helper';
+import auth from '../auth/auth-helper';
 import { Link, withRouter } from 'react-router-dom';
+import NavStyle from "./style.js";
+import { makeStyles } from "@material-ui/core/styles";
+import Travl from "../images/TRAVL.png";
+
+const useStyles = makeStyles(NavStyle)
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) return { color: '#F44336' };
     else return { color: '#ffffff' };
 };
 const Menu = withRouter(({ history }) => (
-    <AppBar position="static">
-        <Toolbar>
-            <Typography type="title" color="inherit">
+    <div>
+    <AppBar className= "navbar" position="static" style={{ backgroundColor: "#11374c", height: "150x" }}>
+        <img  src={Travl} alt="travl"/>
+        <Toolbar style={{ paddingTop: "10px" }}>
+            <Typography type="title" >
                 Home
 			</Typography>
             <Link to="/">
@@ -67,6 +74,7 @@ const Menu = withRouter(({ history }) => (
             )}
         </Toolbar>
     </AppBar >
+    </div>
 ));
 
 export default Menu;

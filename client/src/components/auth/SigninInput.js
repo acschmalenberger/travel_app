@@ -1,10 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-// core components
-import styles from "./SigninInputStyle.js";
-
-const useStyles = makeStyles(styles);
 
 export default function SigninInput(props) {
 
