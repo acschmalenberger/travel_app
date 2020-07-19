@@ -4,7 +4,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import BudgetInput from "./BudgetInput.js"
 
 import GridItem from "../Grid2/GridItem.js";
 import GridContainer from "../Grid2/GridContainer.js";

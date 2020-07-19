@@ -2,11 +2,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // core components
-import styles from "./BudgetInputStyle.js";
+import styles from "./SignupInputStyle.js";
 
 const useStyles = makeStyles(styles);
 
-export default function BudgetInput(props) {
+export default function SignupInput(props) {
 
   //console.log(props)
     return (
@@ -14,7 +14,7 @@ export default function BudgetInput(props) {
         <input className="form-control" 
             name={props.name}
             value={props.value}
-            onChange={props.handleInputChange}
+            onChange={(event)=>props.handleInputChange(props.name, event.target.value)}
             placeholder={props.name}
             data-objectname={props.objectName}
 
