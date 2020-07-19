@@ -1,0 +1,8 @@
+.startContainer{
+    height:800px;
+    background-image: url(../components/images/map.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}

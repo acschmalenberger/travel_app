@@ -70,7 +70,7 @@ class Signin extends Component {
         return (
             <div>
                 <GridContainer>
-                    <GridItem xs={12} sm={12} md={12}>
+                    <GridItem xs={12} sm={9} md={6}>
                         <Card>
                             <CardHeader>
                                 <h2 >Sign In</h2>
