@@ -208,7 +208,7 @@ function CardPlanningForm(props) {
                             info={props.info}
                             handleInputChange={props.handleInputChange}
                             name={"Date"}
-                            bjectName={props.objectName}
+                            objectName={props.objectName}
                             formControlProps={{
                             fullWidth: true
                             }}
