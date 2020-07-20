@@ -52,7 +52,6 @@ export default function GetStarted(props) {
                                     <p>When will you be traveling?</p>
                                     <StartInput
                                         labelText="From"
-                                        type="date"
                                         value={props.value.startDate}
                                         info={props.info}
                                         handleInputChange={props.handleInputChange}
@@ -61,7 +60,6 @@ export default function GetStarted(props) {
                                     />
                                     <StartInput
                                         labelText="To"
-                                        type="date"
                                         value={props.value.endDate}
                                         info={props.info}
                                         handleInputChange={props.handleInputChange}

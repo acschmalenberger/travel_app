@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const config = require('./index');
-mongoose.set("useCreateIndex", true);
+
 const URI = config.mongoURI;
 mongoose.connect(URI);
 

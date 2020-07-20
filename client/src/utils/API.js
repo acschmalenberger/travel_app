@@ -5,18 +5,36 @@ import axios from "axios";
 export default {
 
   // Saves a card to the database
+<<<<<<< HEAD
   saveCard: function (cardData, model) {
+    console.log(cardData)
+    return axios.post("/submit/" + model, cardData);
+  },
+
+  createTrip: function (cardData, model) {
+    console.log(cardData + "createTrip")
+    return axios.post("/submit/", cardData);
+
+  },
+
+
+  getCards: function () {
+
+    return axios.get("/cards");
+=======
+  saveCard: function(cardData, model) {
     console.log(cardData, "saveTrip")
     return axios.post("/submit/" + model, cardData);
   },
 
-  createTrip: function (cardData) {
+  createTrip: function(cardData) {
     console.log(cardData, "createTrip")
-    return axios.post("/cards", cardData);
+    return axios.post("/submit/", cardData);
   },
 
-  findOne: function (cardData) {
+  findOne: function(cardData) {
     console.log("Loading the Budget Data", cardData)
-    return axios.get("/cards?userEmail=" + cardData.userEmail);
+    return axios.get("/submit/:id", cardData);
+>>>>>>> a2ec97164456089652ba6dbba52209e808289028
   }
 };

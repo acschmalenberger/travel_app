@@ -3,7 +3,6 @@ import GetStarted from "../components/GetStartedCard"
 import GridContainer from "../components/Grid2/GridContainer.js";
 import API from "../utils/API";
 import "./StartPageStyle.css"
-import jwt from "express-jwt";
 // import { ListItem } from "../../components/List";
 // import { Input, TextArea, FormBtn } from "../../components/Form";
 
@@ -31,15 +30,9 @@ function StartPage() {
 
     function handleTrip(event) {
         event.preventDefault();
-        const budget = { ...budgetObject }
-        budget.userEmail = JSON.parse(sessionStorage.getItem("jwt")).user.email;
-        API.createTrip(budget)
-            .then((res) => {
-                setBudgetObject({})
-                window.location.href = "/Plan";
-            })
-
-
+        API.createTrip(budgetObject)
+            .then(() => setBudgetObject({}))
+            .then(document.location.href = '/Plan')
             .catch(err => console.log(err));
     }
 

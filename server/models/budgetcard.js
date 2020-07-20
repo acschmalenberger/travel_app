@@ -8,9 +8,9 @@ const valueSchema = new Schema({
   destintion: { type: String, required: false },
   startDate: { type: String, required: false },
   endDate: { type: String, required: false },
-  userEmail: { type: String, required: false }
+  userEmail: { type: String, required: true }
 });
 
-const BudgetCard = mongoose.model("BudgetCard", valueSchema);
+const ValueCard = mongoose.model("ValueCard", valueSchema);
 
-module.exports = BudgetCard;
+module.exports = ValueCard;
