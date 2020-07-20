@@ -39,8 +39,8 @@ function Dashboard() {
         Address: "",
         Time: "",
         Notes: ""
-        })
-        const [activitesObject, setActivitesObject] = useState({
+    })
+    const [activitesObject, setActivitesObject] = useState({
         Name: "Activites",
         Budget: "",
         Date: "",
@@ -68,32 +68,34 @@ function Dashboard() {
         // }).catch((err) => {
         //     console.log("findOne", err);
         // })
+        API.findOne({
+            userEmail: JSON.parse(sessionStorage.getItem("jwt")).user.email
+        })
+            .then(res => setBudgetObject(res.data[0]))
+            // Tis should come from the props in the Trips Page.
+            // const id = "5f145b2a970b66142c8b0400";
+            // API.findOne(id)
+            //     .then(res => {
+            //         console.log("findOne", res.data);
+            //         // this.setState({ setBudgetObject: res.data[0] })
+            //         setBudgetObject(res.data);
+            //         setTransportObject(res.data.transporation);
+            //         setLodgingObject(res.data.lodging);
+            //         setActivitesObject(res.data.activities);
+            //         setRefreshObject(res.data.refreshment);
+            //     })
+            .catch(err => console.log(err));
 
-        // Tis should come from the props in the Trips Page.
-        const id = "5f145b2a970b66142c8b0400";
-        API.findOne(id)
-            .then(res => {
-                console.log("findOne", res.data);
-                // this.setState({ setBudgetObject: res.data[0] })
-                setBudgetObject(res.data);
-                setTransportObject(res.data.transporation);
-                setLodgingObject(res.data.lodging);
-                setActivitesObject(res.data.activities);
-                setRefreshObject(res.data.refreshment);
-            })
-        .catch(err => {
-            console.log("findOne", err)
-        });
     };
-    
 
-    // function loadBudgetData(id){
-    //     console.log(id, "PlanPage")
-    //     API.findOne(id)
-    //     .then(res =>
-    //         setCards(res.data)
-    //     )
-    // };
+
+    function loadBudgetData(id) {
+        console.log(id, "PlanPage")
+        API.findOne(id)
+            .then(res =>
+                setCards(res.data)
+            )
+    };
 
     function componentWillMount() {
         // API.getCards()
@@ -114,31 +116,31 @@ function Dashboard() {
         const objectName = e.target.getAttribute("data-objectname");
         const id = "5f145b2a970b66142c8b0400";
         setCards({ ...cards, [name]: value, type: objectName, tripId: id });
-            switch (objectName) {
-                case "transportObject":
-                    return setTransportObject({...transportObject, [name]: value})
-                case "budgetObject":
-                    return setBudgetObject({...budgetObject, [name]: value})
-                case "refreshObject":
-                    return setRefreshObject({...refreshObject, [name]: value})
-                case "activitesObject":
-                    return setActivitesObject({...activitesObject, [name]: value})
-                case "lodgingObject":
-                    return setLodgingObject({...lodgingObject, [name]: value})
-                    default: return console.log(objectName);
-            };
-    
+        switch (objectName) {
+            case "transportObject":
+                return setTransportObject({ ...transportObject, [name]: value })
+            case "budgetObject":
+                return setBudgetObject({ ...budgetObject, [name]: value })
+            case "refreshObject":
+                return setRefreshObject({ ...refreshObject, [name]: value })
+            case "activitesObject":
+                return setActivitesObject({ ...activitesObject, [name]: value })
+            case "lodgingObject":
+                return setLodgingObject({ ...lodgingObject, [name]: value })
+            default: return console.log(objectName);
         };
 
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            let cardSubmitObj= event.target.getAttribute("objectname");       
+    };
 
-            console.log("CARD: ", cards);
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        let cardSubmitObj = event.target.getAttribute("objectname");
 
-            if (cardSubmitObj) {
+        console.log("CARD: ", cards);
 
-                API.saveCard(cards)
+        if (cardSubmitObj) {
+
+            API.saveCard(cards)
                 // .then(() => setCards({
                 //   Budget: "",
                 //   Date: "",
@@ -241,25 +243,25 @@ function Dashboard() {
                                  >
                                     Submit
                                 </Button> */}
-                            </div>
-                        )
-                        },
-                        {
-                        tabName: "Activities",
-                        tabIcon: PhotoCameraIcon ,
-                        tabContent: (
-                            <div> 
-                                <CardPlanningForm
-                                    id = "activities"
-                                    name={activitesObject}
-                                    handleInputChange={handleChange}
-                                    value={activitesObject}
-                                    overallBudget={budgetObject}
-                                    objectName={"activitesObject"}
-                                    info={setActivitesObject}
-                                    onSubmit={handleFormSubmit} 
-                                />
-                                 {/* <Button 
+                                    </div>
+                                )
+                            },
+                            {
+                                tabName: "Activities",
+                                tabIcon: PhotoCameraIcon,
+                                tabContent: (
+                                    <div>
+                                        <CardPlanningForm
+                                            id="activities"
+                                            name={activitesObject}
+                                            handleInputChange={handleChange}
+                                            value={activitesObject}
+                                            overallBudget={budgetObject}
+                                            objectName={"activitesObject"}
+                                            info={setActivitesObject}
+                                            onSubmit={handleFormSubmit}
+                                        />
+                                        {/* <Button 
                                  onSubmit={handleFormSubmit}
                                  type= {"submit"}
                                  >
