@@ -69,9 +69,8 @@ function Dashboard() {
     }, []);
 
     function componentDidMount() {
-        
-        // This should come from the props in the Trips Page.
-        const id = "5f15ac2ed1e99c2e9c29fbb4";
+        //This should come from the props in the Trips Page.
+        const id = "5f15cabec6938234319f5d50";
         API.findOne(id)
             .then(res => {
                 console.log("findOne", res.data);
@@ -111,12 +110,12 @@ function Dashboard() {
         // .catch(err => console.log(err));
     };
     
-    ObjectId("5f15ad10d1e99c2e9c29fbb6")
+
 
     function handleChange(e) {
         const { name, value } = e.target;
         const objectName = e.target.getAttribute("data-objectname");
-        const id = "5f15ac2ed1e99c2e9c29fbb4";
+        const id = "5f15cabec6938234319f5d50";
         setCards({ ...cards, [name]: value, type: objectName, tripId: id });
             switch (objectName) {
                 case "transportObject":
@@ -184,28 +183,6 @@ function Dashboard() {
                     />
                 </ GridItem>
             </GridContainer>
-
-        {/* <GridContainer>
-            <GridItem xs={12} sm={12} md={9} lg={9}>
-                <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
-                <Select
-                labelId="demo-simple-select-helper-label"
-                id="demo-simple-select-helper"
-                value={age}
-                onChange={handleChange}
-                >
-                    <MenuItem value="">
-                        <em>Your Trips</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-            <FormHelperText>Some important helper text</FormHelperText>
-        </FormControl>
-            </GridItem>
-        </GridContainer> */}
 
             <GridContainer>
                 <GridItem xs={12} sm={12} md={9}>

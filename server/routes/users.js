@@ -29,7 +29,9 @@ router.route("/submit/:card")
     .post(cardController.tripDetails)
 
 router.route("/submit")
-    .post(cardController.createTrip)
+    .post(cardController.create)
+    .post(cardController.trip)
+
 
 router.route("/submit/:id")
     .get(cardController.findOne)

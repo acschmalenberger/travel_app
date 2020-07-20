@@ -35,10 +35,16 @@ export default {
     return axios.post("/cards", cardData);
   },
 
+  trip: function (cardData) {
+    console.log(cardData, "Trip_New")
+    return axios.post("/submit", cardData);
+  },
+
   findOne: function(tripId) {
     console.log("Loading the Budget Data")
     return axios.get(`/submit/${tripId}`);
   },
+
 
   // getAllChartData: function (){
   //   console.log("get all chart data")

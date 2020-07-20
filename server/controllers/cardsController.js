@@ -54,6 +54,17 @@ createTrip: function ({ body }, res) {
   });
 },
 
+trip: function ({ body }, res) {
+  console.log(body);
+  db.Trip.create(body)
+  .then(db.BudgetCard.create(body))
+  .then(dbTrip => {
+    res.json(dbTrip);
+  })
+  .catch(({ message }) => {
+    res.json(message)
+  });
+},
 
 findOne: async function ({ body, params }, res) {
   console.log(body, params);
