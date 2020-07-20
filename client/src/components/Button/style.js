@@ -15,7 +15,7 @@
         button: {
         minHeight: "auto",
         minWidth: "auto",
-        backgroundColor: grayColor[0],
+        backgroundColor: "#11374c",
         color: whiteColor,
         boxShadow:
             "0 2px 2px 0 rgba(" +
@@ -45,7 +45,7 @@
         cursor: "pointer",
         "&:hover,&:focus": {
             color: whiteColor,
-            backgroundColor: grayColor[0],
+            backgroundColor: "#11374c",
             boxShadow:
             "0 14px 26px -12px rgba(" +
             hexToRgb(grayColor[0]) +

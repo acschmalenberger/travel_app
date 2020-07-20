@@ -10,7 +10,7 @@ import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
 import RestaurantIcon from '@material-ui/icons/Restaurant';
 import HotelIcon from '@material-ui/icons/Hotel';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
-import axios from "axios";
+import "./PageStyle.css"
 
 function Dashboard() {
 
@@ -152,10 +152,11 @@ function Dashboard() {
     };
 
     return (
-        <div>
+        <div className="planContainer">
+            <div>
 
-            <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
+                <GridContainer>
+                    <GridItem xs={12} sm={12} md={9} lg={9}>
                     <CardBudget
                         name={budgetObject}
                         handleInputChange={handleChange}
@@ -273,6 +274,7 @@ function Dashboard() {
                 </GridItem>
             </GridContainer>
 
+            </div>
         </div>
 
     );

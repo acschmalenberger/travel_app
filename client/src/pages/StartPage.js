@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import GetStarted from "../components/GetStartedCard"
 import GridContainer from "../components/Grid2/GridContainer.js";
 import API from "../utils/API";
-import "./StartPageStyle.css"
-import jwt from "express-jwt";
+import "./PageStyle.css";
 // import { ListItem } from "../../components/List";
 // import { Input, TextArea, FormBtn } from "../../components/Form";
 

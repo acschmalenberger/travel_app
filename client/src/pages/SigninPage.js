@@ -4,7 +4,7 @@ import Signin from "../components/auth/Signin.js";
 import Signup from '../components/user/Signup.js';
 import Button from "../components/Button";
 import API from "../utils/API";
-import "./SigninPageStyle.css"
+import "./PageStyle.css"
 import { makeStyles } from "@material-ui/core/styles";
 
 
@@ -15,6 +15,7 @@ function SigninPage() {
     return (
         <div className="signinContainer">
             <div>
+
                 {isSignup ? 
                 <div>
                     <Signup /> 
@@ -32,6 +33,7 @@ function SigninPage() {
                     >Sign up</Button>
                 </div>    
                 }
+                
             </div>
         </div>
     )
