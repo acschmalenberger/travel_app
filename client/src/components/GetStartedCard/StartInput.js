@@ -13,6 +13,7 @@ export default function StartInput(props) {
         <div className="form-group">
         <input className="form-control" 
             name={props.name}
+            type={props.type || "text"}
             value={props.value}
             onChange={props.handleInputChange}
             placeholder={props.labelText}
