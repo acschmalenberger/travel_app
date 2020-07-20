@@ -22,7 +22,8 @@ function CardChartMB (props) {
             props.valueRefreshment.Budget, 
             props.valueActivities.Budget, 
             props.valueLodging.Budget
-        ]
+        ],
+ 
     )
 
         return(

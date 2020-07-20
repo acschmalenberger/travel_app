@@ -29,7 +29,7 @@ function CardPlanningForm(props) {
                     objectName={props.objectName}
                     onSubmit={props.onSubmit}
                     >
-                <GridItem xs={12} sm={12} md={12}>
+                <GridItem xs={12} sm={12} md={12} lg={12}>
                     <CardChart
                         value={props.value.Budget} 
                         info={props.info}
@@ -39,7 +39,9 @@ function CardPlanningForm(props) {
                         overallBudget={props.overallBudget}
                     />
                 </GridItem>
-                <GridItem xs={12} sm={12} md={3}>
+                <br></br>
+                <br></br>
+                <GridItem xs={12} sm={12} md={12}>
                     <CustomInput
                         labelText="Dates"
                         value={props.value.Date} 
@@ -52,7 +54,19 @@ function CardPlanningForm(props) {
                         }}
                     />
                 </GridItem>
-                    <GridItem xs={12} sm={12} md={4}>
+                <GridItem xs={12} sm={12} md={12}>
+                        <CustomInput
+                            labelText="Time"
+                            info={props.info}
+                            handleInputChange={props.handleInputChange}
+                            name={"Time"}
+                            objectName={props.objectName}
+                            formControlProps={{
+                            fullWidth: true
+                            }}
+                        />
+                    </GridItem>
+                    <GridItem xs={12} sm={12} md={12}>
                         <CustomInput
                             labelText="Budget"
                             value={props.value.Budget} 
@@ -65,25 +79,13 @@ function CardPlanningForm(props) {
                             }}
                         />
                     </GridItem>
-                    <GridItem xs={12} sm={12} md={6}>
+                    <GridItem xs={12} sm={12} md={12}>
                         <CustomInput
                             labelText="Address"
                             value={props.value.Address} 
                             info={props.info}
                             handleInputChange={props.handleInputChange}
                             name={"Address"}
-                            objectName={props.objectName}
-                            formControlProps={{
-                            fullWidth: true
-                            }}
-                        />
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={12}>
-                        <CustomInput
-                            labelText="Time"
-                            info={props.info}
-                            handleInputChange={props.handleInputChange}
-                            name={"Time"}
                             objectName={props.objectName}
                             formControlProps={{
                             fullWidth: true
@@ -103,7 +105,7 @@ function CardPlanningForm(props) {
                             }}
                             inputProps={{
                             multiline: true,
-                            rows: 5
+                            rows: 1
                             }}
                         />
                     </GridItem>
@@ -111,7 +113,7 @@ function CardPlanningForm(props) {
                         type= {"submit"}
                         onSubmit={props.onSubmit}
                         > 
-                            Submit Trans
+                            Plan It!
                     </Button>  
                 </form>
 

@@ -21,9 +21,9 @@ class Routes extends Component {
                     {/* <Route exact path="/" component={Home} /> */}
                     <PrivateRoutes path="/user/edit/:userId" />
                     <PrivateRoutes path="/UserInput" component={UserInput} />
-                    <Route path= "/Plan" component ={PlanPage} />
+                    <PrivateRoutes path= "/Plan" component ={PlanPage} />
                     <PrivateRoutes path= "/Start" component ={StartPage} />
-                    <Route path= "/Itinerary" component ={ItineraryPage} />
+                    <PrivateRoutes path= "/Itinerary" component ={ItineraryPage} />
                     <Route path="/user/:userId" component ={Profile} />
                     <Route path="/signup" component={Signup} />
                     <Route path="/" component={SigninPage} />

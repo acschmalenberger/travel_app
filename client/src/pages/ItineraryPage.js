@@ -7,6 +7,7 @@ import GridContainer from "../components/Grid2/GridContainer.js";
 import GridItem from "../components/Grid2/GridItem.js";
 import API from "../utils/API";
 import { set } from "mongoose";
+import "./PageStyle.css"
 // import { ListItem } from "../../components/List";
 // import { Input, TextArea, FormBtn } from "../../components/Form";
 // import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
@@ -116,31 +117,33 @@ function Dashboard() {
     };
 
     return (
-        <div>
+        <div className="itineraryContainer">
+            <div>
 
-            <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                <CardBudget
-                    name={budgetObject}
-                    handleInputChange={handleChange}
-                    objectName={"budgetObject"}
-                    value={budgetObject}
-                    valueTransporation={transportObject}
-                    valueRefreshment={refreshObject}
-                    valueActivities={activitesObject}
-                    valueLodging={lodgingObject}
-                    info={setBudgetObject}
-                    handleFormSubmit={handleFormSubmit} 
-                    />
-                </ GridItem>      
-            </GridContainer>
+                <GridContainer>
+                    <GridItem xs={12} sm={12} md={9} lg={9}>
+                    <CardBudget
+                        name={budgetObject}
+                        handleInputChange={handleChange}
+                        objectName={"budgetObject"}
+                        value={budgetObject}
+                        valueTransporation={transportObject}
+                        valueRefreshment={refreshObject}
+                        valueActivities={activitesObject}
+                        valueLodging={lodgingObject}
+                        info={setBudgetObject}
+                        handleFormSubmit={handleFormSubmit} 
+                        />
+                    </ GridItem>      
+                </GridContainer>
 
-            <GridContainer>
-                <GridItem xs={12} sm={12} md={9}>
-                    <CardItinerary />
-                </GridItem>
-            </GridContainer>
+                <GridContainer>
+                    <GridItem xs={12} sm={12} md={12} lg={9}>
+                        <CardItinerary />
+                    </GridItem>
+                </GridContainer>
 
+            </div>
         </div>
     
     );

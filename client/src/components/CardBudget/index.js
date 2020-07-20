@@ -26,11 +26,11 @@ export default function CardBudget(props) {
     return (
         <div>
             <GridContainer>
-                <GridItem>
+                <GridItem xs={12} sm={12} md={12} lg={12}>
                     <Card chart>
                         <CardHeader >
-                            <CardIcon color="warning">
-                                <AttachMoneyIcon />
+                            <CardIcon color="primary">
+                                <AttachMoneyIcon  style={{fill: "white", fontSize: 40}}/>
                             </CardIcon>
                             <h2 className={classes.cardTitle} >Budget</h2>
                         </CardHeader>

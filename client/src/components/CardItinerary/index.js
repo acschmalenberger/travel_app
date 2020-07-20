@@ -23,11 +23,11 @@ export default function CardItinerary() {
     return (
         <div>
             <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
+                <GridItem xs={12} sm={12} md={12} lg={12}>
                 <Card>
                     <CardHeader>
                         <CardIcon color="warning">
-                            <EventAvailableIcon />
+                            <EventAvailableIcon style={{fill: "white", fontSize: 40}}/>
                         </CardIcon>
                         <h2 className={classes.cardTitle}>Itinerary</h2>
                         </CardHeader>
