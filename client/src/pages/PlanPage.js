@@ -66,11 +66,12 @@ function Dashboard() {
 
     useEffect(() => {
         componentDidMount()
+        //componentWillMount()
     }, []);
 
     function componentDidMount() {
         //This should come from the props in the Trips Page.
-        const id = "5f15cabec6938234319f5d50";
+        const id = "5f15d063d0851f37735479b1";
         API.findOne(id)
             .then(res => {
                 console.log("findOne", res.data);
@@ -95,13 +96,13 @@ function Dashboard() {
         )
     };
 
-    function componentWillMount() {
-        // API.getCards()
-        // .then(res =>
-        //     setCards(res.data)
-        // )
-        // .catch(err => console.log(err));
-    };
+    // function componentWillMount() {
+    //     API.findEmail()
+    //     .then(res =>
+    //         setCards(res.data)
+    //     )
+    //     .catch(err => console.log(err));
+    // };
 
 
     function deleteCard(id) {
@@ -111,11 +112,11 @@ function Dashboard() {
     };
     
 
-
     function handleChange(e) {
         const { name, value } = e.target;
         const objectName = e.target.getAttribute("data-objectname");
-        const id = "5f15cabec6938234319f5d50";
+        const id = "5f15d063d0851f37735479b1";
+
         setCards({ ...cards, [name]: value, type: objectName, tripId: id });
             switch (objectName) {
                 case "transportObject":
@@ -223,12 +224,6 @@ function Dashboard() {
                                             info={setLodgingObject}
                                             onSubmit={handleFormSubmit}
                                         />
-                                        {/* <Button 
-                                 onSubmit={handleFormSubmit}
-                                 type= {"submit"}
-                                 >
-                                    Submit
-                                </Button> */}
                                     </div>
                                 )
                             },
@@ -247,12 +242,6 @@ function Dashboard() {
                                             info={setRefreshObject}
                                             onSubmit={handleFormSubmit}
                                         />
-                                        {/* <Button 
-                                 onSubmit={handleFormSubmit}
-                                 type= {"submit"}
-                                 >
-                                    Submit
-                                </Button> */}
                             </div>
                         )
                         },

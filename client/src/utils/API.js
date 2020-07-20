@@ -1,6 +1,5 @@
 import axios from "axios";
 
-//axios.defaults.baseURL="http://localhost:3001"
 
 export default {
 
@@ -41,11 +40,14 @@ export default {
   },
 
   findOne: function(tripId) {
-    console.log("Loading the Budget Data")
+    console.log("Loading the Budget Data", tripId)
     return axios.get(`/submit/${tripId}`);
   },
 
-
+  
+  findEmail: function (cardData) {
+  return axios.get("/cards?userEmail=" + cardData.userEmail);
+  }
   // getAllChartData: function (){
   //   console.log("get all chart data")
   //   return axios.get("/api/chartdata")
