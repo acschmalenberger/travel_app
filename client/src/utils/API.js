@@ -47,9 +47,11 @@ export default {
   
   findEmail: function (cardData) {
   return axios.get("/cards?userEmail=" + cardData.userEmail);
+  },
+
+  getAllData: function(tripId) {
+    console.log("API Page", tripId)
+    return axios.get(`/submit/${tripId}`)
   }
-  // getAllChartData: function (){
-  //   console.log("get all chart data")
-  //   return axios.get("/api/chartdata")
-  // }
+
 };

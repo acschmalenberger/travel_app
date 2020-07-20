@@ -18,7 +18,6 @@ const router = express.Router();
 router.route('/api/users')
     .post(userController.registerUser);
 
-
 router
     .route('/api/users/:userId')
     .get(authController.requireSignin, userController.findUserProfile)
@@ -35,9 +34,12 @@ router.route("/submit")
 
 router.route("/submit/:id")
     .get(cardController.findOne)
+    .get(cardController.getAllData)
 
-router.route('/api/chartdata')
-    .get(cardController.getAllChartData)
+    // .get(cardController.getAllData)
+
+// router.route('/data')
+//     .get(cardController.getAllData)
 
 // router.route('/cards')
 //     .get(cardController.findEmail)

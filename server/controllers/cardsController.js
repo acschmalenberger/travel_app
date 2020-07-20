@@ -94,32 +94,15 @@ findOne: async function ({ body, params }, res) {
 
   },
 
-  findAll: function (req, res) {
-    db.BudgetCard.where({
-      userEmail: req.query.userEmail
-    }).then(cards => {
-      return res.status(200).json(cards);
-    })
+  getAllData: function ({ params }, res) {
+    db.Trip.findAll({ _id: params.id }).sort({ destination: 1 })
+    .then(newCard => {
+      return res.status(200).json(newCard);
+      }).catch(err => {
 
-
-  },
-  getAllChartData: function (req, res) {
-    console.log("inside card controller")
-    db.Trip.find({
-     
-    })
-    .then(function(results) {
-      console.log("findall finished")
-      console.log(results);
-      res.json(results);
-    });
-
-
+        return res.status(500).json(err);
+      })
   }
-
-
-
-
 
 }
 

@@ -90,7 +90,6 @@ function Dashboard() {
     
 
     function loadBudgetData(id){
-        console.log(id, "PlanPage")
         API.findOne(id)
         .then(res =>
             setCards(res.data)
@@ -105,6 +104,12 @@ function Dashboard() {
     //     .catch(err => console.log(err));
     // };
 
+    function  getAllData(email) {
+        console.log("getAllChartData", email)
+        API.getAllData(email)
+        .then( res => 
+            setCards(res.data))
+    }
 
     function deleteCard(id) {
         // API.deleteCard(id)
@@ -147,7 +152,7 @@ function Dashboard() {
                 API.saveCard(cards)
                 .then (function(data){
                     setCards({
-                          })
+                    })
                 })
                 .then(function(){
                     console.log(cards);
@@ -171,7 +176,9 @@ function Dashboard() {
                 
                 <GridContainer>
                     <GridItem xs={12} sm={12} md={9} lg={9}>
-                        <Trips ></Trips>
+                        <Trips
+                        getAllData={getAllData}
+                        ></Trips>
                     </GridItem>
                 </GridContainer>
 

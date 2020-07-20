@@ -18,11 +18,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-    export default function Trips() {
+    export default function Trips(props) {
         const classes = useStyles();
         const [open, setOpen] = React.useState(false);
         const anchorRef = React.useRef(null);
-    
+        console.log("Get all card data");
+        console.log(props);
+
         const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
         };
@@ -51,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
     
         prevOpen.current = open;
         }, [open]);
-
 
     return(
         < div className={classes.root}>
