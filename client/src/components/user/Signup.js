@@ -25,6 +25,7 @@ import { Link } from 'react-router-dom';
 
 import { registerUser } from '../../utils/api-user.js';
 import SignupStyle from "./SignupStyle.js";
+import { cardTitle } from '../Styles/material-dashboard-react.js';
 
 const useStyles = makeStyles(SignupStyle)
 
@@ -55,6 +56,7 @@ const useStyles = makeStyles(SignupStyle)
 // });
 
 class Signup extends Component {
+
     state = {
         name: '',
         password: '',
@@ -90,7 +92,7 @@ class Signup extends Component {
                 <GridItem xs={12} sm={9} md={6}>
                     <Card>
                         <CardHeader>
-                            <h2>Sign Up</h2>
+                            <h2 >Sign Up</h2>
                         </CardHeader>
                         <CardBody>
                         <GridContainer>

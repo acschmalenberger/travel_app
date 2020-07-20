@@ -1,6 +1,5 @@
 import axios from "axios";
 
-//axios.defaults.baseURL="http://localhost:3001"
 
 export default {
 
@@ -35,8 +34,22 @@ export default {
     return axios.post("/cards", cardData);
   },
 
+  trip: function (cardData) {
+    console.log(cardData, "Trip_New")
+    return axios.post("/submit", cardData);
+  },
+
   findOne: function(tripId) {
-    console.log("Loading the Budget Data")
+    console.log("Loading the Budget Data", tripId)
     return axios.get(`/submit/${tripId}`);
+  },
+
+  
+  findEmail: function (cardData) {
+  return axios.get("/cards?userEmail=" + cardData.userEmail);
   }
+  // getAllChartData: function (){
+  //   console.log("get all chart data")
+  //   return axios.get("/api/chartdata")
+  // }
 };

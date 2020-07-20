@@ -54,19 +54,30 @@ const controller = {
       });
   },
 
+  trip: function ({ body }, res) {
+    console.log(body);
+    db.Trip.create(body)
+      .then(db.BudgetCard.create(body))
+      .then(dbTrip => {
+        res.json(dbTrip);
+      })
+      .catch(({ message }) => {
+        res.json(message)
+      });
+  },
 
-  // findOne: async function ({ body, params }, res) {
-  //   console.log(body, params);
+  findOne: async function ({ body, params }, res) {
+    console.log(body, params);
 
-  //   try {
-  //     const trips = await db.Trip.findOne({ _id: params.id }).sort({ spentBudget: 1 }).populate("transporation").populate("budget").populate("refreshment").populate("activities").populate("lodging");
-  //     console.log("trips", trips);
-  //     res.json(trips);
-  //   } catch(err) {
-  //     console.log("trips", err);
-  //     res.status(400).json(err);
-  //   } 
-  // },
+    try {
+      const trips = await db.Trip.findOne({ _id: params.id }).sort({ spentBudget: 1 }).populate("transporation").populate("budget").populate("refreshment").populate("activities").populate("lodging");
+      console.log("trips", trips);
+      res.json(trips);
+    } catch (err) {
+      console.log("trips", err);
+      res.status(400).json(err);
+    }
+  },
 
   create: function ({ body, user }, res) {
 
@@ -91,7 +102,21 @@ const controller = {
     })
 
 
+  },
+  getAllChartData: function (req, res) {
+    console.log("inside card controller")
+    db.Trip.find({
+
+    })
+      .then(function (results) {
+        console.log("findall finished")
+        console.log(results);
+        res.json(results);
+      });
+
+
   }
+
 
 
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import GetStarted from "../components/GetStartedCard"
 import GridContainer from "../components/Grid2/GridContainer.js";
 import API from "../utils/API";
-import "./StartPageStyle.css"
+import "./PageStyle.css"
 import jwt from "express-jwt";
 // import { ListItem } from "../../components/List";
 // import { Input, TextArea, FormBtn } from "../../components/Form";
@@ -10,8 +10,8 @@ import jwt from "express-jwt";
 
 function StartPage() {
 
-    const [budgetObject, setBudgetObject] = useState({
-        Name: "Value",
+    const [tripObject, setTripObject] = useState({
+        Name: "MyTrips",
         overallBudget: "",
         spentBudget: "",
         destination: "",
@@ -23,19 +23,19 @@ function StartPage() {
         const { name, value } = e.target;
         const objectName = e.target.getAttribute("data-objectname");
         switch (objectName) {
-            case "budgetObject":
-                return setBudgetObject({ ...budgetObject, [name]: value })
+            case "tripObject":
+                return setTripObject({ ...tripObject, [name]: value })
         };
 
     };
 
     function handleTrip(event) {
         event.preventDefault();
-        const budget = { ...budgetObject }
-        budget.userEmail = JSON.parse(sessionStorage.getItem("jwt")).user.email;
-        API.createTrip(budget)
+        const trip = { ...tripObject }
+        trip.userEmail = JSON.parse(sessionStorage.getItem("jwt")).user.email;
+        API.trip(trip)
             .then((res) => {
-                setBudgetObject({})
+                setTripObject({})
                 window.location.href = "/Plan";
             })
 
@@ -49,11 +49,11 @@ function StartPage() {
 
                 <GridContainer>
                     <GetStarted
-                        name={budgetObject}
+                        name={tripObject}
                         handleInputChange={handleChange}
-                        objectName={"budgetObject"}
-                        value={budgetObject}
-                        info={setBudgetObject}
+                        objectName={"tripObject"}
+                        value={tripObject}
+                        info={setTripObject}
                         handleTrip={handleTrip}
                     />
                 </GridContainer>

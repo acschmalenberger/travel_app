@@ -18,55 +18,55 @@ export default function GetStarted(props) {
     const classes = useStyles();
     return (
         <div>
-            <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
+            <GridContainer >
+                <GridItem xs={12} sm={12} md={12} lg={9}>
                     <Card>
                         <CardHeader>
                             <h2 className={classes.cardTitle} >Welcome!</h2>
                         </CardHeader>
                         <CardBody>
                             <GridContainer>
-                                <GridItem xs={12} sm={12} md={9}>
-                                    <p>What is your starting budget?</p>
-                                    <StartInput
-                                        labelText="Budget"
-                                        value={props.value.overallBudget}
-                                        info={props.info}
-                                        handleInputChange={props.handleInputChange}
-                                        name={"overallBudget"}
-                                        objectName={props.objectName}
-                                    />
-                                </GridItem>
-                                <GridItem xs={12} sm={12} md={12}>
-                                    <p>Where would you like to go? </p>
-                                    <StartInput
-                                        labelText="Destination"
-                                        value={props.value.destination}
-                                        info={props.info}
-                                        handleInputChange={props.handleInputChange}
-                                        name={"destination"}
-                                        objectName={props.objectName}
-                                    />
-                                </GridItem>
-                                <GridItem xs={12} sm={12} md={12}>
-                                    <p>When will you be traveling?</p>
-                                    <StartInput
-                                        labelText="From"
-                                        type="date"
-                                        value={props.value.startDate}
-                                        info={props.info}
-                                        handleInputChange={props.handleInputChange}
-                                        name={"startDate"}
-                                        objectName={props.objectName}
-                                    />
-                                    <StartInput
-                                        labelText="To"
-                                        type="date"
-                                        value={props.value.endDate}
-                                        info={props.info}
-                                        handleInputChange={props.handleInputChange}
-                                        name={"endDate"}
-                                        objectName={props.objectName}
+                            <GridItem xs={12} sm={12} md={12} lg={9}>
+                                <p>What is your starting budget?</p>
+                                <StartInput
+                                    labelText="Budget"
+                                    value={props.value.overallBudget} 
+                                    info={props.info}
+                                    handleInputChange={props.handleInputChange}
+                                    name={"overallBudget"}
+                                    objectName={props.objectName}
+                                />
+                            </GridItem>    
+                            <GridItem xs={12} sm={12} md={12} lg={9}>
+                            <p>Where would you like to go? </p>
+                            <StartInput
+                                labelText="Destination"
+                                value={props.value.destination} 
+                                info={props.info}
+                                handleInputChange={props.handleInputChange}
+                                name={"destination"}
+                                objectName={props.objectName}
+                            />
+                            </GridItem> 
+                            <GridItem xs={12} sm={12} md={12} lg={9}>
+                            <p>When will you be traveling?</p>
+                            <StartInput
+                                labelText="From"
+                                type = "date"
+                                value={props.value.startDate} 
+                                info={props.info}
+                                handleInputChange={props.handleInputChange}
+                                name={"startDate"}
+                                objectName={props.objectName}
+                                />
+                            <StartInput
+                                labelText="To"
+                                type= "date"
+                                value={props.value.endDate} 
+                                info={props.info}
+                                handleInputChange={props.handleInputChange}
+                                name={"endDate"}
+                                objectName={props.objectName}
 
                                     />
                                 </GridItem>

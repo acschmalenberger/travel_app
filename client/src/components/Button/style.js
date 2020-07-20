@@ -15,7 +15,7 @@
         button: {
         minHeight: "auto",
         minWidth: "auto",
-        backgroundColor: grayColor[0],
+        backgroundColor: "#11374c",
         color: whiteColor,
         boxShadow:
             "0 2px 2px 0 rgba(" +
@@ -45,7 +45,7 @@
         cursor: "pointer",
         "&:hover,&:focus": {
             color: whiteColor,
-            backgroundColor: grayColor[0],
+            backgroundColor: "#11374c",
             boxShadow:
             "0 14px 26px -12px rgba(" +
             hexToRgb(grayColor[0]) +
@@ -111,9 +111,9 @@
             hexToRgb(roseColor[0]) +
             ", 0.42), 0 4px 23px 0px rgba(" +
             hexToRgb(blackColor) +
-            ", 0.12), 0 8px 10px -5px rgba(" +
-            hexToRgb(roseColor[0]) +
-            ", 0.2)"
+            ", 0.12), 0 8px 10px -5px rgba(" 
+            // hexToRgb(roseColor[0]) +
+            // ", 0.2)"
         }
         },
         primary: {
