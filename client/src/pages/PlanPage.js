@@ -87,13 +87,13 @@ function Dashboard() {
     };
     
 
-    // function loadBudgetData(id){
-    //     console.log(id, "PlanPage")
-    //     API.findOne(id)
-    //     .then(res =>
-    //         setCards(res.data)
-    //     )
-    // };
+    function loadBudgetData(id){
+        console.log(id, "PlanPage")
+        API.findOne(id)
+        .then(res =>
+            setCards(res.data)
+        )
+    };
 
     function componentWillMount() {
         // API.getCards()
