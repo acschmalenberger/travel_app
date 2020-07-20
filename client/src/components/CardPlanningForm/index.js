@@ -55,6 +55,7 @@ function CardPlanningForm(props) {
                         info={props.info}
                         handleInputChange={props.handleInputChange}
                         name={"Date"}
+                        type= "date"
                         objectName={props.objectName}
                         formControlProps={{
                         fullWidth: true
@@ -67,6 +68,7 @@ function CardPlanningForm(props) {
                             info={props.info}
                             handleInputChange={props.handleInputChange}
                             name={"Time"}
+                            type= "time"
                             objectName={props.objectName}
                             formControlProps={{
                             fullWidth: true
@@ -136,6 +138,7 @@ function CardPlanningForm(props) {
                             info={props.info}
                             handleInputChange={props.handleInputChange}
                             name={"Date"}
+                            type= "date"
                             objectName={props.objectName}
                             formControlProps={{
                             fullWidth: true
@@ -174,6 +177,7 @@ function CardPlanningForm(props) {
                             info={props.info}
                             handleInputChange={props.handleInputChange}
                             name={"Time"}
+                            type= "time"
                             objectName={props.objectName}
                             formControlProps={{
                             fullWidth: true
@@ -217,7 +221,8 @@ function CardPlanningForm(props) {
                             info={props.info}
                             handleInputChange={props.handleInputChange}
                             name={"Date"}
-                            objectName={props.objectName}
+                            type= "date"
+                            bjectName={props.objectName}
                             formControlProps={{
                             fullWidth: true
                             }}
@@ -255,6 +260,7 @@ function CardPlanningForm(props) {
                             info={props.info}
                             handleInputChange={props.handleInputChange}
                             name={"Time"}
+                            type= "time"
                             objectName={props.objectName}
                             formControlProps={{
                             fullWidth: true
@@ -299,6 +305,7 @@ function CardPlanningForm(props) {
                             info={props.info}
                             handleInputChange={props.handleInputChange}
                             name={"Date"}
+                            type= "date"
                             objectName={props.objectName}
                             formControlProps={{
                             fullWidth: true
@@ -337,6 +344,7 @@ function CardPlanningForm(props) {
                             info={props.info}
                             handleInputChange={props.handleInputChange}
                             name={"Time"}
+                            type= "time"
                             objectName={props.objectName}
                             formControlProps={{
                             fullWidth: true

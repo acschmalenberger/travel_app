@@ -111,9 +111,9 @@
             hexToRgb(roseColor[0]) +
             ", 0.42), 0 4px 23px 0px rgba(" +
             hexToRgb(blackColor) +
-            ", 0.12), 0 8px 10px -5px rgba(" +
-            hexToRgb(roseColor[0]) +
-            ", 0.2)"
+            ", 0.12), 0 8px 10px -5px rgba(" 
+            // hexToRgb(roseColor[0]) +
+            // ", 0.2)"
         }
         },
         primary: {

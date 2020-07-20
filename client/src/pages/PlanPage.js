@@ -9,6 +9,7 @@ import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
 import RestaurantIcon from '@material-ui/icons/Restaurant';
 import HotelIcon from '@material-ui/icons/Hotel';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
+import Trips from "../components/Trips"
 import "./PageStyle.css"
 import CustomInput from "../components/CardPlanningForm/CustomInput";
 import { makeStyles } from '@material-ui/core/styles';
@@ -167,6 +168,12 @@ function Dashboard() {
     return (
         <div className="planContainer">
             <div>
+                
+                <GridContainer>
+                    <GridItem xs={12} sm={12} md={9} lg={9}>
+                        <Trips ></Trips>
+                    </GridItem>
+                </GridContainer>
 
                 <GridContainer>
                     <GridItem xs={12} sm={12} md={9} lg={9}>
