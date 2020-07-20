@@ -38,5 +38,10 @@ export default {
   findOne: function(tripId) {
     console.log("Loading the Budget Data")
     return axios.get(`/submit/${tripId}`);
-  }
+  },
+
+  // getAllChartData: function (){
+  //   console.log("get all chart data")
+  //   return axios.get("/api/chartdata")
+  // }
 };

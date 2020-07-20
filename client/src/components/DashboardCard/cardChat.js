@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Bar} from 'react-chartjs-2';
 
 function CardChart (props) {
+    // console.log("chart props");
+    // console.log(props);
     //const [chartData, setChartData] = useState({})
     const [data, setDataObj] = useState([0,0,0])
         //console.log(props.overallBudget.overallBudget)

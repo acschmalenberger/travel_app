@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardPlanningTabs from "../components/CardPlanningTabs";
 import CardBudget from "../components/CardBudget";
-import Button from "../components/Button";
 import CardPlanningForm from "../components/CardPlanningForm";
 import GridContainer from "../components/Grid2/GridContainer.js";
 import GridItem from "../components/Grid2/GridItem.js";
@@ -11,6 +10,14 @@ import RestaurantIcon from '@material-ui/icons/Restaurant';
 import HotelIcon from '@material-ui/icons/Hotel';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 import "./PageStyle.css"
+import CustomInput from "../components/CardPlanningForm/CustomInput";
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 
 function Dashboard() {
 
@@ -62,15 +69,9 @@ function Dashboard() {
     }, []);
 
     function componentDidMount() {
-        // console.log("findOne", "Test data");
-        // axios.get("/submit/111").then((data) => {
-        //     console.log("findOne", data);
-        // }).catch((err) => {
-        //     console.log("findOne", err);
-        // })
-
-        // Tis should come from the props in the Trips Page.
-        const id = "5f145b2a970b66142c8b0400";
+        
+        // This should come from the props in the Trips Page.
+        const id = "5f15ac2ed1e99c2e9c29fbb4";
         API.findOne(id)
             .then(res => {
                 console.log("findOne", res.data);
@@ -103,16 +104,19 @@ function Dashboard() {
         // .catch(err => console.log(err));
     };
 
+
     function deleteCard(id) {
         // API.deleteCard(id)
         // .then(res => loadCards())
         // .catch(err => console.log(err));
     };
+    
+    ObjectId("5f15ad10d1e99c2e9c29fbb6")
 
     function handleChange(e) {
         const { name, value } = e.target;
         const objectName = e.target.getAttribute("data-objectname");
-        const id = "5f145b2a970b66142c8b0400";
+        const id = "5f15ac2ed1e99c2e9c29fbb4";
         setCards({ ...cards, [name]: value, type: objectName, tripId: id });
             switch (objectName) {
                 case "transportObject":
@@ -135,10 +139,19 @@ function Dashboard() {
             let cardSubmitObj= event.target.getAttribute("objectname");       
 
             console.log("CARD: ", cards);
+            console.log(cardSubmitObj);
 
             if (cardSubmitObj) {
 
                 API.saveCard(cards)
+                .then (function(data){
+                    setCards({
+                          })
+                })
+                .then(function(){
+                    console.log(cards);
+                   // loadCards();
+                })
                 // .then(() => setCards({
                 //   Budget: "",
                 //   Date: "",
@@ -172,7 +185,27 @@ function Dashboard() {
                 </ GridItem>
             </GridContainer>
 
-
+        {/* <GridContainer>
+            <GridItem xs={12} sm={12} md={9} lg={9}>
+                <FormControl className={classes.formControl}>
+            <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+                <Select
+                labelId="demo-simple-select-helper-label"
+                id="demo-simple-select-helper"
+                value={age}
+                onChange={handleChange}
+                >
+                    <MenuItem value="">
+                        <em>Your Trips</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+            <FormHelperText>Some important helper text</FormHelperText>
+        </FormControl>
+            </GridItem>
+        </GridContainer> */}
 
             <GridContainer>
                 <GridItem xs={12} sm={12} md={9}>
@@ -185,6 +218,7 @@ function Dashboard() {
                                 tabContent: (
                                     <div>
                                         <CardPlanningForm
+                                        cards={cards}
                                             id="transportation"
                                             name={transportObject}
                                             handleInputChange={handleChange}
@@ -260,12 +294,6 @@ function Dashboard() {
                                     info={setActivitesObject}
                                     onSubmit={handleFormSubmit} 
                                 />
-                                 {/* <Button 
-                                 onSubmit={handleFormSubmit}
-                                 type= {"submit"}
-                                 >
-                                    Submit
-                                </Button> */}
                                     </div>
                                 )
                             }
