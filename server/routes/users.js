@@ -15,8 +15,8 @@ const cardController = require('../controllers/cardsController')
 
 const router = express.Router();
 
-router.route('/api/users')
-    .post(userController.registerUser);
+router.route('/api/users').post(userController.registerUser);
+
 
 router
     .route('/api/users/:userId')
@@ -32,17 +32,13 @@ router.route("/submit")
     .post(cardController.create)
     .post(cardController.trip)
 
+
 router.route("/submit/:id")
     .get(cardController.findOne)
-    .get(cardController.getAllData)
 
-    // .get(cardController.getAllData)
+router.route('/api/chartdata')
+.get(cardController.getAllChartData)
 
-// router.route('/data')
-//     .get(cardController.getAllData)
-
-// router.route('/cards')
-//     .get(cardController.findEmail)
 
 
 

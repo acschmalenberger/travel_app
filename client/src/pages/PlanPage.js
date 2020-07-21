@@ -9,7 +9,6 @@ import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
 import RestaurantIcon from '@material-ui/icons/Restaurant';
 import HotelIcon from '@material-ui/icons/Hotel';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
-import Trips from "../components/Trips"
 import "./PageStyle.css"
 import CustomInput from "../components/CardPlanningForm/CustomInput";
 import { makeStyles } from '@material-ui/core/styles';
@@ -67,12 +66,11 @@ function Dashboard() {
 
     useEffect(() => {
         componentDidMount()
-        //componentWillMount()
     }, []);
 
     function componentDidMount() {
         //This should come from the props in the Trips Page.
-        const id = "5f15d063d0851f37735479b1";
+        const id = "5f15cabec6938234319f5d50";
         API.findOne(id)
             .then(res => {
                 console.log("findOne", res.data);
@@ -90,26 +88,21 @@ function Dashboard() {
     
 
     function loadBudgetData(id){
+        console.log(id, "PlanPage")
         API.findOne(id)
         .then(res =>
             setCards(res.data)
         )
     };
 
-    // function componentWillMount() {
-    //     API.findEmail()
-    //     .then(res =>
-    //         setCards(res.data)
-    //     )
-    //     .catch(err => console.log(err));
-    // };
+    function componentWillMount() {
+        // API.getCards()
+        // .then(res =>
+        //     setCards(res.data)
+        // )
+        // .catch(err => console.log(err));
+    };
 
-    function  getAllData(email) {
-        console.log("getAllChartData", email)
-        API.getAllData(email)
-        .then( res => 
-            setCards(res.data))
-    }
 
     function deleteCard(id) {
         // API.deleteCard(id)
@@ -118,11 +111,11 @@ function Dashboard() {
     };
     
 
+
     function handleChange(e) {
         const { name, value } = e.target;
         const objectName = e.target.getAttribute("data-objectname");
-        const id = "5f15d063d0851f37735479b1";
-
+        const id = "5f15cabec6938234319f5d50";
         setCards({ ...cards, [name]: value, type: objectName, tripId: id });
             switch (objectName) {
                 case "transportObject":
@@ -152,7 +145,7 @@ function Dashboard() {
                 API.saveCard(cards)
                 .then (function(data){
                     setCards({
-                    })
+                          })
                 })
                 .then(function(){
                     console.log(cards);
@@ -173,14 +166,6 @@ function Dashboard() {
     return (
         <div className="planContainer">
             <div>
-                
-                <GridContainer>
-                    <GridItem xs={12} sm={12} md={9} lg={9}>
-                        <Trips
-                        getAllData={getAllData}
-                        ></Trips>
-                    </GridItem>
-                </GridContainer>
 
                 <GridContainer>
                     <GridItem xs={12} sm={12} md={9} lg={9}>
@@ -238,6 +223,12 @@ function Dashboard() {
                                             info={setLodgingObject}
                                             onSubmit={handleFormSubmit}
                                         />
+                                        {/* <Button 
+                                 onSubmit={handleFormSubmit}
+                                 type= {"submit"}
+                                 >
+                                    Submit
+                                </Button> */}
                                     </div>
                                 )
                             },
@@ -256,6 +247,12 @@ function Dashboard() {
                                             info={setRefreshObject}
                                             onSubmit={handleFormSubmit}
                                         />
+                                        {/* <Button 
+                                 onSubmit={handleFormSubmit}
+                                 type= {"submit"}
+                                 >
+                                    Submit
+                                </Button> */}
                             </div>
                         )
                         },
