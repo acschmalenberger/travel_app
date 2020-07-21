@@ -15,8 +15,7 @@ const cardController = require('../controllers/cardsController')
 
 const router = express.Router();
 
-router.route('/api/users')
-    .post(userController.registerUser);
+router.route('/api/users').post(userController.registerUser);
 
 
 router
@@ -29,18 +28,22 @@ router.param('userId', userController.findUserById);
 router.route("/submit/:card")
     .post(cardController.tripDetails)
 
-router.route("/api/submit")
-    .post(cardController.create)
-// .post(cardController.trip)
+router.route("/submit")
+    .post((req, res) => {
+        cardController.trip(req, res)
+        //cardController.create (req, res)
+    })
+
 
 router.route("/submit/:id")
     .get(cardController.findOne)
 
-router.route('/api/chartdata')
-    .get(cardController.getAllChartData)
+router.route('/api/findAll/')
+    .get((req, res) => {
+        console.log("Hit End Point")
+        cardController.findAll(req, res)
+    })
 
-// router.route('/cards')
-//     .get(cardController.findEmail)
 
 
 module.exports = router;

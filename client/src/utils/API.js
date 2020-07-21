@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//axios.defaults.baseURL="http://localhost:3001"
 
 export default {
 
@@ -8,7 +9,7 @@ export default {
     console.log(cardData, "saveTrip");
     const { type } = cardData;
     let model = "";
-
+    console.log(type)
     switch (type) {
       case "transportObject":
         model = "TransCard";
@@ -40,13 +41,13 @@ export default {
   },
 
   findOne: function (tripId) {
-    console.log("Loading the Budget Data", tripId)
+    console.log("Loading the Budget Data")
     return axios.get(`/submit/${tripId}`);
   },
 
-
-  findEmail: function (cardData) {
-    return axios.get("/cards?userEmail=" + cardData.userEmail);
+  findAll: function (itinerary) {
+    console.log("FIND ALL APIjs", itinerary)
+    return axios.get(`/api/findAll?email=${itinerary}`, itinerary)
   }
   // getAllChartData: function (){
   //   console.log("get all chart data")

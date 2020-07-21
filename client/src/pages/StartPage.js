@@ -16,6 +16,7 @@ function StartPage() {
         spentBudget: "",
         destination: "",
         startDate: "",
+        userEmail: "",
         endDate: ""
     })
 
