@@ -6,6 +6,9 @@ import {
   
     const cardStyle = {
         card: {
+        opacity: "90%",
+        itemAlign:"center",
+        padding:"15px",
         border: "0",
         marginBottom: "30px",
         marginTop: "30px",
@@ -36,6 +39,4 @@ import {
         }
         }
 };
-  
 export default cardStyle;
-  

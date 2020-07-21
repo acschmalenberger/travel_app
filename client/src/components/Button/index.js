@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 // material-ui components
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import Button from "@material-ui/core/esm/Button";
 
 import styles from "./style.js";
 
