@@ -40,6 +40,7 @@
         borderCollapse: "collapse"
         },
         tableHeadCell: {
+        fontWeight: "bold",
         color: "inherit",
         ...defaultFont,
         "&, &$tableCell": {
@@ -48,6 +49,7 @@
         },
         tableCell: {
         ...defaultFont,
+        color: grayColor[1],
         lineHeight: "1.42857143",
         padding: "12px 8px",
         verticalAlign: "middle",

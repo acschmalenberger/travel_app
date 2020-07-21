@@ -111,7 +111,7 @@ findOne: async function ({ body, params }, res) {
   getAllChartData: function (req, res) {
     console.log("inside card controller")
     db.Trip.find({
-     
+  
     })
     .then(function(results) {
       console.log("findall finished")

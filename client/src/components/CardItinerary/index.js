@@ -33,7 +33,7 @@ export default function CardItinerary(props) {
                         <h2 className={classes.cardTitle}>Itinerary</h2>
                         </CardHeader>
                         <CardBody>
-                            <CustomTable
+                            <CustomTable style= {{color:"black"}}
                                 tableHeaderColor="warning"
                                 tableHead={["Date", "Time", "Category", "Name", "Price"]}
                                 tableData={[

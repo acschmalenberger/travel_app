@@ -6,7 +6,7 @@ const CardChart = (props)=> {
     // console.log(props);
     //const [chartData, setChartData] = useState({})
     const [data, setDataObj] = useState([0,0,0])
-        //console.log(props.overallBudget.overallBudget)
+        console.log(props)
 
         useEffect(()=>{
             const oAbudget = parseInt(props.overallBudget.overallBudget);
@@ -16,11 +16,11 @@ const CardChart = (props)=> {
                         [oAbudget, expenses, diff]
                     )
         },
-            [
-                props.overallBudget.overallBudget,
-                props.value,
-                //((props.overallBudget.overallBudget - props.value))
-            ]
+            // [
+            //     props.overallBudget.overallBudget,
+            //     props.value,
+            //     //((props.overallBudget.overallBudget - props.value))
+            // ]
         )
 
         console.log("VALUE", props.value);
