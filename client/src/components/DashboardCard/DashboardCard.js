@@ -4,7 +4,6 @@
 // // import CardChart from "./cardChat";
 
 // function DashboardCard (props) {
-// //console.log(props.name.name)
 
 // if(props.name) return (
 //     <div className="card-deck">
@@ -73,4 +72,4 @@
 // else {return null}
 // }
 
-// export default DashboardCard;
+// export default DashboardCard

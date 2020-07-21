@@ -40,7 +40,6 @@ router.route("/submit/:id")
 
 router.route('/api/findAll/')
     .get((req, res) => {
-        console.log("Hit End Point")
         cardController.findAll(req, res)
     })
 

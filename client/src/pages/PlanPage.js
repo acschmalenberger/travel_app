@@ -9,15 +9,8 @@ import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
 import RestaurantIcon from '@material-ui/icons/Restaurant';
 import HotelIcon from '@material-ui/icons/Hotel';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
-import "./PageStyle.css"
-import CustomInput from "../components/CardPlanningForm/CustomInput";
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import { SocialSentimentSatisfied } from "material-ui/svg-icons";
+import "./PageStyle.css";
+
 
 
 function Dashboard() {
@@ -78,7 +71,6 @@ function Dashboard() {
         //This should come from the props in the Trips Page.
         API.findOne(user.email)
             .then(res => {
-                console.log("findOne", res.data);
                 // this.setState({ setBudgetObject: res.data[0] })
                 setBudgetObject(res.data);
                 setTransportObject(res.data.transporation);
@@ -93,28 +85,11 @@ function Dashboard() {
     
 
     function loadBudgetData(id){
-        console.log(id, "PlanPage")
         API.findOne(id)
         .then(res =>
             setCards(res.data)
         )
     };
-
-    function componentWillMount() {
-        // API.getCards()
-        // .then(res =>
-        //     setCards(res.data)
-        // )
-        // .catch(err => console.log(err));
-    };
-
-
-    function deleteCard(id) {
-        // API.deleteCard(id)
-        // .then(res => loadCards())
-        // .catch(err => console.log(err));
-    };
-    
 
 
     function handleChange(e) {
@@ -141,8 +116,6 @@ function Dashboard() {
             event.preventDefault();
             let cardSubmitObj= event.target.getAttribute("objectname");       
 
-            console.log("CARD: ", cards);
-            console.log(cardSubmitObj);
 
             if (cardSubmitObj) {
 
@@ -152,16 +125,8 @@ function Dashboard() {
                 })
                 .then(function(){
                     console.log(cards);
-                   // loadCards();
                 })
-                // .then(() => setCards({
-                //   Budget: "",
-                //   Date: "",
-                //   Address: "",
-                //   Time: "",
-                //   Notes: ""
-                // }))
-                // .then(() => loadCards())
+            
                 .catch(err => console.log(err));
         }
     };

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Doughnut } from 'react-chartjs-2';
 
 function CardChartMB (props) {
-    console.log(props.loadBudgetData, "This is the data grab from the DB")
-    //const [chartData, setChartData] = useState({})
     const [data, setDataObj] = useState([0,0,0,0,0])
     
     useEffect(()=>{

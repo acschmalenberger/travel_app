@@ -22,8 +22,7 @@ const useStyles = makeStyles((theme) => ({
         const classes = useStyles();
         const [open, setOpen] = React.useState(false);
         const anchorRef = React.useRef(null);
-        console.log("Get all card data");
-        console.log(props);
+
 
         const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);

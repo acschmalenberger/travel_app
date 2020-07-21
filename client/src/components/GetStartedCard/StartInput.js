@@ -8,7 +8,6 @@ const useStyles = makeStyles(styles);
 
 export default function StartInput(props) {
 
-    //console.log(props)
     return (
         <div className="form-group">
         <input className="form-control" 

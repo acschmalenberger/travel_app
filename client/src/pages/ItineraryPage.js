@@ -18,74 +18,29 @@ import "./PageStyle.css"
 
 function Dashboard() {
 
-    const [cards, setCards] = useState({})
+    const [cards, setCards] = useState([])
     
-    const [itinerary, setItinerary] = useState(null)
+    const [itinerary, setItinerary] = useState([])
 
     const [user, setUser] = useState(
         JSON.parse(sessionStorage.getItem("jwt")).user
     )
 
-    const [budgetObject, setBudgetObject] = useState({
-        Name: "Value",
-        overallBudget: "",
-        spentBudget: "",
-        destination: "",
-        startDate: "",
-        endDate:""
-    })
-    const [transportObject, setTransportObject] = useState({
-        Name: "Transportation",
-        Budget: "",
-        Date: "",
-        Address: "",
-        Time: "",
-        Notes: ""
-    })
-    const [refreshObject, setRefreshObject] = useState({
-        Name: "Refreshment",
-        Budget: "",
-        Date: "",
-        Address: "",
-        Time: "",
-        Notes: ""
-    })
-    const [activitesObject, setActivitiesObject] = useState({
-        Name: "Activites",
-        Budget: "",
-        Date: "",
-        Address: "",
-        Time: "",
-        Notes: ""
-    })
-    const [lodgingObject, setLodgingObject] = useState({
-        Name: "Lodging",
-        Budget: "",
-        Dates: "",
-        Address: "",
-        Time: "",
-        Notes: ""
-        })
-
     useEffect(() => {
         findAll()
     }, [])
 
+    useEffect(() => {
+    }, [itinerary])
+
     function findAll() {
       API.findAll(user.email)
       .then((data) => {
-        setItinerary(data.data)
-        setTimeout( ()=> { 
-        console.log(itinerary, "Itinerary")
-    })
-        console.log(data.data, "data.data")
+       setItinerary([...itinerary, ...data.data])
+        
     })};
 
-    function deleteTrip(id) {
-        // API.deleteCard(id)
-        // .then(res => loadCards())
-        // .catch(err => console.log(err));
-    }
+  
 
 
     return (
@@ -113,6 +68,7 @@ function Dashboard() {
                     <GridItem xs={12} sm={12} md={12} lg={9}>
                         <CardItinerary 
                         findAll={findAll}
+                        itinerary={itinerary}
                         />
                     </GridItem>
                 </GridContainer>
