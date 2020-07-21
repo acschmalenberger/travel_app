@@ -79,6 +79,7 @@ class Signup extends Component {
             window.location.href = "/signin"
             if (data.error) {
                 this.setState({ error: data.error });
+                
             } else {
                 this.setState({ error: '', open: true });
             }
