@@ -18,11 +18,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-    export default function Trips() {
+    export default function Trips(props) {
         const classes = useStyles();
         const [open, setOpen] = React.useState(false);
         const anchorRef = React.useRef(null);
-    
+        console.log(props.loadBudgetData)
         const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
         };
