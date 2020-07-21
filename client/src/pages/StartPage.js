@@ -4,11 +4,13 @@ import GridContainer from "../components/Grid2/GridContainer.js";
 import API from "../utils/API";
 import "./PageStyle.css"
 import jwt from "express-jwt";
+import auth from "../components/auth/auth-helper.js"
+import {withRouter} from "react-router-dom"
 // import { ListItem } from "../../components/List";
 // import { Input, TextArea, FormBtn } from "../../components/Form";
 
 
-function StartPage() {
+function StartPage(props) {
 
     const [tripObject, setTripObject] = useState({
         Name: "MyTrips",
@@ -37,7 +39,7 @@ function StartPage() {
         API.trip(trip)
             .then((res) => {
                 setTripObject({})
-                window.location.href = "/Plan";
+                props.history.push("/Plan")
             })
 
 
@@ -64,4 +66,4 @@ function StartPage() {
 
     );
 }
-export default StartPage;
+export default withRouter (StartPage);
