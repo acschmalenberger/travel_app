@@ -29,9 +29,9 @@ router.param('userId', userController.findUserById);
 router.route("/submit/:card")
     .post(cardController.tripDetails)
 
-router.route("/submit")
+router.route("/api/submit")
     .post(cardController.create)
-    .post(cardController.trip)
+// .post(cardController.trip)
 
 router.route("/submit/:id")
     .get(cardController.findOne)
@@ -41,8 +41,6 @@ router.route('/api/chartdata')
 
 // router.route('/cards')
 //     .get(cardController.findEmail)
-
-
 
 
 module.exports = router;

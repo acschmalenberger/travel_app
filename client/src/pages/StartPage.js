@@ -33,10 +33,12 @@ function StartPage() {
         event.preventDefault();
         const trip = { ...tripObject }
         trip.userEmail = JSON.parse(sessionStorage.getItem("jwt")).user.email;
+        console.log(trip);
         API.trip(trip)
             .then((res) => {
+                console.log("hello");
                 setTripObject({})
-                window.location.href = "/Plan";
+                // window.location.href = "/Plan";
             })
 
 

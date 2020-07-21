@@ -36,7 +36,7 @@ export default {
 
   trip: function (cardData) {
     console.log(cardData, "Trip_New")
-    return axios.post("/submit", cardData);
+    return axios.post("api/submit", cardData);
   },
 
   findOne: function (tripId) {

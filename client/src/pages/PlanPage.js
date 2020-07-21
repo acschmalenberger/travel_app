@@ -71,30 +71,6 @@ function Dashboard() {
     }, []);
 
     function componentDidMount() {
-        // console.log("findOne", "Test data");
-        // axios.get("/submit/111").then((data) => {
-        //     console.log("findOne", data);
-        // }).catch((err) => {
-        //     console.log("findOne", err);
-        // })
-        // API.findOne({
-        //     userEmail: JSON.parse(sessionStorage.getItem("jwt")).user.email
-        // })
-        //     .then(res => setBudgetObject(res.data[0]))
-        // Tis should come from the props in the Trips Page.
-        // const id = "5f145b2a970b66142c8b0400";
-        // API.findOne(id)
-        //     .then(res => {
-        //         console.log("findOne", res.data);
-        //         // this.setState({ setBudgetObject: res.data[0] })
-        //         setBudgetObject(res.data);
-        //         setTransportObject(res.data.transporation);
-        //         setLodgingObject(res.data.lodging);
-        //         setActivitesObject(res.data.activities);
-        //         setRefreshObject(res.data.refreshment);
-        //     })
-        // .catch (err => console.log(err));
-
         //This should come from the props in the Trips Page.
         const id = "5f15d063d0851f37735479b1";
         API.findOne(id)
@@ -111,6 +87,7 @@ function Dashboard() {
                 console.log("findOne", err)
             });
     };
+
 
     function loadBudgetData(id) {
         console.log(id, "PlanPage")
@@ -139,7 +116,7 @@ function Dashboard() {
     function handleChange(e) {
         const { name, value } = e.target;
         const objectName = e.target.getAttribute("data-objectname");
-        const id = "5f15d063d0851f37735479b1";
+        const id = "5f164a8206d36f26a8b60023";
 
         setCards({ ...cards, [name]: value, type: objectName, tripId: id });
         switch (objectName) {
@@ -158,149 +135,151 @@ function Dashboard() {
 
     };
 
-    console.log("CARD: ", cards);
-    console.log(cardSubmitObj);
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        let cardSubmitObj = event.target.getAttribute("objectname");
 
-    console.log("CARD: ", cards);
+        console.log("CARD: ", cards);
+        console.log(cardSubmitObj);
 
-    API.saveCard(cards)
-        .then(function (data) {
-            setCards({
-            })
-        })
-        .then(function () {
-            console.log(cards);
-            // loadCards();
-        })
-        // .then(() => setCards({
-        //   Budget: "",
-        //   Date: "",
-        //   Address: "",
-        //   Time: "",
-        //   Notes: ""
-        // }))
-        // .then(() => loadCards())
-        .catch(err => console.log(err));
+        if (cardSubmitObj) {
 
-};
+            API.saveCard(cards)
+                .then(function (data) {
+                    setCards({
+                    })
+                })
+                .then(function () {
+                    console.log(cards);
+                    // loadCards();
+                })
+                // .then(() => setCards({
+                //   Budget: "",
+                //   Date: "",
+                //   Address: "",
+                //   Time: "",
+                //   Notes: ""
+                // }))
+                // .then(() => loadCards())
+                .catch(err => console.log(err));
+        }
+    };
 
+    return (
+        <div className="planContainer">
+            <div>
 
+                <GridContainer>
+                    <GridItem xs={12} sm={12} md={9} lg={9}>
+                        <Trips
+                            loadBudgetData={loadBudgetData}
+                        ></Trips>
+                    </GridItem>
+                </GridContainer>
 
-return (
-    <div className="planContainer">
-        <div>
+                <GridContainer>
+                    <GridItem xs={12} sm={12} md={9} lg={9}>
+                        <CardBudget
+                            name={budgetObject}
+                            handleInputChange={handleChange}
+                            loadBudgetData={loadBudgetData}
+                            objectName={"budgetObject"}
+                            value={budgetObject}
+                            valueTransporation={transportObject}
+                            valueRefreshment={refreshObject}
+                            valueActivities={activitesObject}
+                            valueLodging={lodgingObject}
+                            info={setBudgetObject}
+                        />
+                    </ GridItem>
+                </GridContainer>
 
-            <GridContainer>
-                <GridItem xs={12} sm={12} md={9} lg={9}>
-                    <Trips
-                        loadBudgetData={loadBudgetData}
-                    ></Trips>
-                </GridItem>
-            </GridContainer>
+                <GridContainer>
+                    <GridItem xs={12} sm={12} md={9}>
+                        <CardPlanningTabs
+                            headerColor="primary"
+                            tabs={[
+                                {
+                                    tabName: "Transportation",
+                                    tabIcon: AirplanemodeActiveIcon,
+                                    tabContent: (
+                                        <div>
+                                            <CardPlanningForm
+                                                cards={cards}
+                                                id="transportation"
+                                                name={transportObject}
+                                                handleInputChange={handleChange}
+                                                value={transportObject}
+                                                overallBudget={budgetObject}
+                                                objectName={"transportObject"}
+                                                info={setTransportObject}
+                                                onSubmit={handleFormSubmit}
+                                            />
+                                        </div>
+                                    )
+                                },
+                                {
+                                    tabName: "Lodging",
+                                    tabIcon: HotelIcon,
+                                    tabContent: (
+                                        <div>
+                                            <CardPlanningForm
+                                                id="lodging"
+                                                name={lodgingObject}
+                                                handleInputChange={handleChange}
+                                                value={lodgingObject}
+                                                overallBudget={budgetObject}
+                                                objectName={"lodgingObject"}
+                                                info={setLodgingObject}
+                                                onSubmit={handleFormSubmit}
+                                            />
+                                        </div>
+                                    )
+                                },
+                                {
+                                    tabName: "Food & Drink",
+                                    tabIcon: RestaurantIcon,
+                                    tabContent: (
+                                        <div>
+                                            <CardPlanningForm
+                                                id={"refreshment"}
+                                                name={refreshObject}
+                                                handleInputChange={handleChange}
+                                                value={refreshObject}
+                                                overallBudget={budgetObject}
+                                                objectName={"refreshObject"}
+                                                info={setRefreshObject}
+                                                onSubmit={handleFormSubmit}
+                                            />
+                                        </div>
+                                    )
+                                },
+                                {
+                                    tabName: "Activities",
+                                    tabIcon: PhotoCameraIcon,
+                                    tabContent: (
+                                        <div>
+                                            <CardPlanningForm
+                                                id="activities"
+                                                name={activitesObject}
+                                                handleInputChange={handleChange}
+                                                value={activitesObject}
+                                                overallBudget={budgetObject}
+                                                objectName={"activitesObject"}
+                                                info={setActivitesObject}
+                                                onSubmit={handleFormSubmit}
+                                            />
+                                        </div>
+                                    )
+                                }
+                            ]}
+                        />
+                    </GridItem>
+                </GridContainer>
 
-            <GridContainer>
-                <GridItem xs={12} sm={12} md={9} lg={9}>
-                    <CardBudget
-                        name={budgetObject}
-                        handleInputChange={handleChange}
-                        loadBudgetData={loadBudgetData}
-                        objectName={"budgetObject"}
-                        value={budgetObject}
-                        valueTransporation={transportObject}
-                        valueRefreshment={refreshObject}
-                        valueActivities={activitesObject}
-                        valueLodging={lodgingObject}
-                        info={setBudgetObject}
-                    />
-                </ GridItem>
-            </GridContainer>
-
-            <GridContainer>
-                <GridItem xs={12} sm={12} md={9}>
-                    <CardPlanningTabs
-                        headerColor="primary"
-                        tabs={[
-                            {
-                                tabName: "Transportation",
-                                tabIcon: AirplanemodeActiveIcon,
-                                tabContent: (
-                                    <div>
-                                        <CardPlanningForm
-                                            cards={cards}
-                                            id="transportation"
-                                            name={transportObject}
-                                            handleInputChange={handleChange}
-                                            value={transportObject}
-                                            overallBudget={budgetObject}
-                                            objectName={"transportObject"}
-                                            info={setTransportObject}
-                                            onSubmit={handleFormSubmit}
-                                        />
-                                    </div>
-                                )
-                            },
-                            {
-                                tabName: "Lodging",
-                                tabIcon: HotelIcon,
-                                tabContent: (
-                                    <div>
-                                        <CardPlanningForm
-                                            id="lodging"
-                                            name={lodgingObject}
-                                            handleInputChange={handleChange}
-                                            value={lodgingObject}
-                                            overallBudget={budgetObject}
-                                            objectName={"lodgingObject"}
-                                            info={setLodgingObject}
-                                            onSubmit={handleFormSubmit}
-                                        />
-                                    </div>
-                                )
-                            },
-                            {
-                                tabName: "Food & Drink",
-                                tabIcon: RestaurantIcon,
-                                tabContent: (
-                                    <div>
-                                        <CardPlanningForm
-                                            id={"refreshment"}
-                                            name={refreshObject}
-                                            handleInputChange={handleChange}
-                                            value={refreshObject}
-                                            overallBudget={budgetObject}
-                                            objectName={"refreshObject"}
-                                            info={setRefreshObject}
-                                            onSubmit={handleFormSubmit}
-                                        />
-                                    </div>
-                                )
-                            },
-                            {
-                                tabName: "Activities",
-                                tabIcon: PhotoCameraIcon,
-                                tabContent: (
-                                    <div>
-                                        <CardPlanningForm
-                                            id="activities"
-                                            name={activitesObject}
-                                            handleInputChange={handleChange}
-                                            value={activitesObject}
-                                            overallBudget={budgetObject}
-                                            objectName={"activitesObject"}
-                                            info={setActivitesObject}
-                                            onSubmit={handleFormSubmit}
-                                        />
-                                    </div>
-                                )
-                            }
-                        ]}
-                    />
-                </GridItem>
-            </GridContainer>
-
+            </div>
         </div>
-    </div>
 
-);
-
+    );
+}
 export default Dashboard;

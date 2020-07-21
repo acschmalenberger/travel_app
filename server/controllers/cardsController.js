@@ -55,7 +55,7 @@ const controller = {
   },
 
   trip: function ({ body }, res) {
-    console.log(body);
+    console.log(body, "anything");
     db.Trip.create(body)
       .then(db.BudgetCard.create(body))
       .then(dbTrip => {
@@ -82,9 +82,13 @@ const controller = {
   create: function ({ body, user }, res) {
 
     // body.userEmail = user.email
-    console.log(body);
-    db.BudgetCard.create(body)
+    console.log(body, "goodbye");
+    db.BudgetCard.create(body, "boat")
       .then(newCard => {
+        db.Trip.create(body)
+          .then(data => {
+            return res.status(200).json(newCard);
+          })
         return res.status(200).json(newCard);
       }).catch(err => {
 
