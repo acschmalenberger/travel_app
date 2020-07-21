@@ -25,26 +25,43 @@ const tripSchema = new Schema({
   ],
   refreshment: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "RefreshCard"
+      Name:{type: String, required: false},
+      Budget: { type: String, required: false },
+      Date: { type: String, required: false },
+      Address: { type: String, required: false },
+      Time: { type: String, required: false },
+      Notes: { type: String, required: false },
     }
   ],
   activities: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "ActiveCard"
+      Name: { type: String, required: false },
+      Budget: { type: String, required: false },
+      Date: { type: String, required: false },
+      Address: { type: String, required: false },
+      Time: { type: String, required: false },
+      Notes: { type: String, required: false },
     }
   ],
   budget: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "BudgetCard"
+      Name: { type: String, required: false },
+      overallBudget: { type: String, required: false },
+      spentBudget: { type: String, required: false },
+      destintion: { type: String, required: false },
+      startDate: { type: String, required: false },
+      endDate: { type: String, required: false },
+      userEmail: { type: String, required: false },
     }
   ],
   lodging: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "LodgingCard"
+      Name:{type: String, required: false},
+      Budget: { type: String, required: false },
+      Date: { type: String, required: false },
+      Address: { type: String, required: false },
+      Time: { type: String, required: false },
+      Notes: { type: String, required: false },
     }
   ]
 });
