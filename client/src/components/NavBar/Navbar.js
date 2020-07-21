@@ -68,14 +68,17 @@ const Menu = withRouter(({ history }) => (
                         >My Itinerary
 						</Button>
                     </Link>
+                    <Link to={'/'}>
                     <Button
                         color="inherit"
                         onClick={() => {
                             auth.signout(() => history.push('/'));
                         }, { paddingLeft: "15px", paddingRight:"15px" }}
-                    >
-                        Sign out
+                    
+                        >
+                            Sign out
 					</Button>
+                    </Link>
                 </span>
 
             )}
