@@ -8,7 +8,8 @@ import Grid from "@material-ui/core/Grid";
 const styles = {
     grid: {
         margin: "0 -15px !important",
-        width: "unset"
+        width: "unset",
+        padding: "15px"
     }
 };
 
@@ -19,7 +20,7 @@ export default function GridContainer(props) {
     const { children, ...rest } = props;
     return (
         <Grid container {...rest} className={classes.grid}>
-        {children}
+            {children}
         </Grid>
     );
 }

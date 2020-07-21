@@ -2,6 +2,7 @@ import {
     successColor,
     whiteColor,
     grayColor,
+    dangerColor,
     hexToRgb
 } from "../Styles/material-dashboard-react.js";
 

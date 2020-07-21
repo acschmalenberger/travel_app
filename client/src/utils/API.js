@@ -1,20 +1,44 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
-  getCardInfo: function() {
-    return axios.get("/api/books");
+
+  // Saves a card to the database
+  saveCard: function(cardData) {
+    const { type } = cardData;
+    let model = "";
+    switch(type) {
+      case "transportObject":
+        model = "TransCard";
+        break;
+      case "budgetObject":
+        model = "ValueCard";
+        break; 
+      case "refreshObject":
+        model = "RefreshCard";
+        break; 
+      case "activitesObject":
+        model = "ActiveCard";
+        break; 
+      case "lodgingObject":
+        model = "LodgingCard";
+        break;             
+    }
+    return axios.post("/submit/" + model, cardData);
   },
-  // Gets the book with the given id
-  getCards: function(id) {
-    return axios.get("/api/books/" + id);
+
+  createTrip: function (cardData) {
+    return axios.post("/cards", cardData);
   },
-  // Deletes the book with the given id
-  deleteCard: function(id) {
-    return axios.delete("/api/books/" + id);
+
+  trip: function (cardData) {
+    return axios.post("/submit", cardData);
   },
-  // Saves a book to the database
-  saveCard: function(bookData) {
-    return axios.post("/api/books", bookData);
-  }
+
+  findOne: function(tripId) {
+    return axios.get(`/submit/${tripId}`);
+  },
+
+findAll: function(itinerary) {
+  return axios.get(`/api/findAll?email=${itinerary}`, itinerary)
+}
 };
