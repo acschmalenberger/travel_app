@@ -31,7 +31,7 @@ function Dashboard() {
 
     const [budgetObject, setBudgetObject] = useState({
         Name: "Value",
-        overallBudget: "",
+        overallBudget:"",
         spentBudget: "",
         destination: "",
         startDate: "",
