@@ -81,19 +81,19 @@ function Dashboard() {
         //     userEmail: JSON.parse(sessionStorage.getItem("jwt")).user.email
         // })
         //     .then(res => setBudgetObject(res.data[0]))
-            // Tis should come from the props in the Trips Page.
-            // const id = "5f145b2a970b66142c8b0400";
-            // API.findOne(id)
-            //     .then(res => {
-            //         console.log("findOne", res.data);
-            //         // this.setState({ setBudgetObject: res.data[0] })
-            //         setBudgetObject(res.data);
-            //         setTransportObject(res.data.transporation);
-            //         setLodgingObject(res.data.lodging);
-            //         setActivitesObject(res.data.activities);
-            //         setRefreshObject(res.data.refreshment);
-            //     })
-            .catch (err => console.log(err));
+        // Tis should come from the props in the Trips Page.
+        // const id = "5f145b2a970b66142c8b0400";
+        // API.findOne(id)
+        //     .then(res => {
+        //         console.log("findOne", res.data);
+        //         // this.setState({ setBudgetObject: res.data[0] })
+        //         setBudgetObject(res.data);
+        //         setTransportObject(res.data.transporation);
+        //         setLodgingObject(res.data.lodging);
+        //         setActivitesObject(res.data.activities);
+        //         setRefreshObject(res.data.refreshment);
+        //     })
+        // .catch (err => console.log(err));
 
         //This should come from the props in the Trips Page.
         const id = "5f15d063d0851f37735479b1";
@@ -184,13 +184,17 @@ function Dashboard() {
 
 };
 
+
+
 return (
     <div className="planContainer">
         <div>
 
             <GridContainer>
                 <GridItem xs={12} sm={12} md={9} lg={9}>
-                    <Trips ></Trips>
+                    <Trips
+                        loadBudgetData={loadBudgetData}
+                    ></Trips>
                 </GridItem>
             </GridContainer>
 

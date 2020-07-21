@@ -4,27 +4,27 @@ import axios from "axios";
 export default {
 
   // Saves a card to the database
-  saveCard: function(cardData) {
+  saveCard: function (cardData) {
     console.log(cardData, "saveTrip");
     const { type } = cardData;
     let model = "";
 
-    switch(type) {
+    switch (type) {
       case "transportObject":
         model = "TransCard";
         break;
       case "budgetObject":
         model = "ValueCard";
-        break; 
+        break;
       case "refreshObject":
         model = "RefreshCard";
-        break; 
+        break;
       case "activitesObject":
         model = "ActiveCard";
-        break; 
+        break;
       case "lodgingObject":
         model = "LodgingCard";
-        break;             
+        break;
     }
     return axios.post("/submit/" + model, cardData);
   },
@@ -39,14 +39,14 @@ export default {
     return axios.post("/submit", cardData);
   },
 
-  findOne: function(tripId) {
+  findOne: function (tripId) {
     console.log("Loading the Budget Data", tripId)
     return axios.get(`/submit/${tripId}`);
   },
 
-  
+
   findEmail: function (cardData) {
-  return axios.get("/cards?userEmail=" + cardData.userEmail);
+    return axios.get("/cards?userEmail=" + cardData.userEmail);
   }
   // getAllChartData: function (){
   //   console.log("get all chart data")
