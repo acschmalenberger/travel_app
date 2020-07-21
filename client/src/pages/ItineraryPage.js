@@ -18,9 +18,9 @@ import "./PageStyle.css"
 
 function Dashboard() {
 
-    const [cards, setCards] = useState({})
+    const [cards, setCards] = useState([])
     
-    const [itinerary, setItinerary] = useState(null)
+    const [itinerary, setItinerary] = useState([])
 
     const [user, setUser] = useState(
         JSON.parse(sessionStorage.getItem("jwt")).user
@@ -71,13 +71,15 @@ function Dashboard() {
         findAll()
     }, [])
 
+    useEffect(() => {
+        console.log(itinerary)
+    }, [itinerary])
+
     function findAll() {
       API.findAll(user.email)
       .then((data) => {
-        setItinerary(data.data)
-        setTimeout( ()=> { 
-        console.log(itinerary, "Itinerary")
-    })
+       setItinerary([...itinerary, ...data.data])
+        
         console.log(data.data, "data.data")
     })};
 
@@ -113,6 +115,7 @@ function Dashboard() {
                     <GridItem xs={12} sm={12} md={12} lg={9}>
                         <CardItinerary 
                         findAll={findAll}
+                        itinerary={itinerary}
                         />
                     </GridItem>
                 </GridContainer>
