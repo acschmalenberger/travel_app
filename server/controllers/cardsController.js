@@ -98,9 +98,11 @@ findOne: async function ({ body, params }, res) {
   },
 
   findAll: function (req, res) {
-    db.BudgetCard.where({
-      userEmail: req.query.userEmail
+    console.log("I am here")
+    db.Trip.where({
+      userEmail: req.query.email
     }).then(cards => {
+      console.log("FIND ALL", cards)
       return res.status(200).json(cards);
     })
 
