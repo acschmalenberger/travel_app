@@ -9,7 +9,7 @@ export default {
     console.log(cardData, "saveTrip");
     const { type } = cardData;
     let model = "";
-
+    console.log(type)
     switch(type) {
       case "transportObject":
         model = "TransCard";

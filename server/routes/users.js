@@ -29,8 +29,10 @@ router.route("/submit/:card")
     .post(cardController.tripDetails)
 
 router.route("/submit")
-    .post(cardController.create)
-    .post(cardController.trip)
+    .post((req, res)=> {
+        cardController.trip (req, res)
+        //cardController.create (req, res)
+    })
 
 
 router.route("/submit/:id")

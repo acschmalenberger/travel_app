@@ -15,8 +15,12 @@ const tripSchema = new Schema({
   userEmail: { type: String, required: false },
   transporation: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "TransCard"
+      Name:{type: String, required: false},
+      Budget: { type: String, required: false },
+      Date: { type: String, required: false },
+      Address: { type: String, required: false },
+      Time: { type: String, required: false },
+      Notes: { type: String, required: false },
     }
   ],
   refreshment: [

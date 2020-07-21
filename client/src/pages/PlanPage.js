@@ -17,11 +17,17 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { SocialSentimentSatisfied } from "material-ui/svg-icons";
 
 
 function Dashboard() {
 
     const [cards, setCards] = useState({})
+
+    const [user, setUser] = useState(
+        JSON.parse(sessionStorage.getItem("jwt")).user
+
+    )
 
     const [budgetObject, setBudgetObject] = useState({
         Name: "Value",
@@ -70,8 +76,7 @@ function Dashboard() {
 
     function componentDidMount() {
         //This should come from the props in the Trips Page.
-        const id = "5f15cabec6938234319f5d50";
-        API.findOne(id)
+        API.findOne(user.email)
             .then(res => {
                 console.log("findOne", res.data);
                 // this.setState({ setBudgetObject: res.data[0] })
@@ -115,8 +120,7 @@ function Dashboard() {
     function handleChange(e) {
         const { name, value } = e.target;
         const objectName = e.target.getAttribute("data-objectname");
-        const id = "5f15cabec6938234319f5d50";
-        setCards({ ...cards, [name]: value, type: objectName, tripId: id });
+        setCards({ ...cards, [name]: value, type: objectName, tripId: user.email });
             switch (objectName) {
                 case "transportObject":
                     return setTransportObject({...transportObject, [name]: value})

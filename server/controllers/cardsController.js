@@ -3,7 +3,7 @@ const db = require("../models");
 
 const controller = {
 
-  tripDetails: function ({body, params} , res) {
+  tripDetails: async function ({body, params} , res) {
 
     console.log("body", body);
     console.log("params", params);
@@ -31,15 +31,18 @@ const controller = {
         modelType = "lodging";
         break;             
     }
-
-    db[params.card].create(transObject)
-    .then(({ _id }) => db.Trip.findOneAndUpdate({_id: tripId}, { $push: { [modelType]: _id } }, { new: true }))
-      .then(dbTrip => {
-        res.json(dbTrip);
-      })
-      .catch(err => {
-        res.json(err);
-      });
+    const trip = await db.Trip.findOne({userEmail: tripId})
+    trip[modelType].push(transObject)
+    trip.save()
+    res.json(trip)
+    // db[params.card].create(transObject)
+    // .then(({ _id }) => db.Trip.findOne({userEmail: tripId}))
+    //   .then(dbTrip => {
+    //     res.json(dbTrip);
+    //   })
+    //   .catch(err => {
+    //     res.json(err);
+    //   });
   },
 
 createTrip: function ({ body }, res) {
@@ -70,7 +73,7 @@ findOne: async function ({ body, params }, res) {
   console.log(body, params);
 
   try {
-    const trips = await db.Trip.findOne({ _id: params.id }).sort({ spentBudget: 1 }).populate("transporation").populate("budget").populate("refreshment").populate("activities").populate("lodging");
+    const trips = await db.Trip.findOne({ userEmail: params.id }).sort({ spentBudget: 1 }).populate("transporation").populate("budget").populate("refreshment").populate("activities").populate("lodging");
     console.log("trips", trips);
     res.json(trips);
   } catch(err) {
