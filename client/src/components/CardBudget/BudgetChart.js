@@ -16,13 +16,13 @@ function CardChartMB (props) {
                     [oAbudget, tbudget, lbudget, rbudget, abudget]
                 )
     },
-        // [
-        //     props.value.overallBudget,
-        //     props.valueTransporation.Budget, 
-        //     props.valueRefreshment.Budget, 
-        //     props.valueActivities.Budget, 
-        //     props.valueLodging.Budget
-        // ],
+        [
+            props.value.overallBudget,
+            props.valueTransporation.Budget, 
+            props.valueRefreshment.Budget, 
+            props.valueActivities.Budget, 
+            props.valueLodging.Budget
+        ],
  
     )
 
