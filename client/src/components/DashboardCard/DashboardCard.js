@@ -4,7 +4,6 @@ import "./style.css";
 import CardChart from "./cardChat";
 
 function DashboardCard (props) {
-//console.log(props.name.name)
 
 if(props.name) return (
     <div className="card-deck">

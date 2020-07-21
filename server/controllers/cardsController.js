@@ -4,14 +4,10 @@ const db = require("../models");
 const controller = {
 
   tripDetails: async function ({body, params} , res) {
-
-    console.log("body", body);
-    console.log("params", params);
     const transObject = { ...body };
     const {tripId, type } = transObject;
     delete transObject.tripId;
     delete transObject.type;
-    console.log("transObject", transObject);
     let modelType = "";
 
     switch(params.card) {
@@ -35,18 +31,9 @@ const controller = {
     trip[modelType].push(transObject)
     trip.save()
     res.json(trip)
-    // db[params.card].create(transObject)
-    // .then(({ _id }) => db.Trip.findOne({userEmail: tripId}))
-    //   .then(dbTrip => {
-    //     res.json(dbTrip);
-    //   })
-    //   .catch(err => {
-    //     res.json(err);
-    //   });
   },
 
 createTrip: function ({ body }, res) {
-  console.log(body);
   db.Trip.create(body)
   .then(db.ValueCard.create(body))
   .then(dbTrip => {
@@ -58,7 +45,6 @@ createTrip: function ({ body }, res) {
 },
 
 trip: function ({ body }, res) {
-  console.log(body);
   db.Trip.create(body)
   .then(db.BudgetCard.create(body))
   .then(dbTrip => {
@@ -74,7 +60,6 @@ findOne: async function ({ body, params }, res) {
 
   try {
     const trips = await db.Trip.findOne({ userEmail: params.id }).sort({ spentBudget: 1 }).populate("transporation").populate("budget").populate("refreshment").populate("activities").populate("lodging");
-    console.log("trips", trips);
     res.json(trips);
   } catch(err) {
     console.log("trips", err);
@@ -98,7 +83,6 @@ findOne: async function ({ body, params }, res) {
   },
 
   findAll: function (req, res) {
-    console.log("I am here")
     db.Trip.where({
       userEmail: req.query.email
     }).then(cards => {
@@ -109,7 +93,6 @@ findOne: async function ({ body, params }, res) {
 
   },
   getAllChartData: function (req, res) {
-    console.log("inside card controller")
     db.Trip.find({
      
     })

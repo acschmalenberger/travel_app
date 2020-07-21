@@ -1,21 +1,14 @@
 import React from "react";
-// import ChartistGraph from "react-chartist";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-
 import GridItem from "../Grid2/GridItem.js";
 import GridContainer from "../Grid2/GridContainer.js";
-import Button from "../Button";
 import Card from "../Card/Card.js";
 import CardHeader from "../Card/CardHeader.js";
 import CardBody from "../Card/CardBody.js";
 import CardIcon from "../Card/CardIcon.js";
 import CardChartMB from "./BudgetChart.js";
-// import CustomInput from "../CustomInput"
 
-// import CardChart from "../DashboardCard/cardChat.js";
 
 import styles from "./style.js";
 
@@ -44,7 +37,7 @@ export default function CardBudget(props) {
                                 info={props.info}
                                 loadBudgetData={props.loadBudgetData}
                                 handleInputChange={props.handleInputChange}
-                                handleFormSubmit={props.handleFormSubmit}
+                                onSubmit={props.onSubmit}
                                 name={props.name}
                             />
                         </CardBody>

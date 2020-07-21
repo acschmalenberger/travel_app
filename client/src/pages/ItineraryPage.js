@@ -26,53 +26,11 @@ function Dashboard() {
         JSON.parse(sessionStorage.getItem("jwt")).user
     )
 
-    const [budgetObject, setBudgetObject] = useState({
-        Name: "Value",
-        overallBudget: "",
-        spentBudget: "",
-        destination: "",
-        startDate: "",
-        endDate:""
-    })
-    const [transportObject, setTransportObject] = useState({
-        Name: "Transportation",
-        Budget: "",
-        Date: "",
-        Address: "",
-        Time: "",
-        Notes: ""
-    })
-    const [refreshObject, setRefreshObject] = useState({
-        Name: "Refreshment",
-        Budget: "",
-        Date: "",
-        Address: "",
-        Time: "",
-        Notes: ""
-    })
-    const [activitesObject, setActivitiesObject] = useState({
-        Name: "Activites",
-        Budget: "",
-        Date: "",
-        Address: "",
-        Time: "",
-        Notes: ""
-    })
-    const [lodgingObject, setLodgingObject] = useState({
-        Name: "Lodging",
-        Budget: "",
-        Dates: "",
-        Address: "",
-        Time: "",
-        Notes: ""
-        })
-
     useEffect(() => {
         findAll()
     }, [])
 
     useEffect(() => {
-        console.log(itinerary)
     }, [itinerary])
 
     function findAll() {
@@ -80,14 +38,9 @@ function Dashboard() {
       .then((data) => {
        setItinerary([...itinerary, ...data.data])
         
-        console.log(data.data, "data.data")
     })};
 
-    function deleteTrip(id) {
-        // API.deleteCard(id)
-        // .then(res => loadCards())
-        // .catch(err => console.log(err));
-    }
+  
 
 
     return (

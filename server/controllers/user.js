@@ -3,7 +3,6 @@ const User = require('../models/user');
 const errorHandler = require('../helpers/dbErrorHandler');
 
 const registerUser = (req, res, next) => {
-    console.log(req.body);
     const user = new User(req.body);
     user.save((err, result) => {
         if (err) {

@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default function SignupInput(props) {
 
-  //console.log(props)
+
     return (
         <div className="form-group">
         <input className="form-control" 
