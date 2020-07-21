@@ -76,9 +76,10 @@ class Signup extends Component {
             password: this.state.password || undefined
         };
         registerUser(user).then(data => {
+            window.location.href = "/signin"
             if (data.error) {
                 this.setState({ error: data.error });
-                window.location.href = "/signin"
+                
             } else {
                 this.setState({ error: '', open: true });
             }
