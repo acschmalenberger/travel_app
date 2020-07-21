@@ -38,8 +38,11 @@ router.route("/submit")
 router.route("/submit/:id")
     .get(cardController.findOne)
 
-router.route('/api/chartdata')
-.get(cardController.getAllChartData)
+router.route('/api/findAll/')
+    .get((req, res) => {
+        console.log("Hit End Point")
+        cardController.findAll(req, res)
+    })
 
 
 

@@ -45,7 +45,10 @@ export default {
     return axios.get(`/submit/${tripId}`);
   },
 
-
+findAll: function(itinerary) {
+  console.log("FIND ALL APIjs", itinerary)
+  return axios.get(`/api/findAll?email=${itinerary}`, itinerary)
+}
   // getAllChartData: function (){
   //   console.log("get all chart data")
   //   return axios.get("/api/chartdata")

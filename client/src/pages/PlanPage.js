@@ -148,8 +148,7 @@ function Dashboard() {
 
                 API.saveCard(cards)
                 .then (function(data){
-                    setCards({
-                          })
+                    componentDidMount()
                 })
                 .then(function(){
                     console.log(cards);
@@ -227,12 +226,6 @@ function Dashboard() {
                                             info={setLodgingObject}
                                             onSubmit={handleFormSubmit}
                                         />
-                                        {/* <Button 
-                                 onSubmit={handleFormSubmit}
-                                 type= {"submit"}
-                                 >
-                                    Submit
-                                </Button> */}
                                     </div>
                                 )
                             },
@@ -251,12 +244,6 @@ function Dashboard() {
                                             info={setRefreshObject}
                                             onSubmit={handleFormSubmit}
                                         />
-                                        {/* <Button 
-                                 onSubmit={handleFormSubmit}
-                                 type= {"submit"}
-                                 >
-                                    Submit
-                                </Button> */}
                             </div>
                         )
                         },

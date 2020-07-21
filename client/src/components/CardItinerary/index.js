@@ -18,8 +18,9 @@ import styles from "./style.js";
 
 const useStyles = makeStyles(styles);
 
-export default function CardItinerary() {
+export default function CardItinerary(props) {
     const classes = useStyles();
+    console.log(props.findAll, "ARR PAGE")
     return (
         <div>
             <GridContainer>

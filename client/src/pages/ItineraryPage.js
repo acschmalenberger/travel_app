@@ -19,6 +19,12 @@ import "./PageStyle.css"
 function Dashboard() {
 
     const [cards, setCards] = useState({})
+    
+    const [itinerary, setItinerary] = useState(null)
+
+    const [user, setUser] = useState(
+        JSON.parse(sessionStorage.getItem("jwt")).user
+    )
 
     const [budgetObject, setBudgetObject] = useState({
         Name: "Value",
@@ -62,65 +68,31 @@ function Dashboard() {
         })
 
     useEffect(() => {
-        loadCards()
+        findAll()
     }, [])
 
-    function loadCards() {
-        // API.getCards()
-        // .then(res =>
-        //     setCards(res.data)
-        // )
-        // .catch(err => console.log(err));
-    };
+    function findAll() {
+      API.findAll(user.email)
+      .then((data) => {
+        setItinerary(data.data)
+        setTimeout( ()=> { 
+        console.log(itinerary, "Itinerary")
+    })
+        console.log(data.data, "data.data")
+    })};
 
-    function deleteCard(id) {
-        API.deleteCard(id)
-        .then(res => loadCards())
-        .catch(err => console.log(err));
+    function deleteTrip(id) {
+        // API.deleteCard(id)
+        // .then(res => loadCards())
+        // .catch(err => console.log(err));
     }
 
-    function handleChange(e) {
-        const { name, value } = e.target;
-        const objectName = e.target.getAttribute("data-objectname");
-            switch (objectName) {
-            case "transportObject":
-                return setTransportObject({...transportObject, [name]: value})
-            case "budgetObject":
-                return setBudgetObject({...budgetObject, [name]: value})
-            case "refreshObject":
-                return setRefreshObject({...refreshObject, [name]: value})
-            case "activitesObject":
-                return setActivitiesObject({...activitesObject, [name]: value})
-            case "lodgingObject":
-                return setLodgingObject({...lodgingObject, [name]: value})
-                default: return console.log(objectName);
-            };
-
-    };
-
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        let cardSubmitObj= event.target.getAttribute("data-objectname")
-        console.log(cards, cardSubmitObj)
-        if (cardSubmitObj) {
-            API.saveCard(cards)
-            // .then(() => setCards({
-            //   Budget: "",
-            //   Date: "",
-            //   Address: "",
-            //   Time: "",
-            //   Notes: ""
-            // }))
-            // .then(() => loadCards())
-            .catch(err => console.log(err));
-        }
-    };
 
     return (
         <div className="itineraryContainer">
             <div>
 
-                <GridContainer>
+                {/* <GridContainer>
                     <GridItem xs={12} sm={12} md={9} lg={9}>
                     <CardBudget
                         name={budgetObject}
@@ -135,11 +107,13 @@ function Dashboard() {
                         handleFormSubmit={handleFormSubmit} 
                         />
                     </ GridItem>      
-                </GridContainer>
+                </GridContainer> */}
 
                 <GridContainer>
                     <GridItem xs={12} sm={12} md={12} lg={9}>
-                        <CardItinerary />
+                        <CardItinerary 
+                        findAll={findAll}
+                        />
                     </GridItem>
                 </GridContainer>
 
