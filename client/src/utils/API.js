@@ -1,16 +1,21 @@
 import axios from "axios";
 
-//axios.defaults.baseURL="http://localhost:3001"
-
 export default {
 
   // Saves a card to the database
+<<<<<<< HEAD
   saveCard: function (cardData) {
     console.log(cardData, "saveTrip");
     const { type } = cardData;
     let model = "";
     console.log(type)
     switch (type) {
+=======
+  saveCard: function(cardData) {
+    const { type } = cardData;
+    let model = "";
+    switch(type) {
+>>>>>>> 24a21538d32a9b462fd2e00c08865220307b71e4
       case "transportObject":
         model = "TransCard";
         break;
@@ -31,11 +36,11 @@ export default {
   },
 
   createTrip: function (cardData) {
-    console.log(cardData, "createTrip")
     return axios.post("/cards", cardData);
   },
 
   trip: function (cardData) {
+<<<<<<< HEAD
     console.log(cardData, "Trip_New")
     return axios.post("api/submit", cardData);
   },
@@ -53,4 +58,16 @@ export default {
   //   console.log("get all chart data")
   //   return axios.get("/api/chartdata")
   // }
+=======
+    return axios.post("/submit", cardData);
+  },
+
+  findOne: function(tripId) {
+    return axios.get(`/submit/${tripId}`);
+  },
+
+findAll: function(itinerary) {
+  return axios.get(`/api/findAll?email=${itinerary}`, itinerary)
+}
+>>>>>>> 24a21538d32a9b462fd2e00c08865220307b71e4
 };

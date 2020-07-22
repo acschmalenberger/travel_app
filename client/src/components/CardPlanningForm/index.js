@@ -21,10 +21,8 @@ import Button from "../Button";
 
 function CardPlanningForm(props) {
     // const classes = useStyles();
-    console.log("VALUE[]", props.value);
     let expenses = 0;
     if (props.value && props.value.length > 0) {
-        console.log("VALUE[]", props.value.length);
         props.value.forEach((item) => {
                 expenses += parseInt(item.Budget);
         });

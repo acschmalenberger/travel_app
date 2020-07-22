@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import ChartistGraph from "react-chartist";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -18,9 +18,42 @@ import styles from "./style.js";
 
 const useStyles = makeStyles(styles);
 
+
 export default function CardItinerary(props) {
     const classes = useStyles();
-    console.log(props.findAll, "ARR PAGE")
+    console.log(props.itinerary, "ARR PAGE")
+    const itineraryArray = props.itinerary;
+    
+    const [tableData, setTableData] = useState([])
+    
+    useEffect(() => {
+        props.itinerary.forEach((card, key) => {
+            console.log("CARD", card)
+            Object.keys(card).forEach(property => {
+                if (Array.isArray(card[property])) {
+                    card[property].forEach(value => {
+                        const current = [
+                            value.Date,
+                            value.Time,
+                            property,
+                            value.Notes,
+                            value.Budget
+                        ];
+                        console.log(current)
+                        setTableData (d => [... d, current])
+
+                    })
+                }
+
+            })
+        })
+        console.log("UseEffect", tableData)
+    }, [props.itinerary]);
+
+    
+    // {this.state.data.map(item => {
+    //     return (<Row image={item.image} name={item.name} phone={item.phone} email={item.email} dob={item.dob} />)
+    // })}
     return (
         <div>
             <GridContainer>
@@ -33,15 +66,10 @@ export default function CardItinerary(props) {
                         <h2 className={classes.cardTitle}>Itinerary</h2>
                         </CardHeader>
                         <CardBody>
-                            <CustomTable
+                            <CustomTable style= {{color:"black"}}
                                 tableHeaderColor="warning"
-                                tableHead={["Date", "Time", "Category", "Name", "Price"]}
-                                tableData={[
-                                    ["12/1", "10:00 am", "Transportation", "Delta Flight", "$400"],
-                                    ["12/1", "3:00 pm", "Lodging", "Marriott Downtown", "$350"],
-                                    ["12/2", "10:00 am", "Activities", "Spa Appointment", "$150"],
-                                    ["12/3", "7:30 pm", "Food and Beverage", "Steakhouse", "$125"]
-                                ]}
+                                tableHead={["Date", "Time", "Category", "Notes", "Price"]}
+                                tableData={tableData}
                             />
                         </CardBody>
                     </Card>

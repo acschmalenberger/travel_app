@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
-const config = require('./index');
+const config = require("./index.js");
 mongoose.set("useCreateIndex", true);
+
 const URI = config.mongoURI;
+
+console.log(URI)
 mongoose.connect(URI);
 
 // When successfully connected

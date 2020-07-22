@@ -9,15 +9,8 @@ import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
 import RestaurantIcon from '@material-ui/icons/Restaurant';
 import HotelIcon from '@material-ui/icons/Hotel';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
-import "./PageStyle.css"
-import CustomInput from "../components/CardPlanningForm/CustomInput";
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import { SocialSentimentSatisfied } from "material-ui/svg-icons";
+import "./PageStyle.css";
+
 
 
 function Dashboard() {
@@ -31,7 +24,7 @@ function Dashboard() {
 
     const [budgetObject, setBudgetObject] = useState({
         Name: "Value",
-        overallBudget: "",
+        overallBudget:"",
         spentBudget: "",
         destination: "",
         startDate: "",
@@ -78,7 +71,6 @@ function Dashboard() {
         //This should come from the props in the Trips Page.
         API.findOne(user.email)
             .then(res => {
-                console.log("findOne", res.data);
                 // this.setState({ setBudgetObject: res.data[0] })
                 setBudgetObject(res.data);
                 setTransportObject(res.data.transporation);
@@ -91,15 +83,20 @@ function Dashboard() {
             });
     };
 
+<<<<<<< HEAD
 
     function loadBudgetData(id) {
         console.log(id, "PlanPage")
+=======
+    function loadBudgetData(id){
+>>>>>>> 24a21538d32a9b462fd2e00c08865220307b71e4
         API.findOne(id)
             .then(res =>
                 setCards(res.data)
             )
     };
 
+<<<<<<< HEAD
     function componentWillMount() {
         // API.getCards()
         // .then(res =>
@@ -116,6 +113,8 @@ function Dashboard() {
     };
 
 
+=======
+>>>>>>> 24a21538d32a9b462fd2e00c08865220307b71e4
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -141,8 +140,11 @@ function Dashboard() {
         event.preventDefault();
         let cardSubmitObj = event.target.getAttribute("objectname");
 
+<<<<<<< HEAD
         console.log("CARD: ", cards);
         console.log(cardSubmitObj);
+=======
+>>>>>>> 24a21538d32a9b462fd2e00c08865220307b71e4
 
         if (cardSubmitObj) {
 
@@ -152,16 +154,12 @@ function Dashboard() {
                 })
                 .then(function () {
                     console.log(cards);
+<<<<<<< HEAD
                     // loadCards();
+=======
+>>>>>>> 24a21538d32a9b462fd2e00c08865220307b71e4
                 })
-                // .then(() => setCards({
-                //   Budget: "",
-                //   Date: "",
-                //   Address: "",
-                //   Time: "",
-                //   Notes: ""
-                // }))
-                // .then(() => loadCards())
+            
                 .catch(err => console.log(err));
         }
     };

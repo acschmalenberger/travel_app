@@ -3,15 +3,18 @@ const db = require("../models");
 
 const controller = {
 
+<<<<<<< HEAD
   tripDetails: async function ({ body, params }, res) {
 
     console.log("body", body);
     console.log("params", params);
+=======
+  tripDetails: async function ({body, params} , res) {
+>>>>>>> 24a21538d32a9b462fd2e00c08865220307b71e4
     const transObject = { ...body };
     const { tripId, type } = transObject;
     delete transObject.tripId;
     delete transObject.type;
-    console.log("transObject", transObject);
     let modelType = "";
 
     switch (params.card) {
@@ -35,16 +38,9 @@ const controller = {
     trip[modelType].push(transObject)
     trip.save()
     res.json(trip)
-    // db[params.card].create(transObject)
-    // .then(({ _id }) => db.Trip.findOne({userEmail: tripId}))
-    //   .then(dbTrip => {
-    //     res.json(dbTrip);
-    //   })
-    //   .catch(err => {
-    //     res.json(err);
-    //   });
   },
 
+<<<<<<< HEAD
   createTrip: function ({ body }, res) {
     console.log(body);
     db.Trip.create(body)
@@ -81,6 +77,41 @@ const controller = {
       res.status(400).json(err);
     }
   },
+=======
+createTrip: function ({ body }, res) {
+  db.Trip.create(body)
+  .then(db.ValueCard.create(body))
+  .then(dbTrip => {
+    res.json(dbTrip);
+  })
+  .catch(({ message }) => {
+    res.json(message)
+  });
+},
+
+trip: function ({ body }, res) {
+  db.Trip.create(body)
+  .then(db.BudgetCard.create(body))
+  .then(dbTrip => {
+    res.json(dbTrip);
+  })
+  .catch(({ message }) => {
+    res.json(message)
+  });
+},
+
+findOne: async function ({ body, params }, res) {
+  console.log(body, params);
+
+  try {
+    const trips = await db.Trip.findOne({ userEmail: params.id }).sort({ spentBudget: 1 }).populate("transporation").populate("budget").populate("refreshment").populate("activities").populate("lodging");
+    res.json(trips);
+  } catch(err) {
+    console.log("trips", err);
+    res.status(400).json(err);
+  } 
+},
+>>>>>>> 24a21538d32a9b462fd2e00c08865220307b71e4
 
   create: function ({ body, user }, res) {
 
@@ -102,7 +133,6 @@ const controller = {
   },
 
   findAll: function (req, res) {
-    console.log("I am here")
     db.Trip.where({
       userEmail: req.query.email
     }).then(cards => {
@@ -113,9 +143,12 @@ const controller = {
 
   },
   getAllChartData: function (req, res) {
-    console.log("inside card controller")
     db.Trip.find({
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 24a21538d32a9b462fd2e00c08865220307b71e4
     })
       .then(function (results) {
         console.log("findall finished")

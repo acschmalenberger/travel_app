@@ -40,10 +40,16 @@ router.route("/submit/:id")
 
 router.route('/api/findAll/')
     .get((req, res) => {
-        console.log("Hit End Point")
         cardController.findAll(req, res)
     })
 
 
+<<<<<<< HEAD
+=======
+// router.use(function(req, res) {
+//     res.sendFile(path.join(__dirname, "../client/build/index.html"));
+// });
+
+>>>>>>> 24a21538d32a9b462fd2e00c08865220307b71e4
 
 module.exports = router;

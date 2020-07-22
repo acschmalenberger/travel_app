@@ -76,11 +76,14 @@ class Signup extends Component {
             password: this.state.password || undefined
         };
         registerUser(user).then(data => {
+            window.location.href = "/signin"
             if (data.error) {
                 this.setState({ error: data.error });
+                
             } else {
                 this.setState({ error: '', open: true });
             }
+            
         });
     };
 
@@ -152,21 +155,6 @@ class Signup extends Component {
                     </Card>
                 </GridItem>
             </GridContainer>
-            <Dialog open={this.state.open} disableBackdropClick={true}>
-                    <DialogTitle>New Account</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            New account successfully created.
-						</DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <Link to="/signin">
-                            <Button>
-                                Sign In
-							</Button>
-                        </Link>
-                    </DialogActions>
-                </Dialog>
         </div>
     );
     }

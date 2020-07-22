@@ -38,8 +38,14 @@ const TableStyle = theme => ({
         backgroundColor: "transparent",
         borderSpacing: "0",
         borderCollapse: "collapse"
+<<<<<<< HEAD
     },
     tableHeadCell: {
+=======
+        },
+        tableHeadCell: {
+        fontWeight: "bold",
+>>>>>>> 24a21538d32a9b462fd2e00c08865220307b71e4
         color: "inherit",
         ...defaultFont,
         "&, &$tableCell": {
@@ -48,7 +54,11 @@ const TableStyle = theme => ({
     },
     tableCell: {
         ...defaultFont,
+<<<<<<< HEAD
         color: grayColor[1],
+=======
+        color: grayColor [1],
+>>>>>>> 24a21538d32a9b462fd2e00c08865220307b71e4
         lineHeight: "1.42857143",
         padding: "12px 8px",
         verticalAlign: "middle",

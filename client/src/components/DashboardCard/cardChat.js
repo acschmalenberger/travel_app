@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Bar} from 'react-chartjs-2';
 
 function CardChart (props) {
-    // console.log("chart props");
-    // console.log(props);
-    //const [chartData, setChartData] = useState({})
+
     const [data, setDataObj] = useState([0,0,0])
-        //console.log(props.overallBudget.overallBudget)
 
         useEffect(()=>{
             const oAbudget = parseInt(props.overallBudget.overallBudget);
@@ -19,11 +16,9 @@ function CardChart (props) {
             [
                 props.overallBudget.overallBudget,
                 props.value,
-                //((props.overallBudget.overallBudget - props.value))
             ]
         )
 
-        console.log("VALUE", props.value);
 
         return(
             <div className="chart">
